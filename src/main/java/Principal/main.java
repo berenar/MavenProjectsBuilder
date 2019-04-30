@@ -7,7 +7,6 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
-
 public class main extends JFrame {
 
     private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -15,7 +14,7 @@ public class main extends JFrame {
     private int panell_heigh = screenSize.height/3;
 
     //TODO: fer dinamic
-    private String[] path_names=new String[20];
+    private String path_name;
 
     public main() {
         initUI();
@@ -23,28 +22,33 @@ public class main extends JFrame {
 
     public final void initUI() {
 
-        FileChooser fc = new FileChooser();
+        //FileChooser fc = new FileChooser();
+        project_pan proj = new project_pan();
+        proj.project_pan();
 
         //crear components
         JLabel titol_app = new JLabel("Elegeix els projectes a compilar");
-        JLabel path_1 = new JLabel("...");
-        JButton button_fc = fc.go;
+//        JLabel path_1 = new JLabel("...");
+//        JButton button_fc = fc.go;
 
         Border border = BorderFactory.createLineBorder(Color.GRAY, 1);
 
-        //definir components
+        //configurar components
         titol_app.setBounds(((panell_width/2)-100), 0, 200, 50);
-        path_1.setBounds(50, 60, 200, 30);
-        path_1.setBorder(border);
-        button_fc.setBounds(180, 60, 100, 30);
+//        path_1.setBounds(50, 60, 200, 30);
+//        path_1.setBorder(border);
+//        button_fc.setBounds(180, 60, 100, 30);
+
+        proj.configurar_project_pan();
 
         getContentPane().setLayout(null);
 
         //afegir components
         getContentPane().add(titol_app);
-        getContentPane().add(path_1);
-        getContentPane().add(button_fc);
+//        getContentPane().add(path_1);
+//        getContentPane().add(button_fc);
 
+        proj.afegir_project_pan(getContentPane());
 
         //configurar finestra
         setSize(panell_width, panell_heigh);
@@ -59,8 +63,8 @@ public class main extends JFrame {
         }
     }
 
-    public void setPath_names(String[] path_names) {
-        this.path_names = path_names;
+    public void setPath_name(String path_names) {
+        this.path_name = path_names;
     }
 
     public static void main(String[] args) {
