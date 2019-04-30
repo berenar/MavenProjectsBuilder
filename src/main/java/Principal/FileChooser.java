@@ -25,7 +25,7 @@ public class FileChooser extends JPanel implements ActionListener {
     }*/
 
     public FileChooser() {
-        go = new JButton("Do it");
+        go = new JButton("Choose");
         go.addActionListener(this);
         add(go);
     }
