@@ -9,7 +9,7 @@ public class FileChooser extends JPanel implements ActionListener {
     JFileChooser chooser;
     String choosertitle;
 
-    public static void main(String[] s) {
+/*    public static void main(String[] s) {
         JFrame frame = new JFrame("");
         FileChooser panel = new FileChooser();
         frame.addWindowListener(
@@ -22,7 +22,7 @@ public class FileChooser extends JPanel implements ActionListener {
         frame.getContentPane().add(panel, "Center");
         frame.setSize(panel.getPreferredSize());
         frame.setVisible(true);
-    }
+    }*/
 
     public FileChooser() {
         go = new JButton("Do it");
@@ -31,22 +31,17 @@ public class FileChooser extends JPanel implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        int result;
-
         chooser = new JFileChooser();
         chooser.setCurrentDirectory(new java.io.File("."));
         chooser.setDialogTitle(choosertitle);
         chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        //
-        // disable the "All files" option.
-        //
         chooser.setAcceptAllFileFilterUsed(false);
-        //
         if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
             System.out.println("getCurrentDirectory(): "
                     + chooser.getCurrentDirectory());
             System.out.println("getSelectedFile() : "
                     + chooser.getSelectedFile());
+
         } else {
             System.out.println("No Selection ");
         }
