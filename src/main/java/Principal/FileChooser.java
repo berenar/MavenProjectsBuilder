@@ -3,29 +3,31 @@ package Principal;
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
+import java.io.File;
 
 public class FileChooser extends JPanel implements ActionListener {
     JButton go;
     JFileChooser chooser;
     String choosertitle;
 
-/*    public static void main(String[] s) {
+    public static void main(String[] s) {
         JFrame frame = new JFrame("");
         FileChooser panel = new FileChooser();
         frame.addWindowListener(
                 new WindowAdapter() {
                     public void windowClosing(WindowEvent e) {
                         System.exit(0);
+                        System.out.println("tancat filechooser");
                     }
                 }
         );
         frame.getContentPane().add(panel, "Center");
         frame.setSize(panel.getPreferredSize());
         frame.setVisible(true);
-    }*/
+    }
 
     public FileChooser() {
-        go = new JButton("Do it");
+        go = new JButton("Elegeix");
         go.addActionListener(this);
         add(go);
     }
@@ -41,7 +43,6 @@ public class FileChooser extends JPanel implements ActionListener {
                     + chooser.getCurrentDirectory());
             System.out.println("getSelectedFile() : "
                     + chooser.getSelectedFile());
-
         } else {
             System.out.println("No Selection ");
         }
@@ -50,6 +51,4 @@ public class FileChooser extends JPanel implements ActionListener {
     public Dimension getPreferredSize() {
         return new Dimension(200, 200);
     }
-
-
 }
