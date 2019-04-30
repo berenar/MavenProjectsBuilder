@@ -13,13 +13,13 @@ public class main extends JFrame {
     private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     private int panell_width = screenSize.width/3;
     private int panell_heigh = screenSize.height/3;
-    public JLabel path_1;
 
+    //TODO: fer dinamic
+    private String[] path_names=new String[20];
 
     public main() {
         initUI();
     }
-
 
     public final void initUI() {
 
@@ -27,8 +27,9 @@ public class main extends JFrame {
 
         //crear components
         JLabel titol_app = new JLabel("Elegeix els projectes a compilar");
-        path_1 = new JLabel("...");
+        JLabel path_1 = new JLabel("...");
         JButton button_fc = fc.go;
+
         Border border = BorderFactory.createLineBorder(Color.GRAY, 1);
 
         //definir components
@@ -44,18 +45,22 @@ public class main extends JFrame {
         getContentPane().add(path_1);
         getContentPane().add(button_fc);
 
+
         //configurar finestra
         setSize(panell_width, panell_heigh);
         setLocationRelativeTo(null);//null: al centre de la pantalla
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("mvnCompiler 1.0");
         try {
-            setIconImage(ImageIO.read(new File(System.getProperty("user.dir")
-                    +"/media/mvn_logo_2.png")));
+            setIconImage(ImageIO.read(new File(System.getProperty("user.dir")+"/media/mvn_logo.png")));
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Error obtenint logo de la app");
         }
+    }
+
+    public void setPath_names(String[] path_names) {
+        this.path_names = path_names;
     }
 
     public static void main(String[] args) {
