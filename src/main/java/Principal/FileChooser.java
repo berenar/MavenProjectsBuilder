@@ -9,6 +9,11 @@ public class FileChooser extends JPanel implements ActionListener {
     JButton go;
     JFileChooser chooser;
     String choosertitle;
+    JPanel panell;
+
+    private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    private int panell_width = screenSize.width/3;
+    private int panell_heigh = screenSize.height/3;
 
     public static void main(String[] s) {
         JFrame frame = new JFrame("");
@@ -17,7 +22,6 @@ public class FileChooser extends JPanel implements ActionListener {
                 new WindowAdapter() {
                     public void windowClosing(WindowEvent e) {
                         System.exit(0);
-                        System.out.println("tancat filechooser");
                     }
                 }
         );
@@ -27,9 +31,15 @@ public class FileChooser extends JPanel implements ActionListener {
     }
 
     public FileChooser() {
+        //titol
+        JLabel titol_app = new JLabel("Elegeix els projectes a compilar");
+        titol_app.setBounds(((panell_width/2)-100), 0, 200, 50);
+
         go = new JButton("Elegeix");
         go.addActionListener(this);
         add(go);
+
+
     }
 
     public void actionPerformed(ActionEvent e) {
