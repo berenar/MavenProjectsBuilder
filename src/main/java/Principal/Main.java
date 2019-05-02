@@ -14,7 +14,7 @@ public class Main extends JFrame {
     ArrayList<Project_pan> selected_projs = new ArrayList<Project_pan>();
 
     private int panell_width = (screenSize.width / 3);
-    private int panell_height = 100;
+    private int panell_height = 500;
 
     public Main() {
         initUI();
@@ -37,6 +37,15 @@ public class Main extends JFrame {
         JButton add_proj = new JButton("+");
         add_proj.setBounds(0,0,20,20);
         contentPane.add(add_proj);
+
+
+        JScrollPane a = new JScrollPane(new DragDropList());
+        a.setBounds(50,100,100,100);
+        contentPane.add(a);
+
+        JScrollPane b = new JScrollPane(new DragDropList());
+        b.setBounds(200,100,100,100);
+        contentPane.add(b);
 
         //CONFIGURAR FINESTRA
         setSize(panell_width, panell_height);
