@@ -6,6 +6,7 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Main extends JFrame {
 
@@ -38,14 +39,34 @@ public class Main extends JFrame {
         add_proj.setBounds(0,0,20,20);
         contentPane.add(add_proj);
 
-
-        JScrollPane a = new JScrollPane(new DragDropList());
+/*        JScrollPane a = new JScrollPane(new DragDropList());
         a.setBounds(50,100,100,100);
         contentPane.add(a);
 
         JScrollPane b = new JScrollPane(new DragDropList());
         b.setBounds(200,100,100,100);
-        contentPane.add(b);
+        contentPane.add(b);*/
+
+        List<Project_pan> lll= new ArrayList<Project_pan>();
+        lll.add(new Project_pan());
+
+/*        listModel = new DefaultListModel<>();
+        Project_pan proj = new Project_pan();
+        listModel.addElement(proj);
+        listModel.addElement(new Project_pan());
+        listModel.addElement(new Project_pan());*/
+
+        // Create the list and put it in a scroll pane.
+        JList list;
+        list = new JList((ListModel) lll);
+        list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        list.setSelectedIndex(0);
+        list.setVisibleRowCount(5);
+        JScrollPane listScrollPane = new JScrollPane(list);
+
+        list.setBounds(200,200,500,100);
+        contentPane.add(list);
+
 
         //CONFIGURAR FINESTRA
         setSize(panell_width, panell_height);

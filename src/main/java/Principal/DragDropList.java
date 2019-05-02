@@ -16,7 +16,7 @@ import java.awt.dnd.DragSourceListener;
 import javax.swing.*;
 
 public class DragDropList extends JList {
-  DefaultListModel model;
+  static public DefaultListModel model;
 
   public DragDropList() {
     super(new DefaultListModel());
@@ -32,6 +32,7 @@ public class DragDropList extends JList {
     model.addElement("b");
     model.addElement("c");
   }
+
 
   public static void main(String[] a){
     JPanel f = new JPanel();
