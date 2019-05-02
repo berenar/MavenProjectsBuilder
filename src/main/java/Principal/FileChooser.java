@@ -41,7 +41,6 @@ public class FileChooser extends JPanel implements ActionListener {
                     + chooser.getCurrentDirectory());
             System.out.println("getSelectedFile() : "
                     + chooser.getSelectedFile());
-
         } else {
             System.out.println("No Selection ");
         }
