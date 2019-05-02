@@ -12,7 +12,6 @@ public class Project_pan extends JPanel {
     private int jl_order_size = 30;
 
     private int jl_path_width = 400;
-
     private int jl_path_height = 30;
 
     private int jb_fc_width = 100;
@@ -47,9 +46,4 @@ public class Project_pan extends JPanel {
         contentPane.add(jl_path,constraints);
         contentPane.add(jb_fc);
     }
-
-    public int getJl_path_height() {
-        return jl_path_height;
-    }
-
 }
