@@ -14,7 +14,7 @@ public class Main extends JFrame {
     ArrayList<Project_pan> selected_projs = new ArrayList<Project_pan>();
 
     private int panell_width = (screenSize.width / 3);
-    private int panell_height = (screenSize.height / 4) + selected_projs.size()*100;
+    private int panell_height = 100;
 
     public Main() {
         initUI();
@@ -32,13 +32,15 @@ public class Main extends JFrame {
 
         //PANELL PROJECTE
         nou_project_pan(contentPane);
-        nou_project_pan(contentPane);
-        nou_project_pan(contentPane);
-        nou_project_pan(contentPane);
-        nou_project_pan(contentPane);
+
+        //ADD PROJECT BUTTON
+        JButton add_proj = new JButton("+");
+        add_proj.setBounds(0,0,20,20);
+        contentPane.add(add_proj);
 
         //CONFIGURAR FINESTRA
         setSize(panell_width, panell_height);
+        setResizable(false);
         setLocationRelativeTo(null);//null: al centre de la pantalla
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("mvnCompiler 1.0");
@@ -54,6 +56,7 @@ public class Main extends JFrame {
         selected_projs.add(proj);
         proj.configurar_project_pan(selected_projs.size());
         proj.afegir_project_pan(contentPane);
+        panell_height += proj.getJl_path_height()+20;
     }
 
     public static void main(String[] args) {
