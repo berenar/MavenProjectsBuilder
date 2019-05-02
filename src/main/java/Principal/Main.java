@@ -13,8 +13,9 @@ public class Main extends JFrame {
 
     ArrayList<Project_pan> selected_projs = new ArrayList<Project_pan>();
 
+    //initial sizes
     private int panell_width = (screenSize.width / 3);
-    private int panell_height = (screenSize.height / 4) + selected_projs.size()*100;
+    private int panell_height = 100;
 
     public Main() {
         initUI();
@@ -25,19 +26,15 @@ public class Main extends JFrame {
         Container contentPane = getContentPane();
         contentPane.setLayout(null);
 
-        //TITOL
+        //TITLE
         JLabel titol_app = new JLabel("Select projects to be compiled");
         titol_app.setBounds(((panell_width / 2) - 100), 0, 200, 50);
         contentPane.add(titol_app);
 
-        //PANELL PROJECTE
-        nou_project_pan(contentPane);
-        nou_project_pan(contentPane);
-        nou_project_pan(contentPane);
-        nou_project_pan(contentPane);
+        //PROJECTS
         nou_project_pan(contentPane);
 
-        //CONFIGURAR FINESTRA
+        //WINDOW CONFIGURATION
         setSize(panell_width, panell_height);
         setLocationRelativeTo(null);//null: al centre de la pantalla
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -54,6 +51,11 @@ public class Main extends JFrame {
         selected_projs.add(proj);
         proj.configurar_project_pan(selected_projs.size());
         proj.afegir_project_pan(contentPane);
+        recalcular_window(proj);
+    }
+
+    private void recalcular_window(Project_pan proj) {
+        panell_height = panell_height + 2 * proj.getJl_path_height();
     }
 
     public static void main(String[] args) {
