@@ -4,7 +4,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 
-public class project_pan extends JPanel {
+public class Project_pan extends JPanel {
     private FileChooser fc = new FileChooser();
     private int x_inicial = 50;
     private int y_inicial = 50;
@@ -24,14 +24,13 @@ public class project_pan extends JPanel {
     private Border fc_border;
     private Boolean triat;
 
-    public project_pan() {
+    public Project_pan() {
         this.jl_order = new JLabel("a");
         this.jl_order_border = BorderFactory.createLineBorder(Color.GRAY, 1);
         this.jl_path = new JLabel(" ...");
         this.jb_fc = fc.go;
         this.fc_border = BorderFactory.createLineBorder(Color.GRAY, 1);
         this.triat = false;
-
     }
 
     public void configurar_project_pan(int n) {

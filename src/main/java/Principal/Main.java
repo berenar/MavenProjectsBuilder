@@ -7,30 +7,35 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class main extends JFrame {
+public class Main extends JFrame {
 
     private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    private int panell_width = screenSize.width / 3;
-    private int panell_height = screenSize.height / 3;
 
-    ArrayList<project_pan> selected_projs = new ArrayList<project_pan>();
+    ArrayList<Project_pan> selected_projs = new ArrayList<Project_pan>();
 
-    public main() {
+    private int panell_width = (screenSize.width / 3);
+    private int panell_height = (screenSize.height / 4) + selected_projs.size()*100;
+
+    public Main() {
         initUI();
     }
 
     public void initUI() {
 
-        getContentPane().setLayout(null);
+        Container contentPane = getContentPane();
+        contentPane.setLayout(null);
 
         //TITOL
         JLabel titol_app = new JLabel("Select projects to be compiled");
         titol_app.setBounds(((panell_width / 2) - 100), 0, 200, 50);
-        getContentPane().add(titol_app);
+        contentPane.add(titol_app);
 
         //PANELL PROJECTE
-        nou_project_pan();
-        nou_project_pan();
+        nou_project_pan(contentPane);
+        nou_project_pan(contentPane);
+        nou_project_pan(contentPane);
+        nou_project_pan(contentPane);
+        nou_project_pan(contentPane);
 
         //CONFIGURAR FINESTRA
         setSize(panell_width, panell_height);
@@ -42,19 +47,17 @@ public class main extends JFrame {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
-    public void nou_project_pan() {
-        project_pan proj = new project_pan();
+    public void nou_project_pan(Container contentPane) {
+        Project_pan proj = new Project_pan();
         selected_projs.add(proj);
         proj.configurar_project_pan(selected_projs.size());
-        proj.afegir_project_pan(getContentPane());
-        proj.repaint();
+        proj.afegir_project_pan(contentPane);
     }
 
     public static void main(String[] args) {
-        main ex = new main();
+        Main ex = new Main();
         ex.setVisible(true);
     }
 
