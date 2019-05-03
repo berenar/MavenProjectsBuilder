@@ -22,6 +22,8 @@ public class Main extends JFrame implements ActionListener {
     JButton add_proj;
     int add_proj_size = 30;
 
+    Font f2 = new Font(Font.SANS_SERIF, Font.PLAIN, 20);
+
     public Main() {
         initUI();
     }
@@ -33,15 +35,15 @@ public class Main extends JFrame implements ActionListener {
 
         //TITLE
         JLabel titol_app = new JLabel("Select projects to be compiled");
-        titol_app.setBounds(((panell_width / 2) - 100), 0, 200, 50);
+        titol_app.setFont(f2);
+        titol_app.setBounds(((panell_width / 2) - 150), 0, panell_width, 50);
         contentPane.add(titol_app);
 
         //PROJECT PANEL
-        nou_project_pan();
-        nou_project_pan();
+        nouProjectPan();
 
         //ADD PROJECT BUTTON
-        nou_add_proj();
+        nouAddProj();
 
         //CONFIGURE JFRAME
         setSize(panell_width, panell_height);
@@ -57,32 +59,38 @@ public class Main extends JFrame implements ActionListener {
         }
     }
 
-    public void nou_project_pan() {
+    public void nouProjectPan() {
         Project_pan proj = new Project_pan();
-        proj.configurar_project_pan(selected_projs.size() + 1);
-        proj.afegir_project_pan(contentPane);
+        proj.configurarProjectPan(selected_projs.size() + 1);
+        proj.afegirProjectPan(contentPane);
         selected_projs.add(proj);
         panell_height += proj.getJl_path_height() + 20;
     }
 
-    private void nou_add_proj() {
-        add_proj = new JButton("ADD");
+    private void nouAddProj() {
+        add_proj = new JButton("+");
+        add_proj.setFont(new Font("Arial", Font.PLAIN, 20));
+        add_proj.setMargin(new Insets(0, 0, 0, 0));
         add_proj.setBounds(50, panell_height - 90, add_proj_size, add_proj_size);
         contentPane.add(add_proj);
         add_proj.addActionListener(this);
     }
 
-    private void repaint_add_proj() {
-        add_proj.setBounds(50,panell_height-90,add_proj_size,add_proj_size);
+    private void repaintAddProj() {
+        add_proj.setBounds(50, panell_height - 90, add_proj_size, add_proj_size);
     }
 
     public void actionPerformed(ActionEvent e) {
-        nou_project_pan();
+        nouProjectPan();
         System.out.println(panell_height);
-        repaint_add_proj();
-        //TODO: remove
-        System.out.println(selected_projs.size());
+        repaintAddProj();
         contentPane.repaint();
+    }
+
+    private void printPaths() {
+        for (int i = 0; i < selected_projs.size(); i++) {
+            System.out.println(selected_projs.get(i).getFc().getFc_jl_path().getText());
+        }
     }
 
     public static void main(String[] args) {

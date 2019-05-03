@@ -3,11 +3,8 @@ package Principal;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Project_pan extends JPanel {
-
 
 
     private int x_inicial = 50;
@@ -35,16 +32,16 @@ public class Project_pan extends JPanel {
     private FileChooser fc = new FileChooser();
 
     public Project_pan() {
-        this.jl_order = new JLabel("",SwingConstants.CENTER);
+        this.jl_order = new JLabel("", SwingConstants.CENTER);
         this.jl_order_border = BorderFactory.createLineBorder(Color.GRAY, 1);
         this.jl_path = new JLabel("...", SwingConstants.CENTER);
         fc.setFc_jl_path(jl_path);
-        this.jb_fc = fc.go;
+        this.jb_fc = fc.getGo();
         this.fc_border = BorderFactory.createLineBorder(Color.GRAY, 1);
         this.triat = false;
     }
 
-    public void configurar_project_pan(int n) {
+    public void configurarProjectPan(int n) {
         this.id = n;
         jl_order.setText(String.valueOf(id));
         jl_order.setBounds(x_inicial, y_inicial * n, jl_order_size, jl_order_size);
@@ -56,10 +53,14 @@ public class Project_pan extends JPanel {
                 y_inicial * n, jb_fc_width, jb_fc_height);
     }
 
-    public void afegir_project_pan(Container contentPane) {
+    public void afegirProjectPan(Container contentPane) {
         contentPane.add(jl_order);
         contentPane.add(jl_path);
         contentPane.add(jb_fc);
+    }
+
+    public FileChooser getFc() {
+        return fc;
     }
 
     public int getJl_path_height() {

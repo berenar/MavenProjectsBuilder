@@ -5,30 +5,13 @@ import java.awt.event.*;
 import java.awt.*;
 
 public class FileChooser extends JPanel implements ActionListener {
-    JButton go;
-    JFileChooser chooser;
-    String choosertitle;
 
-    public void setFc_jl_path(JLabel fc_jl_path) {
-        this.fc_jl_path = fc_jl_path;
-    }
+    private JButton go;
+    private JFileChooser chooser;
+    private String choosertitle;
 
     private JLabel fc_jl_path;
 
-/*    public static void Main(String[] s) {
-        JFrame frame = new JFrame("");
-        FileChooser panel = new FileChooser();
-        frame.addWindowListener(
-                new WindowAdapter() {
-                    public void windowClosing(WindowEvent e) {
-                        System.exit(0);
-                    }
-                }
-        );
-        frame.getContentPane().add(panel, "Center");
-        frame.setSize(panel.getPreferredSize());
-        frame.setVisible(true);
-    }*/
 
     public FileChooser() {
         go = new JButton("Choose");
@@ -43,11 +26,7 @@ public class FileChooser extends JPanel implements ActionListener {
         chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         chooser.setAcceptAllFileFilterUsed(false);
         if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-            System.out.println("getCurrentDirectory(): "
-                    + chooser.getCurrentDirectory());
-            System.out.println("getSelectedFile() : "
-                    + chooser.getSelectedFile());
-            fc_jl_path.setText(chooser.getCurrentDirectory().getPath());
+            fc_jl_path.setText(chooser.getSelectedFile().getPath());
         } else {
             System.out.println("No Selection ");
         }
@@ -55,6 +34,18 @@ public class FileChooser extends JPanel implements ActionListener {
 
     public Dimension getPreferredSize() {
         return new Dimension(200, 200);
+    }
+
+    public JButton getGo() {
+        return this.go;
+    }
+
+    public void setFc_jl_path(JLabel fc_jl_path) {
+        this.fc_jl_path = fc_jl_path;
+    }
+
+    public JLabel getFc_jl_path() {
+        return fc_jl_path;
     }
 
 
