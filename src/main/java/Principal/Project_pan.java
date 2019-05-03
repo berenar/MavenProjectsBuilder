@@ -3,10 +3,12 @@ package Principal;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Project_pan extends JPanel {
 
-    private FileChooser fc = new FileChooser();
+
 
     private int x_inicial = 50;
     private int y_inicial = 50;
@@ -30,11 +32,13 @@ public class Project_pan extends JPanel {
     private Boolean triat;
     private int id;
 
+    private FileChooser fc = new FileChooser();
+
     public Project_pan() {
         this.jl_order = new JLabel("",SwingConstants.CENTER);
         this.jl_order_border = BorderFactory.createLineBorder(Color.GRAY, 1);
         this.jl_path = new JLabel("...", SwingConstants.CENTER);
-
+        fc.setFc_jl_path(jl_path);
         this.jb_fc = fc.go;
         this.fc_border = BorderFactory.createLineBorder(Color.GRAY, 1);
         this.triat = false;
@@ -61,4 +65,6 @@ public class Project_pan extends JPanel {
     public int getJl_path_height() {
         return jl_path_height;
     }
+
+
 }

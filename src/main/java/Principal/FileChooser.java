@@ -9,6 +9,12 @@ public class FileChooser extends JPanel implements ActionListener {
     JFileChooser chooser;
     String choosertitle;
 
+    public void setFc_jl_path(JLabel fc_jl_path) {
+        this.fc_jl_path = fc_jl_path;
+    }
+
+    private JLabel fc_jl_path;
+
 /*    public static void Main(String[] s) {
         JFrame frame = new JFrame("");
         FileChooser panel = new FileChooser();
@@ -41,7 +47,7 @@ public class FileChooser extends JPanel implements ActionListener {
                     + chooser.getCurrentDirectory());
             System.out.println("getSelectedFile() : "
                     + chooser.getSelectedFile());
-
+            fc_jl_path.setText(chooser.getCurrentDirectory().getPath());
         } else {
             System.out.println("No Selection ");
         }
