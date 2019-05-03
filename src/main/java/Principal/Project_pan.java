@@ -5,7 +5,9 @@ import javax.swing.border.Border;
 import java.awt.*;
 
 public class Project_pan extends JPanel {
+
     private FileChooser fc = new FileChooser();
+
     private int x_inicial = 50;
     private int y_inicial = 50;
 
@@ -17,7 +19,7 @@ public class Project_pan extends JPanel {
 
     private int jl_path_height = 30;
 
-    private int jb_fc_width = 100;
+    private int jb_fc_width = 90;
     private int jb_fc_height = 30;
 
     private JLabel jl_order;
@@ -26,11 +28,12 @@ public class Project_pan extends JPanel {
     private JButton jb_fc;
     private Border fc_border;
     private Boolean triat;
+    private int id;
 
     public Project_pan() {
-        this.jl_order = new JLabel("1",SwingConstants.CENTER);
+        this.jl_order = new JLabel("",SwingConstants.CENTER);
         this.jl_order_border = BorderFactory.createLineBorder(Color.GRAY, 1);
-        this.jl_path = new JLabel("...",SwingConstants.CENTER);
+        this.jl_path = new JLabel("...", SwingConstants.CENTER);
 
         this.jb_fc = fc.go;
         this.fc_border = BorderFactory.createLineBorder(Color.GRAY, 1);
@@ -38,12 +41,14 @@ public class Project_pan extends JPanel {
     }
 
     public void configurar_project_pan(int n) {
+        this.id = n;
+        jl_order.setText(String.valueOf(id));
         jl_order.setBounds(x_inicial, y_inicial * n, jl_order_size, jl_order_size);
         jl_order.setBorder(jl_order_border);
         jl_path.setBounds(x_inicial + jl_order_size + x_margin,
                 y_inicial * n, jl_path_width, jl_path_height);
         jl_path.setBorder(fc_border);
-        jb_fc.setBounds(x_inicial + jl_order_size + jl_path_width + x_margin*2,
+        jb_fc.setBounds(x_inicial + jl_order_size + jl_path_width + x_margin * 2,
                 y_inicial * n, jb_fc_width, jb_fc_height);
     }
 
