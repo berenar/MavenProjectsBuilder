@@ -6,9 +6,9 @@ import java.awt.*;
 
 public class FileChooser extends JPanel implements ActionListener {
 
-    private JButton go;
+    private final JButton go;
     private JFileChooser chooser;
-    private String choosertitle = "Select a project directory";
+    private final String chooser_title = "Select a project directory";
 
     private JLabel fc_jl_path;
 
@@ -22,7 +22,7 @@ public class FileChooser extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         chooser = new JFileChooser();
         chooser.setCurrentDirectory(new java.io.File("."));
-        chooser.setDialogTitle(choosertitle);
+        chooser.setDialogTitle(chooser_title);
         chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         chooser.setAcceptAllFileFilterUsed(false);
         if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {

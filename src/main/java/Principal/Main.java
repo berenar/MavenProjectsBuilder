@@ -9,31 +9,31 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Main extends JFrame implements ActionListener {
+class Main extends JFrame implements ActionListener {
 
-    private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    private final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
-    ArrayList<ProjectPanel> selected_projs = new ArrayList<ProjectPanel>();
+    private final ArrayList<ProjectPanel> selected_projects = new ArrayList<ProjectPanel>();
 
-    private int panell_width = (screenSize.width / 3);
-    private int panell_height = 150;
+    private final int panel_width = (screenSize.width / 3);
+    private int panel_height = 150;
 
-    Container contentPane;
-    JButton add_proj;
-    int add_proj_size = 30;
+    private Container contentPane;
+    private JButton add_project;
+    private final int add_project_size = 30;
 
-    public Main() {
+    private Main() {
         initUI();
     }
 
-    public void initUI() {
+    private void initUI() {
         contentPane = getContentPane();
         contentPane.setLayout(null);
 
         //TITLE
-        JLabel titol_app = new JLabel("Select projects to be compiled");
-        titol_app.setBounds(((panell_width / 2)-90), 0, panell_width, 50);
-        contentPane.add(titol_app);
+        JLabel title_app = new JLabel("Select projects to be compiled");
+        title_app.setBounds(((panel_width / 2) - 90), 0, panel_width, 50);
+        contentPane.add(title_app);
 
         //PROJECT PANEL
         nouProjectPan();
@@ -41,10 +41,10 @@ public class Main extends JFrame implements ActionListener {
         nouProjectPan();
 
         //PROJECT BUTTON
-        nouAddProj();
+        nouAddProject();
 
         //CONFIGURE JFRAME
-        setSize(panell_width, panell_height);
+        setSize(panel_width, panel_height);
         setResizable(false);
         setLocationRelativeTo(null);//null: centers window
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -57,42 +57,44 @@ public class Main extends JFrame implements ActionListener {
         }
     }
 
-    public void nouProjectPan() {
-        ProjectPanel proj = new ProjectPanel();
-        proj.configurarProjectPan(selected_projs.size() + 1);
-        proj.afegirProjectPan(contentPane);
-        selected_projs.add(proj);
-        panell_height += proj.getJl_path_height() + 20;
-        setSize(panell_width, panell_height);
+    private void nouProjectPan() {
+        ProjectPanel project_panel = new ProjectPanel();
+        project_panel.configureProjectPan(selected_projects.size() + 1);
+        project_panel.addProjectPan(contentPane);
+        selected_projects.add(project_panel);
+        panel_height += project_panel.getJl_path_height() + 20;
+        setSize(panel_width, panel_height);
         repaint();
     }
 
-    private void nouAddProj() {
-        add_proj = new JButton("+");
-        add_proj.setMargin(new Insets(0, 0, 0, 0));
-        add_proj.setFont(new Font("Arial", Font.PLAIN, 20));
-        add_proj.setBounds(50, panell_height - 100, add_proj_size, add_proj_size);
-        add_proj.setBackground(new java.awt.Color(186, 195, 211));
-        contentPane.add(add_proj);
-        add_proj.addActionListener(this);
+    private void nouAddProject() {
+        add_project = new JButton("+");
+        add_project.setMargin(new Insets(0, 0, 0, 0));
+        add_project.setFont(new Font("Arial", Font.PLAIN, 20));
+        add_project.setBounds(50, panel_height - 100, add_project_size, add_project_size);
+        add_project.setBackground(new java.awt.Color(186, 195, 211));
+        contentPane.add(add_project);
+        add_project.addActionListener(this);
     }
 
-    private void repaintAddProj() {
-        add_proj.setBounds(50, panell_height - 90, add_proj_size, add_proj_size);
+    private void repaintAddProject() {
+        add_project.setBounds(50, panel_height - 90, add_project_size, add_project_size);
     }
 
     public void actionPerformed(ActionEvent e) {
         nouProjectPan();
-        System.out.println(panell_height);
-        repaintAddProj();
+        System.out.println(panel_height);
+        repaintAddProject();
         contentPane.repaint();
     }
 
-    private void printPaths() {
-        for (int i = 0; i < selected_projs.size(); i++) {
-            System.out.println(selected_projs.get(i).getFc().getFc_jl_path().getText());
-        }
-    }
+// --Commented out by Inspection START (03/05/2019 13:03):
+//    private void printPaths() {
+//        for (ProjectPanel selected_project : selected_projects) {
+//            System.out.println(selected_project.getFc().getFc_jl_path().getText());
+//        }
+//    }
+// --Commented out by Inspection STOP (03/05/2019 13:03)
 
     public static void main(String[] args) {
         Main ex = new Main();
