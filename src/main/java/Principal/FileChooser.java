@@ -8,13 +8,13 @@ public class FileChooser extends JPanel implements ActionListener {
 
     private JButton go;
     private JFileChooser chooser;
-    private String choosertitle;
+    private String choosertitle = "Select a project directory";
 
     private JLabel fc_jl_path;
 
-
     public FileChooser() {
         go = new JButton("Choose");
+        go.setBackground(new java.awt.Color(186, 195, 211));
         go.addActionListener(this);
         add(go);
     }
@@ -47,6 +47,4 @@ public class FileChooser extends JPanel implements ActionListener {
     public JLabel getFc_jl_path() {
         return fc_jl_path;
     }
-
-
 }

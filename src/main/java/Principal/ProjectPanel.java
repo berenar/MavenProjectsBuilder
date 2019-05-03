@@ -4,7 +4,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 
-public class Project_pan extends JPanel {
+public class ProjectPanel extends JPanel {
 
 
     private int x_inicial = 50;
@@ -31,7 +31,7 @@ public class Project_pan extends JPanel {
 
     private FileChooser fc = new FileChooser();
 
-    public Project_pan() {
+    public ProjectPanel() {
         this.jl_order = new JLabel("", SwingConstants.CENTER);
         this.jl_order_border = BorderFactory.createLineBorder(Color.GRAY, 1);
         this.jl_path = new JLabel("...", SwingConstants.CENTER);
