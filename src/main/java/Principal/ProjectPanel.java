@@ -64,6 +64,4 @@ class ProjectPanel extends JPanel {
     public int getJl_path_height() {
         return jl_path_height;
     }
-
-
 }

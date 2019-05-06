@@ -11,6 +11,7 @@ public class FileChooser extends JPanel implements ActionListener {
     private final String chooser_title = "Select a project directory";
 
     private JLabel fc_jl_path;
+    private String lastPath;
 
     public FileChooser() {
         go = new JButton("Choose");
@@ -21,7 +22,7 @@ public class FileChooser extends JPanel implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         chooser = new JFileChooser();
-        chooser.setCurrentDirectory(new java.io.File("."));
+        chooser.setCurrentDirectory(new java.io.File(".."));
         chooser.setDialogTitle(chooser_title);
         chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         chooser.setAcceptAllFileFilterUsed(false);

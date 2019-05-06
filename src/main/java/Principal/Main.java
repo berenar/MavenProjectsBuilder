@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-class Main extends JFrame implements ActionListener {
+class Main extends JFrame {
 
     private final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
@@ -19,8 +19,15 @@ class Main extends JFrame implements ActionListener {
     private int panel_height = 150;
 
     private Container contentPane;
+    ProjectPanel project_panel;
     private JButton add_project;
+    private JButton compile;
+
     private final int add_project_size = 30;
+    private final int compile_widtht = 200;
+    private final int compile_height = 30;
+
+    private String compileCommand = "mvn clean install";
 
     private Main() {
         initUI();
@@ -37,11 +44,12 @@ class Main extends JFrame implements ActionListener {
 
         //PROJECT PANEL
         nouProjectPan();
-        nouProjectPan();
-        nouProjectPan();
 
-        //PROJECT BUTTON
+        //ADD PROJECT BUTTON
         nouAddProject();
+
+        //COMPILE BUTTON
+        nouCompile();
 
         //CONFIGURE JFRAME
         setSize(panel_width, panel_height);
@@ -58,7 +66,7 @@ class Main extends JFrame implements ActionListener {
     }
 
     private void nouProjectPan() {
-        ProjectPanel project_panel = new ProjectPanel();
+        project_panel = new ProjectPanel();
         project_panel.configureProjectPan(selected_projects.size() + 1);
         project_panel.addProjectPan(contentPane);
         selected_projects.add(project_panel);
@@ -74,27 +82,51 @@ class Main extends JFrame implements ActionListener {
         add_project.setBounds(50, panel_height - 100, add_project_size, add_project_size);
         add_project.setBackground(new java.awt.Color(186, 195, 211));
         contentPane.add(add_project);
-        add_project.addActionListener(this);
+
+        add_project.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                nouProjectPan();
+                reSetBounds();
+                contentPane.repaint();
+            }
+        });
     }
 
-    private void repaintAddProject() {
-        add_project.setBounds(50, panel_height - 90, add_project_size, add_project_size);
+    private void nouCompile() {
+        compile = new JButton("Compile all");
+        compile.setFont(new Font("Arial", Font.PLAIN, 20));
+        compile.setBounds(160 + add_project_size, panel_height - 100, compile_widtht, compile_height);
+        compile.setBackground(new java.awt.Color(186, 195, 211));
+        contentPane.add(compile);
+
+        compile.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                compìleAll();
+
+            }
+        });
     }
 
-    public void actionPerformed(ActionEvent e) {
-        nouProjectPan();
-        System.out.println(panel_height);
-        repaintAddProject();
-        contentPane.repaint();
+    private void compìleAll() {
+        ProcessBuilder pb = new ProcessBuilder();
+        for (int i = 0; i < selected_projects.size(); i++) {
+            String path = selected_projects.get(i).getFc().getFc_jl_path().getText();
+            pb.executa("cd " + "\"" + path + "\"" +" && " + compileCommand);
+        }
     }
 
-// --Commented out by Inspection START (03/05/2019 13:03):
-//    private void printPaths() {
-//        for (ProjectPanel selected_project : selected_projects) {
-//            System.out.println(selected_project.getFc().getFc_jl_path().getText());
-//        }
-//    }
-// --Commented out by Inspection STOP (03/05/2019 13:03)
+    private void reSetBounds() {
+        add_project.setBounds(50, panel_height - 100, add_project_size, add_project_size);
+        compile.setBounds(160 + add_project_size, panel_height - 100, compile_widtht, compile_height);
+    }
+
+    private void printPaths() {
+        for (ProjectPanel selected_project : selected_projects) {
+            System.out.println(selected_project.getFc().getFc_jl_path().getText());
+        }
+    }
 
     public static void main(String[] args) {
         Main ex = new Main();
