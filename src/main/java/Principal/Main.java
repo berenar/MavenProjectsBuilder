@@ -28,6 +28,7 @@ class Main extends JFrame {
     private final int compile_height = 30;
 
     private final String compileCommand = "mvn clean install";
+    private boolean success = true;
 
     private Main() {
         initUI();
@@ -103,6 +104,8 @@ class Main extends JFrame {
         compile.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //reset success value
+                success = true;
                 compileChosen();
             }
         });
@@ -118,13 +121,30 @@ class Main extends JFrame {
                 } catch (Exception e) {
                     contentPane.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
                     JOptionPane.showMessageDialog(getContentPane(),
-                            "Error compiling project number " + selected_projects.get(i).getId(),
+                            "Error compiling project number " + selected_projects.get(i).getId() + ".",
                             "Compilation halted",
                             JOptionPane.ERROR_MESSAGE);
+                    success = false;
                     break;
                 }
             }
         }
+        if (success && anySelectedProjects()) {
+            JOptionPane.showMessageDialog(getContentPane(),
+                    "All projects have been compiled successfully.",
+                    "Success!",
+                    JOptionPane.PLAIN_MESSAGE);
+        }
+    }
+
+    private boolean anySelectedProjects() {
+        boolean oneOrMore = false;
+        for (int i = 0; i < selected_projects.size(); i++) {
+            if (selected_projects.get(i).getFc().isChosen()){
+                oneOrMore=true;
+            }
+        }
+        return oneOrMore;
     }
 
     private void reSetBounds() {

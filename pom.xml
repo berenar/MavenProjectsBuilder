@@ -20,7 +20,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>Principal.FileChooser</mainClass>
+                            <mainClass>Principal.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
