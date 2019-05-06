@@ -60,7 +60,7 @@ class Main extends JFrame {
         setTitle("mvnCompiler 1.0");
         try {
             setIconImage(ImageIO.read(new File(System.getProperty("user.dir")
-                    + "/media/mvn_logo.png")));
+                    + "/media/mvn_logo_2.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }
