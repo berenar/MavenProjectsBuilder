@@ -114,11 +114,12 @@ class Main extends JFrame {
             if (selected_projects.get(i).getFc().isChosen()) {
                 String path = selected_projects.get(i).getFc().getFc_jl_path().getText();
                 try {
-                    pb.executeCommand("cd " + "\"" + path + "\"" + " && " + compileCommand);
+                    pb.executeCommand("cd " + "\"" + path + "\"" + " && " + compileCommand, getContentPane());
                 } catch (Exception e) {
+                    contentPane.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
                     JOptionPane.showMessageDialog(getContentPane(),
-                            "Error compiling project number" + selected_projects.get(i).getId(),
-                            "Error compiling",
+                            "Error compiling project number " + selected_projects.get(i).getId(),
+                            "Compilation halted",
                             JOptionPane.ERROR_MESSAGE);
                     break;
                 }
