@@ -3,7 +3,7 @@ package Principal;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class ProcessBuilder {
+class ProcessBuilder {
 
 
     public void executeCommand(String command) throws Exception {

@@ -9,9 +9,9 @@ public class FileChooser extends JPanel implements ActionListener {
     private final JButton go;
     private JFileChooser chooser;
     private final String chooser_title = "Select a project directory";
-
     private JLabel fc_jl_path;
-    private String lastPath;
+
+    private boolean chosen = false;
 
     public FileChooser() {
         go = new JButton("Choose");
@@ -28,8 +28,9 @@ public class FileChooser extends JPanel implements ActionListener {
         chooser.setAcceptAllFileFilterUsed(false);
         if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
             fc_jl_path.setText(chooser.getSelectedFile().getPath());
+            chosen = true;
         } else {
-            System.out.println("No Selection ");
+            System.out.println("No Selection");
         }
     }
 
@@ -47,5 +48,9 @@ public class FileChooser extends JPanel implements ActionListener {
 
     public JLabel getFc_jl_path() {
         return fc_jl_path;
+    }
+
+    public boolean isChosen() {
+        return chosen;
     }
 }

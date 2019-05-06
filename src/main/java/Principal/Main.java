@@ -19,15 +19,15 @@ class Main extends JFrame {
     private int panel_height = 150;
 
     private Container contentPane;
-    ProjectPanel project_panel;
+    private ProjectPanel project_panel;
     private JButton add_project;
     private JButton compile;
 
     private final int add_project_size = 30;
-    private final int compile_widtht = 200;
+    private final int compile_width = 200;
     private final int compile_height = 30;
 
-    private String compileCommand = "mvn clean install";
+    private final String compileCommand = "mvn clean install";
 
     private Main() {
         initUI();
@@ -96,44 +96,39 @@ class Main extends JFrame {
     private void nouCompile() {
         compile = new JButton("Compile all");
         compile.setFont(new Font("Arial", Font.PLAIN, 20));
-        compile.setBounds(160 + add_project_size, panel_height - 100, compile_widtht, compile_height);
+        compile.setBounds(160 + add_project_size, panel_height - 100, compile_width, compile_height);
         compile.setBackground(new java.awt.Color(186, 195, 211));
         contentPane.add(compile);
 
         compile.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                compìleAll();
+                compileChosen();
             }
         });
     }
 
-    private void compìleAll() {
+    private void compileChosen() {
         ProcessBuilder pb = new ProcessBuilder();
-        loop:
         for (int i = 0; i < selected_projects.size(); i++) {
-            String path = selected_projects.get(i).getFc().getFc_jl_path().getText();
-            try {
-                pb.executeCommand("cd " + "\"" + path + "\"" + " && " + compileCommand);
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(getContentPane(),
-                        "Error compiling project number" + selected_projects.get(i).getId(),
-                        "Error compiling",
-                        JOptionPane.ERROR_MESSAGE);
-                break loop;
+            if (selected_projects.get(i).getFc().isChosen()) {
+                String path = selected_projects.get(i).getFc().getFc_jl_path().getText();
+                try {
+                    pb.executeCommand("cd " + "\"" + path + "\"" + " && " + compileCommand);
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(getContentPane(),
+                            "Error compiling project number" + selected_projects.get(i).getId(),
+                            "Error compiling",
+                            JOptionPane.ERROR_MESSAGE);
+                    break;
+                }
             }
         }
     }
 
     private void reSetBounds() {
         add_project.setBounds(50, panel_height - 100, add_project_size, add_project_size);
-        compile.setBounds(160 + add_project_size, panel_height - 100, compile_widtht, compile_height);
-    }
-
-    private void printPaths() {
-        for (ProjectPanel selected_project : selected_projects) {
-            System.out.println(selected_project.getFc().getFc_jl_path().getText());
-        }
+        compile.setBounds(160 + add_project_size, panel_height - 100, compile_width, compile_height);
     }
 
     public static void main(String[] args) {
