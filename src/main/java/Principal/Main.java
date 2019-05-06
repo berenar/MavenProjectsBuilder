@@ -115,7 +115,7 @@ class Main extends JFrame {
         ProcessBuilder pb = new ProcessBuilder();
         for (int i = 0; i < selected_projects.size(); i++) {
             if (selected_projects.get(i).getFc().isChosen()) {
-                String path = selected_projects.get(i).getFc().getFc_jl_path().getText();
+                String path = selected_projects.get(i).getFc().getPath();
                 try {
                     pb.executeCommand("cd " + "\"" + path + "\"" + " && " + compileCommand, getContentPane());
                 } catch (Exception e) {

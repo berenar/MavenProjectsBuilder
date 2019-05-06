@@ -35,7 +35,7 @@ class ProjectPanel extends JPanel {
         this.jl_order = new JLabel("", SwingConstants.CENTER);
         this.jl_order_border = BorderFactory.createLineBorder(Color.GRAY, 1);
         this.jl_path = new JLabel(". . .", SwingConstants.CENTER);
-        fc.setFc_jl_path(jl_path);
+        fc.setProjName(jl_path);
         this.jb_fc = fc.getGo();
         this.fc_border = BorderFactory.createLineBorder(Color.GRAY, 1);
     }
