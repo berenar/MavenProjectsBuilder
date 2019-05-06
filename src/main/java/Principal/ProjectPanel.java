@@ -1,8 +1,12 @@
 package Principal;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 class ProjectPanel extends JPanel {
 
@@ -26,6 +30,8 @@ class ProjectPanel extends JPanel {
     private final JLabel jl_path;
     private final JButton jb_fc;
     private final Border fc_border;
+    private BufferedImage tick;
+    private JLabel tickLabel;
 
     private int id;
 
@@ -38,6 +44,13 @@ class ProjectPanel extends JPanel {
         fc.setProjName(jl_path);
         this.jb_fc = fc.getGo();
         this.fc_border = BorderFactory.createLineBorder(Color.GRAY, 1);
+        try {
+            this.tick = ImageIO.read(new File(System.getProperty("user.dir")
+                    + "/media/tick.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        tickLabel = new JLabel(new ImageIcon(this.tick));
     }
 
     public void configureProjectPan(int n) {
@@ -50,12 +63,14 @@ class ProjectPanel extends JPanel {
         jl_path.setBorder(fc_border);
         jb_fc.setBounds(x_initial + jl_order_size + jl_path_width + x_margin * 2,
                 y_initial * n, jb_fc_width, jb_fc_height);
+        tickLabel.setBounds(50,50,50,50);
     }
 
     public void addProjectPan(Container contentPane) {
         contentPane.add(jl_order);
         contentPane.add(jl_path);
         contentPane.add(jb_fc);
+        contentPane.add(tickLabel);
     }
 
     public FileChooser getFc() {
