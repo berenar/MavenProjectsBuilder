@@ -26,6 +26,7 @@ class ProjectPanel extends JPanel {
     private final JLabel jl_path;
     private final JButton jb_fc;
     private final Border fc_border;
+
     private int id;
 
     private final FileChooser fc = new FileChooser();
@@ -64,4 +65,9 @@ class ProjectPanel extends JPanel {
     public int getJl_path_height() {
         return jl_path_height;
     }
+
+    public int getId() {
+        return id;
+    }
+
 }

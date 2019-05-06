@@ -1,36 +1,24 @@
 package Principal;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class ProcessBuilder {
 
 
-    public void executa(String command) {
+    public void executeCommand(String command) throws Exception {
         java.lang.ProcessBuilder processBuilder = new java.lang.ProcessBuilder();
-        // Windows
         processBuilder.command("cmd.exe", "/c", command);
+        Process process = processBuilder.start();
+        BufferedReader reader =
+                new BufferedReader(new InputStreamReader(process.getInputStream()));
 
-        try {
-
-            Process process = processBuilder.start();
-
-            BufferedReader reader =
-                    new BufferedReader(new InputStreamReader(process.getInputStream()));
-
-            String line;
-            while ((line = reader.readLine()) != null) {
-                System.out.println(line);
+        String line;
+        while ((line = reader.readLine()) != null) {
+            if (line.contains("BUILD FAILURE")){
+                throw new Exception();
             }
-
-            int exitCode = process.waitFor();
-            System.out.println("\nExited with error code : " + exitCode);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            System.out.println(line);
         }
     }
 }

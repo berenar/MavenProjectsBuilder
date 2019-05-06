@@ -104,16 +104,24 @@ class Main extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 compìleAll();
-
             }
         });
     }
 
     private void compìleAll() {
         ProcessBuilder pb = new ProcessBuilder();
+        loop:
         for (int i = 0; i < selected_projects.size(); i++) {
             String path = selected_projects.get(i).getFc().getFc_jl_path().getText();
-            pb.executa("cd " + "\"" + path + "\"" +" && " + compileCommand);
+            try {
+                pb.executeCommand("cd " + "\"" + path + "\"" + " && " + compileCommand);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(getContentPane(),
+                        "Error compiling project number" + selected_projects.get(i).getId(),
+                        "Error compiling",
+                        JOptionPane.ERROR_MESSAGE);
+                break loop;
+            }
         }
     }
 
