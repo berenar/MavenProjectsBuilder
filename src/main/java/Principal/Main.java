@@ -123,8 +123,6 @@ class Main extends JFrame {
                 String path = selected_projects.get(i).getFc().getPath();
                 try {
                     pb.executeCommand("cd " + "\"" + path + "\"" + " && " + compileCommand, getContentPane());
-                    selected_projects.get(i).getTickLabel().setVisible(true);
-                    repaint();
                 } catch (Exception e) {
                     contentPane.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
                     JOptionPane.showMessageDialog(getContentPane(),
@@ -134,15 +132,12 @@ class Main extends JFrame {
                     success = false;
                     break;
                 }
-
-                t = new Timer(2000, closeJDialog);
-                t.start();
-                pane = new JOptionPane("Project "+selected_projects.get(i).getJl_path().getText()+" compiled successfully");
-                dialog = pane.createDialog("Success!");
-                dialog.setVisible(true);
-
+                //stick is set to visible but isn't painted until stopToPaintTick()
+                selected_projects.get(i).getTickLabel().setVisible(true);
+                stopToPaintTick();
             }
         }
+        //Last message if all went well
         if (success && anySelectedProjects()) {
             JOptionPane.showMessageDialog(getContentPane(),
                     "All projects have been compiled successfully.",
@@ -151,14 +146,21 @@ class Main extends JFrame {
         }
     }
 
-    private ActionListener closeJDialog = new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-            if (dialog.isShowing()) {
+    /**
+     * JDialogs are modal so we can use them to be able to paint sticks meanwhile current execution
+     */
+    private void stopToPaintTick() {
+        t = new Timer(1, new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                t.stop();
                 dialog.dispose();
-                System.out.println("dialog disposed");
             }
-        }
-    };
+        });
+        t.start();
+        pane = new JOptionPane("");
+        dialog = pane.createDialog("");
+        dialog.setVisible(true);
+    }
 
 
     private void allTicksToFalse() {
