@@ -29,6 +29,10 @@ class Main extends JFrame {
 
     private final String compileCommand = "mvn clean install";
     private boolean success = true;
+    Timer t;
+    private JOptionPane pane;
+    private JDialog dialog;
+
 
     private Main() {
         initUI();
@@ -130,6 +134,13 @@ class Main extends JFrame {
                     success = false;
                     break;
                 }
+
+                t = new Timer(2000, closeJDialog);
+                t.start();
+                pane = new JOptionPane("Project "+selected_projects.get(i).getJl_path().getText()+" compiled successfully");
+                dialog = pane.createDialog("Success!");
+                dialog.setVisible(true);
+
             }
         }
         if (success && anySelectedProjects()) {
@@ -139,6 +150,16 @@ class Main extends JFrame {
                     JOptionPane.PLAIN_MESSAGE);
         }
     }
+
+    private ActionListener closeJDialog = new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+            if (dialog.isShowing()) {
+                dialog.dispose();
+                System.out.println("dialog disposed");
+            }
+        }
+    };
+
 
     private void allTicksToFalse() {
         for (int i = 0; i < selected_projects.size(); i++) {

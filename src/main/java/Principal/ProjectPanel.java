@@ -27,6 +27,7 @@ class ProjectPanel extends JPanel {
 
     private final JLabel jl_order;
     private final Border jl_order_border;
+
     private final JLabel jl_path;
     private final JButton jb_fc;
     private final Border fc_border;
@@ -91,5 +92,9 @@ class ProjectPanel extends JPanel {
 
     public JLabel getTickLabel() {
         return tickLabel;
+    }
+
+    public JLabel getJl_path() {
+        return jl_path;
     }
 }
