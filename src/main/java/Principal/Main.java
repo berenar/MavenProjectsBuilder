@@ -5,6 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,6 +31,10 @@ class Main extends JFrame {
     private final String compileCommand = "mvn clean install";
     private boolean success = true;
 
+    private BufferedImage tick;
+    private JLabel tickLabel;
+    private final int tickLabel_size = 35;
+
     private Main() {
         initUI();
     }
@@ -51,6 +56,9 @@ class Main extends JFrame {
 
         //COMPILE BUTTON
         nouCompile();
+
+        creaTick();
+        afegeixTick();
 
         //CONFIGURE JFRAME
         setSize(panel_width, panel_height);
@@ -106,7 +114,7 @@ class Main extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 //reset success value
                 success = true;
-                allTicksToFalse();
+//                allTicksToFalse();
                 compileChosen();
             }
         });
@@ -119,8 +127,6 @@ class Main extends JFrame {
                 String path = selected_projects.get(i).getFc().getPath();
                 try {
                     pb.executeCommand("cd " + "\"" + path + "\"" + " && " + compileCommand, getContentPane());
-                    selected_projects.get(i).getTickLabel().setVisible(true);
-                    repaint();
                 } catch (Exception e) {
                     contentPane.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
                     JOptionPane.showMessageDialog(getContentPane(),
@@ -130,6 +136,8 @@ class Main extends JFrame {
                     success = false;
                     break;
                 }
+                creaTick();
+                afegeixTick(selected_projects.get(i),selected_projects.size());
             }
         }
         if (success && anySelectedProjects()) {
@@ -140,12 +148,31 @@ class Main extends JFrame {
         }
     }
 
-    private void allTicksToFalse() {
+    private void afegeixTick(ProjectPanel pp, int n) {
+
+        //tickLabel.setBounds(pp.getX_initial() + pp.getJl_order_size() + pp.getJl_path_width() + tickLabel_size + pp.getX_margin() * 9,
+        //        pp.getY_initial() * n - 5, tickLabel_size, tickLabel_size);
+        tickLabel.setBounds(0,0,tickLabel_size,tickLabel_size);
+        tickLabel.setVisible(true);
+        contentPane.add(tickLabel);
+    }
+
+    private void creaTick() {
+        try {
+            this.tick = ImageIO.read(new File(System.getProperty("user.dir")
+                    + "/media/tick.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        this.tickLabel = new JLabel(new ImageIcon(this.tick));
+    }
+
+/*    private void allTicksToFalse() {
         for (int i = 0; i < selected_projects.size(); i++) {
             selected_projects.get(i).getTickLabel().setVisible(false);
         }
         repaint();
-    }
+    }*/
 
     private boolean anySelectedProjects() {
         boolean oneOrMore = false;

@@ -11,6 +11,26 @@ import java.io.IOException;
 class ProjectPanel extends JPanel {
 
 
+    public int getX_initial() {
+        return x_initial;
+    }
+
+    public int getY_initial() {
+        return y_initial;
+    }
+
+    public int getX_margin() {
+        return x_margin;
+    }
+
+    public int getJl_order_size() {
+        return jl_order_size;
+    }
+
+    public int getJl_path_width() {
+        return jl_path_width;
+    }
+
     private final int x_initial = 50;
     private final int y_initial = 50;
 
@@ -30,10 +50,7 @@ class ProjectPanel extends JPanel {
     private final JLabel jl_path;
     private final JButton jb_fc;
     private final Border fc_border;
-    private BufferedImage tick;
 
-    private JLabel tickLabel;
-    private final int tickLabel_size = 35;
 
     private int id;
 
@@ -46,13 +63,6 @@ class ProjectPanel extends JPanel {
         fc.setProjectName(jl_path);
         this.jb_fc = fc.getGo();
         this.fc_border = BorderFactory.createLineBorder(Color.GRAY, 1);
-        try {
-            this.tick = ImageIO.read(new File(System.getProperty("user.dir")
-                    + "/media/tick.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        this.tickLabel = new JLabel(new ImageIcon(this.tick));
     }
 
     public void configureProjectPan(int n) {
@@ -65,16 +75,13 @@ class ProjectPanel extends JPanel {
         jl_path.setBorder(fc_border);
         jb_fc.setBounds(x_initial + jl_order_size + jl_path_width + x_margin * 2,
                 y_initial * n, jb_fc_width, jb_fc_height);
-        tickLabel.setBounds(x_initial + jl_order_size + jl_path_width + tickLabel_size + x_margin * 9,
-                y_initial * n - 5, tickLabel_size, tickLabel_size);
-        tickLabel.setVisible(false);
+
     }
 
     public void addProjectPan(Container contentPane) {
         contentPane.add(jl_order);
         contentPane.add(jl_path);
         contentPane.add(jb_fc);
-        contentPane.add(tickLabel);
     }
 
     public FileChooser getFc() {
@@ -89,7 +96,4 @@ class ProjectPanel extends JPanel {
         return id;
     }
 
-    public JLabel getTickLabel() {
-        return tickLabel;
-    }
 }
