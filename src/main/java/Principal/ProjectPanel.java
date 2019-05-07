@@ -31,7 +31,9 @@ class ProjectPanel extends JPanel {
     private final JButton jb_fc;
     private final Border fc_border;
     private BufferedImage tick;
+
     private JLabel tickLabel;
+    private final int tickLabel_size = 35;
 
     private int id;
 
@@ -41,7 +43,7 @@ class ProjectPanel extends JPanel {
         this.jl_order = new JLabel("", SwingConstants.CENTER);
         this.jl_order_border = BorderFactory.createLineBorder(Color.GRAY, 1);
         this.jl_path = new JLabel(". . .", SwingConstants.CENTER);
-        fc.setProjName(jl_path);
+        fc.setProjectName(jl_path);
         this.jb_fc = fc.getGo();
         this.fc_border = BorderFactory.createLineBorder(Color.GRAY, 1);
         try {
@@ -50,7 +52,7 @@ class ProjectPanel extends JPanel {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        tickLabel = new JLabel(new ImageIcon(this.tick));
+        this.tickLabel = new JLabel(new ImageIcon(this.tick));
     }
 
     public void configureProjectPan(int n) {
@@ -63,7 +65,9 @@ class ProjectPanel extends JPanel {
         jl_path.setBorder(fc_border);
         jb_fc.setBounds(x_initial + jl_order_size + jl_path_width + x_margin * 2,
                 y_initial * n, jb_fc_width, jb_fc_height);
-        tickLabel.setBounds(50,50,50,50);
+        tickLabel.setBounds(x_initial + jl_order_size + jl_path_width + tickLabel_size + x_margin * 9,
+                y_initial * n - 5, tickLabel_size, tickLabel_size);
+        tickLabel.setVisible(false);
     }
 
     public void addProjectPan(Container contentPane) {
@@ -85,4 +89,7 @@ class ProjectPanel extends JPanel {
         return id;
     }
 
+    public JLabel getTickLabel() {
+        return tickLabel;
+    }
 }

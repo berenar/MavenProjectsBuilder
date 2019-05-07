@@ -15,7 +15,7 @@ class Main extends JFrame {
 
     private final ArrayList<ProjectPanel> selected_projects = new ArrayList<ProjectPanel>();
 
-    private final int panel_width = (screenSize.width / 3);
+    private final int panel_width = (screenSize.width / 3) + 50;
     private int panel_height = 150;
 
     private Container contentPane;
@@ -106,6 +106,7 @@ class Main extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 //reset success value
                 success = true;
+                allTicksToFalse();
                 compileChosen();
             }
         });
@@ -118,6 +119,8 @@ class Main extends JFrame {
                 String path = selected_projects.get(i).getFc().getPath();
                 try {
                     pb.executeCommand("cd " + "\"" + path + "\"" + " && " + compileCommand, getContentPane());
+                    selected_projects.get(i).getTickLabel().setVisible(true);
+                    repaint();
                 } catch (Exception e) {
                     contentPane.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
                     JOptionPane.showMessageDialog(getContentPane(),
@@ -137,11 +140,18 @@ class Main extends JFrame {
         }
     }
 
+    private void allTicksToFalse() {
+        for (int i = 0; i < selected_projects.size(); i++) {
+            selected_projects.get(i).getTickLabel().setVisible(false);
+        }
+        repaint();
+    }
+
     private boolean anySelectedProjects() {
         boolean oneOrMore = false;
         for (int i = 0; i < selected_projects.size(); i++) {
-            if (selected_projects.get(i).getFc().isChosen()){
-                oneOrMore=true;
+            if (selected_projects.get(i).getFc().isChosen()) {
+                oneOrMore = true;
             }
         }
         return oneOrMore;

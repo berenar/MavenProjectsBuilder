@@ -10,17 +10,18 @@ public class FileChooser extends JPanel implements ActionListener {
     private JFileChooser chooser;
     private final String chooser_title = "Select a project directory";
 
-    private JLabel projName;
+    private JLabel projectName; //pointed by ProjectPanel.jl_path
 
     String path;
 
-    private boolean chosen = false;
+    public boolean chosen;
 
     public FileChooser() {
         go = new JButton("Choose");
         go.setBackground(new java.awt.Color(186, 195, 211));
         go.addActionListener(this);
         add(go);
+        chosen =  false;
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -29,7 +30,7 @@ public class FileChooser extends JPanel implements ActionListener {
         chooser.setDialogTitle(chooser_title);
         chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-            projName.setText(chooser.getSelectedFile().getName());
+            projectName.setText(chooser.getSelectedFile().getName());
             path = chooser.getSelectedFile().getPath();
             chosen = true;
         } else {
@@ -46,8 +47,8 @@ public class FileChooser extends JPanel implements ActionListener {
         return this.go;
     }
 
-    public void setProjName(JLabel projName) {
-        this.projName = projName;
+    public void setProjectName(JLabel projectName) {
+        this.projectName = projectName;
     }
 
     public String getPath() {
