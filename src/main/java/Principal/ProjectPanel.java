@@ -50,7 +50,7 @@ class ProjectPanel extends JPanel {
         try {
             this.tick = ImageIO.read(getClass().getClassLoader().getResource("tick.png"));
             if (tick==null){
-                System.out.println("Error llegint la imatge tick.png");
+                System.out.println("Error reading image: tick.png");
             }
         } catch (IOException e) {
             e.printStackTrace();
