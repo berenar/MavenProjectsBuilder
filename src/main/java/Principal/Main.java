@@ -140,7 +140,7 @@ class Main extends JFrame {
         //Last message if all went well
         if (success && anySelectedProjects()) {
             JOptionPane.showMessageDialog(getContentPane(),
-                    "All projects have been compiled successfully.",
+                    "All projects have been successfully compiled.",
                     "Success!",
                     JOptionPane.PLAIN_MESSAGE);
         }
