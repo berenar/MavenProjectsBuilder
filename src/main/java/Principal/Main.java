@@ -5,10 +5,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
 import java.util.ArrayList;
 
 class Main extends JFrame {
@@ -59,28 +58,17 @@ class Main extends JFrame {
         nouCompile();
 
         //CONFIGURE JFRAME
-        setSize(panel_width, panel_height);
-        setResizable(false);
-        setLocationRelativeTo(null);//null: centers window
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setTitle("mvnCompiler 1.0");
-
-        System.out.println("dhfh "+ getClass().getResource("mvn_logo_2.png"));
-
-
-/*        String filepath = "media/mvn_logo_2.png";
-        InputStream inputStream = ClassLoader.class.getResourceAsStream(filepath);
-        System.out.println(inputStream);
-        setIconImage(ImageIO(new File(String.valueOf(inputStream))));*/
-
-        //setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("./mvn_logo_2.png")));
-
-/*        try {
-            setIconImage(ImageIO.read(new File(System.getProperty("user.dir")
-                    + "/media/mvn_logo_2.png")));
+        this.setSize(panel_width, panel_height);
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);//null: centers window
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setTitle("mvnCompiler 1.1");
+        try {
+            BufferedImage icon = ImageIO.read(getClass().getClassLoader().getResource("mvn_logo_2.png"));
+            this.setIconImage(icon);
         } catch (IOException e) {
             e.printStackTrace();
-        }*/
+        }
     }
 
     private void nouProjectPan() {
@@ -197,6 +185,8 @@ class Main extends JFrame {
         add_project.setBounds(50, panel_height - 100, add_project_size, add_project_size);
         compile.setBounds(160 + add_project_size, panel_height - 100, compile_width, compile_height);
     }
+
+
 
     public static void main(String[] args) {
         Main ex = new Main();

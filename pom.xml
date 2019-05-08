@@ -54,7 +54,7 @@
                             <classPath>
                                 <mainClass>Principal.Main</mainClass>
                             </classPath>
-                            <icon>media/mvn_logo_2.ico</icon>
+                            <icon>src/main/resources/mvn_logo_2.ico</icon>
                             <jre>
                                 <minVersion>1.5.0</minVersion>
                                 <maxVersion>1.6.0</maxVersion>
