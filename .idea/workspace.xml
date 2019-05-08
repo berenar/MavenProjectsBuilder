@@ -1,0 +1,1042 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9af1c438-9010-47fe-8454-f8fc81abc00b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnCompiler.iml" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="ErrorTreeViewConfiguration">
+    <option name="autoscrollToSource" value="true" />
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>panell_heigh</find>
+      <find>project_pan_number</find>
+      <find>proj</find>
+      <find>configurar_project_pan</find>
+      <find>getContentPane</find>
+      <find>getc</find>
+      <find>jl_order_size</find>
+      <find>JList</find>
+      <find>Listpan</find>
+      <find>project_pan</find>
+      <find>static</find>
+      <find>content</find>
+      <find>file</find>
+      <find>&quot;...&quot;</find>
+      <find>choosertitle</find>
+      <find>panell_height</find>
+      <find>fc</find>
+      <find>repaintAddProject</find>
+      <find>repaintButtons</find>
+      <find>path</find>
+      <find>id</find>
+      <find>icon</find>
+      <find>chosen</find>
+      <find>rep</find>
+      <find>closeJDialog</find>
+      <find>image</find>
+      <find>print</find>
+      <find>add</find>
+      <find>ico</find>
+      <find>allTicksToFalse</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>button_fl</replace>
+      <replace>fc</replace>
+      <replace>proj</replace>
+      <replace>jl_path_x_inicial</replace>
+      <replace>jl_path_y_inicial</replace>
+      <replace>jl_path_width</replace>
+      <replace>jl_path_height</replace>
+      <replace>panell_heigh</replace>
+      <replace>chooser_title</replace>
+      <replace>listpan</replace>
+      <replace>repaintButtons</replace>
+      <replace>reSetBounds</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>C:\Users\bernat.pericas\Documents\MvnCompiler\src\main\java\Principal</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master_local" />
+      </map>
+    </option>
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="dev" />
+              </list>
+            </value>
+          </entry>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/dev" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/Explorer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/filechooser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Multiple_filechooser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gui.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DemoJFileChooser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/FileChosser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BorderLayoutDemo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BorderLayout.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DynamicLayout.java" />
+        <option value="$PROJECT_DIR$/src/main/java/FileChooser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Layout.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/Layout.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/Example.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/project.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/project_pan.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/Frame.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/DNDList.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/DragDropList.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/Project_pan_render.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/RoundedBorder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/Project_pan.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/ProcessBuilderExample1.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/ProcessBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/AutoDismiss.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/Main2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/M.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/JFrameChangeIcon.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/FileChooser.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-226" />
+    <option name="y" value="382" />
+    <option name="width" value="1936" />
+    <option name="height" value="1066" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="mvnCompiler" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MvnCompiler" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mvnCompiler" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MvnCompiler" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mvnCompiler" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MvnCompiler" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mvnCompiler" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MvnCompiler" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mvnCompiler" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MvnCompiler" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Principal" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Principal" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="JFrameChangeIcon" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Principal.JFrameChangeIcon" />
+      <module name="mvnCompiler" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Principal.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Principal.Main" />
+      <module name="mvnCompiler" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Principal.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="mvnCompiler [clean]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+              </list>
+            </option>
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="mvnCompiler [clean,package,install]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="package" />
+                <option value="install" />
+              </list>
+            </option>
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="mvnCompiler [package]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="package" />
+              </list>
+            </option>
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.JFrameChangeIcon" />
+      <item itemvalue="Maven.mvnCompiler [package]" />
+      <item itemvalue="Maven.mvnCompiler [clean]" />
+      <item itemvalue="Maven.mvnCompiler [clean,package,install]" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Maven.mvnCompiler [clean,package,install]" />
+        <item itemvalue="Maven.mvnCompiler [clean]" />
+        <item itemvalue="Maven.mvnCompiler [package]" />
+        <item itemvalue="Application.JFrameChangeIcon" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9af1c438-9010-47fe-8454-f8fc81abc00b" name="Default Changelist" comment="" />
+      <created>1556526619322</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1556526619322</updated>
+      <workItem from="1556526625201" duration="99000" />
+      <workItem from="1556526774186" duration="7713000" />
+      <workItem from="1556607444821" duration="16554000" />
+      <workItem from="1556777100421" duration="16049000" />
+      <workItem from="1556795257933" duration="49000" />
+      <workItem from="1556864019699" duration="17506000" />
+      <workItem from="1557125077785" duration="7210000" />
+      <workItem from="1557132327962" duration="674000" />
+      <workItem from="1557133030511" duration="55000" />
+      <workItem from="1557135079117" duration="8805000" />
+      <workItem from="1557209031727" duration="16456000" />
+      <workItem from="1557298849108" duration="14423000" />
+      <workItem from="1557315165732" duration="1286000" />
+      <workItem from="1557316474897" duration="349000" />
+    </task>
+    <task id="LOCAL-00001" summary="first commit">
+      <created>1556527956671</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1556527956672</updated>
+    </task>
+    <task id="LOCAL-00002" summary="proves amb layout i filechooser">
+      <created>1556535078342</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1556535078342</updated>
+    </task>
+    <task id="LOCAL-00003" summary="proves amb layout i filechooser">
+      <created>1556535223963</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1556535223963</updated>
+    </task>
+    <task id="LOCAL-00004" summary="afegit logo&#10;afegit jlabel">
+      <created>1556614430639</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1556614430639</updated>
+    </task>
+    <task id="LOCAL-00005" summary="just abans de fusionar main amb filechooser">
+      <created>1556619438848</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1556619438848</updated>
+    </task>
+    <task id="LOCAL-00006" summary="liada intentant fusionar">
+      <created>1556620342250</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1556620342250</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Revert &quot;just abans de fusionar main amb filechooser&quot;&#10;&#10;This reverts commit e3bf682f">
+      <created>1556620401108</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1556620401108</updated>
+    </task>
+    <task id="LOCAL-00008" summary="jlabel i jbutton pels projectes moguts a una classe: project_pan">
+      <created>1556622832515</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1556622832515</updated>
+    </task>
+    <task id="LOCAL-00009" summary="funciona">
+      <created>1556625613949</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1556625613949</updated>
+    </task>
+    <task id="LOCAL-00010" summary="es poden crear nous proj_pan">
+      <created>1556779506083</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1556779506083</updated>
+    </task>
+    <task id="LOCAL-00011" summary="es poden crear nous proj_pan">
+      <created>1556782054963</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1556782054963</updated>
+    </task>
+    <task id="LOCAL-00012" summary="la finestra es redimensiona segons el nombre de Project_pan's">
+      <created>1556783120826</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1556783120826</updated>
+    </task>
+    <task id="LOCAL-00013" summary="intent de GridBagLayout">
+      <created>1556786237432</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1556786237432</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Revert &quot;la finestra es redimensiona segons el nombre de Project_pan's&quot;&#10;&#10;This reverts commit 37b3976e">
+      <created>1556786279655</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1556786279655</updated>
+    </task>
+    <task id="LOCAL-00015" summary="afegit jlabel per l'ordre">
+      <created>1556787651365</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1556787651365</updated>
+    </task>
+    <task id="LOCAL-00016" summary="afegides 2 drag drop list pero no es veuen els canvis reflexats">
+      <created>1556793167426</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1556793167426</updated>
+    </task>
+    <task id="LOCAL-00017" summary="proves amb jlist duna llista de proj_pans">
+      <created>1556795289461</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1556795289461</updated>
+    </task>
+    <task id="LOCAL-00018" summary="intent de jlist de panels, pero no se pot pq cellrenderer nomes mostra Strings">
+      <created>1556866942288</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1556866942289</updated>
+    </task>
+    <task id="LOCAL-00019" summary="boto add_proj afegeix un nou project_pan i es repinta mes avall pero no redimensiona la finestra">
+      <created>1556871810136</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1556871810136</updated>
+    </task>
+    <task id="LOCAL-00020" summary="filechooser escriu el jlabel en seleccionar un fitxer">
+      <created>1556874105248</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1556874105248</updated>
+    </task>
+    <task id="LOCAL-00021" summary="filechooser escriu el jlabel en seleccionar un fitxer">
+      <created>1556878294763</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1556878294763</updated>
+    </task>
+    <task id="LOCAL-00022" summary="es redimensiona la finestra al afegir un nou ProjectPanel">
+      <created>1556880309410</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1556880309410</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Codi analitzat i corregit">
+      <created>1556881527561</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1556881527561</updated>
+    </task>
+    <task id="LOCAL-00024" summary="compila els projectes en ordre, no hi ha control d'errors encara">
+      <created>1557129299766</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1557129299766</updated>
+    </task>
+    <task id="LOCAL-00025" summary="error: java: cannot find symbol FileChooser">
+      <created>1557132432519</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1557132432519</updated>
+    </task>
+    <task id="LOCAL-00026" summary="pareix que funciona">
+      <created>1557136232838</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1557136232839</updated>
+    </task>
+    <task id="LOCAL-00027" summary="cursor en loading mentre compila">
+      <created>1557136704880</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1557136704880</updated>
+    </task>
+    <task id="LOCAL-00028" summary="es redimensiona el text del jlabel del path pero encara aixi s'ha de fer mes gran el jlabel">
+      <created>1557139445065</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1557139445065</updated>
+    </task>
+    <task id="LOCAL-00029" summary="el jlabel nomes mostra el nom del projecta, no tot el path">
+      <created>1557140571918</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1557140571918</updated>
+    </task>
+    <task id="LOCAL-00030" summary="versio beta, afegit al pom un plugin que crea un .exe">
+      <created>1557142368917</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1557142368917</updated>
+    </task>
+    <task id="LOCAL-00031" summary="afegida imatge tick, pero malament">
+      <created>1557144081312</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1557144081313</updated>
+    </task>
+    <task id="LOCAL-00032" summary="els ticks es mostren una vegada ha acabat de compilar, no durant cada iteracio">
+      <created>1557213122984</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1557213122984</updated>
+    </task>
+    <task id="LOCAL-00033" summary="prova: moure imatge tick al main, pero no, tampoc funciona be">
+      <created>1557218976233</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1557218976233</updated>
+    </task>
+    <task id="LOCAL-00034" summary="ho fa be amb aquesta solucio https://www.dreamincode.net/forums/topic/299309-close-a-joptionpane-window-using-code/&#10;pero no sempre, a vegades es tanca el dialog massa rapid">
+      <created>1557219737385</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1557219737385</updated>
+    </task>
+    <task id="LOCAL-00035" summary="es pinten els ticks correctament en compilar cada projecte, encara que s'ha aconseguit fent una xapussa">
+      <created>1557225551822</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1557225551822</updated>
+    </task>
+    <task id="LOCAL-00036" summary="es pinten els ticks correctament en compilar cada projecte, encara que s'ha aconseguit fent una xapussa">
+      <created>1557225809962</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1557225809962</updated>
+    </task>
+    <task id="LOCAL-00037" summary="proves canviant el imageio.read pero no funciona">
+      <created>1557301369245</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1557301369245</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Revert &quot;proves canviant el imageio.read pero no funciona&quot;&#10;&#10;This reverts commit 43c7d5df">
+      <created>1557301475036</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1557301475036</updated>
+    </task>
+    <task id="LOCAL-00039" summary="funciona executant des de intelliJ, pero no executant el jar o l'exe">
+      <created>1557301712746</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1557301712746</updated>
+    </task>
+    <task id="LOCAL-00040" summary="proves permetent llegir imatges des de jar canviant la manera en q es llegeixen">
+      <created>1557305823837</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1557305823837</updated>
+    </task>
+    <task id="LOCAL-00041" summary="funciona llegir les imatges des de intellij i usant:&#10;image = ImageIO.read(getClass().getClassLoader().getResource(&quot;image.png&quot;)&#10;https://stackoverflow.com/questions/34099330/java-how-to-add-image-using-getresource">
+      <created>1557314649188</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1557314649188</updated>
+    </task>
+    <task id="LOCAL-00042" summary="funciona llegir les imatges des de intellij i usant:&#10;image = ImageIO.read(getClass().getClassLoader().getResource(&quot;image.png&quot;)&#10;https://stackoverflow.com/questions/34099330/java-how-to-add-image-using-getresource">
+      <created>1557314774601</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1557314774601</updated>
+    </task>
+    <task id="LOCAL-00043" summary="FUNCIONA LLEGIR LES IMATGES TANT A INTELLIJ COM AL JAR COM AL EXE">
+      <created>1557315031063</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1557315031063</updated>
+    </task>
+    <task id="LOCAL-00044" summary="FUNCIONA LLEGIR LES IMATGES TANT A INTELLIJ COM AL JAR COM AL EXE">
+      <created>1557315288702</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1557315288702</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Versio 1.1">
+      <created>1557316125314</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1557316125314</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="107228000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11727079" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="0" weight="0.2636656" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.3290461" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49946696" weight="0.21114683" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.21221864" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.3290461" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49946696" weight="0.21329047" />
+      <window_info anchor="bottom" id="Database Changes" order="10" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4989339" visible="true" weight="0.3290461" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5010661" side_tool="true" visible="true" weight="0.3290461" />
+      <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.25830653" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Maven" order="5" visible="true" weight="0.092750534" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="proves amb jlist duna llista de proj_pans" />
+    <MESSAGE value="intent de jlist de panels, pero no se pot pq cellrenderer nomes mostra Strings" />
+    <MESSAGE value="boto add_proj afegeix un nou project_pan i es repinta mes avall pero no redimensiona la finestra" />
+    <MESSAGE value="filechooser escriu el jlabel en seleccionar un fitxer" />
+    <MESSAGE value="es redimensiona la finestra al afegir un nou ProjectPanel" />
+    <MESSAGE value="Codi analitzat i corregit" />
+    <MESSAGE value="compila els projectes en ordre, no hi ha control d'errors encara" />
+    <MESSAGE value="error: java: cannot find symbol FileChooser" />
+    <MESSAGE value="pareix que funciona" />
+    <MESSAGE value="cursor en loading mentre compila" />
+    <MESSAGE value="es redimensiona el text del jlabel del path pero encara aixi s'ha de fer mes gran el jlabel" />
+    <MESSAGE value="el jlabel nomes mostra el nom del projecta, no tot el path" />
+    <MESSAGE value="versio beta, afegit al pom un plugin que crea un .exe" />
+    <MESSAGE value="afegida imatge tick, pero malament" />
+    <MESSAGE value="els ticks es mostren una vegada ha acabat de compilar, no durant cada iteracio" />
+    <MESSAGE value="prova: moure imatge tick al main, pero no, tampoc funciona be" />
+    <MESSAGE value="ho fa be amb aquesta solucio https://www.dreamincode.net/forums/topic/299309-close-a-joptionpane-window-using-code/&#10;pero no sempre, a vegades es tanca el dialog massa rapid" />
+    <MESSAGE value="es pinten els ticks correctament en compilar cada projecte, encara que s'ha aconseguit fent una xapussa" />
+    <MESSAGE value="proves canviant el imageio.read pero no funciona" />
+    <MESSAGE value="Revert &quot;proves canviant el imageio.read pero no funciona&quot;&#10;&#10;This reverts commit 43c7d5df" />
+    <MESSAGE value="funciona executant des de intelliJ, pero no executant el jar o l'exe" />
+    <MESSAGE value="proves permetent llegir imatges des de jar canviant la manera en q es llegeixen" />
+    <MESSAGE value="funciona llegir les imatges des de intellij i usant:&#10;image = ImageIO.read(getClass().getClassLoader().getResource(&quot;image.png&quot;)&#10;https://stackoverflow.com/questions/34099330/java-how-to-add-image-using-getresource" />
+    <MESSAGE value="FUNCIONA LLEGIR LES IMATGES TANT A INTELLIJ COM AL JAR COM AL EXE" />
+    <MESSAGE value="Versio 1.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Versio 1.1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/.idea/.name" />
+    <entry file="file://$PROJECT_DIR$/.idea/compiler.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/misc.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Explorer.java" />
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-170" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/uiDesigner.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Multiple_filechooser.java" />
+    <entry file="jar://C:/jvjdk/src.zip!/javax/swing/JComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="1655" column="21" selection-start-line="1655" selection-start-column="21" selection-end-line="1655" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DynamicLayout.java" />
+    <entry file="file://$PROJECT_DIR$/target/classes/gui.class" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Layout.java" />
+    <entry file="jar://C:/jvjdk/src.zip!/java/awt/event/ActionListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="49" column="16" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/jvjdk/src.zip!/javax/swing/JFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="670" column="21" selection-start-line="670" selection-start-column="21" selection-end-line="670" selection-end-column="21" />
+          <folding>
+            <element signature="e#23469#23470#0" expanded="true" />
+            <element signature="e#23522#23523#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Frame.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/DNDList.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/DragDropList.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Project_pan_render.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/RoundedBorder.java" />
+    <entry file="jar://C:/jvjdk/src.zip!/javax/swing/AbstractButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="1924" column="16" selection-start-line="1924" selection-start-column="16" selection-end-line="1924" selection-end-column="16" />
+          <folding>
+            <element signature="e#68197#68198#0" expanded="true" />
+            <element signature="e#68254#68255#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/jvjdk/src.zip!/javax/swing/JLabel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="107" column="13" selection-start-line="107" selection-start-column="13" selection-end-line="107" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/AutoDismiss.java" />
+    <entry file="jar://C:/jvjdk/src.zip!/java/awt/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="566">
+          <caret line="1145" column="16" selection-start-line="1145" selection-start-column="16" selection-end-line="1145" selection-end-column="16" />
+          <folding>
+            <element signature="e#40240#40241#0" expanded="true" />
+            <element signature="e#40267#40268#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/jvjdk/src.zip!/java/io/Reader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="77" column="18" selection-start-line="77" selection-start-column="18" selection-end-line="77" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Main2.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/M.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/JFrameChangeIcon.java" />
+    <entry file="jar://C:/jvjdk/src.zip!/javax/swing/ImageIcon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2975">
+          <caret line="216" selection-start-line="216" selection-end-line="216" />
+          <folding>
+            <element signature="e#6758#6759#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="69" column="13" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="41" column="27" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/jvjdk/src.zip!/javax/imageio/ImageIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20468">
+          <caret line="1300" column="18" selection-start-line="1300" selection-start-column="18" selection-end-line="1300" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/ProcessBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/FileChooser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="16" lean-forward="true" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>mvnCompiler</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
