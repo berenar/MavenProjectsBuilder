@@ -65,7 +65,9 @@ class Main extends JFrame {
         this.setTitle("mvnCompiler 1.1");
         try {
             BufferedImage icon = ImageIO.read(getClass().getClassLoader().getResource("mvn_logo_2.png"));
-            this.setIconImage(icon);
+            if (icon != null){
+                this.setIconImage(icon);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
