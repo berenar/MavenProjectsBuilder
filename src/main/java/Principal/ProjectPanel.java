@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 class ProjectPanel extends JPanel {
 
@@ -33,7 +34,7 @@ class ProjectPanel extends JPanel {
     private final Border fc_border;
     private BufferedImage tick;
 
-    private JLabel tickLabel;
+    private final JLabel tickLabel;
     private final int tickLabel_size = 35;
 
     private int id;
@@ -48,8 +49,7 @@ class ProjectPanel extends JPanel {
         this.jb_fc = fc.getGo();
         this.fc_border = BorderFactory.createLineBorder(Color.GRAY, 1);
         try {
-            this.tick = ImageIO.read(new File(System.getProperty("user.dir")
-                    + "/media/tick.png"));
+            this.tick = ImageIO.read(new File(String.valueOf(this.getClass().getResource("../../resources/tick.png"))));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -94,7 +94,4 @@ class ProjectPanel extends JPanel {
         return tickLabel;
     }
 
-    public JLabel getJl_path() {
-        return jl_path;
-    }
 }

@@ -12,9 +12,9 @@ public class FileChooser extends JPanel implements ActionListener {
 
     private JLabel projectName; //pointed by ProjectPanel.jl_path
 
-    String path;
+    private String path;
 
-    public boolean chosen;
+    private boolean chosen;
 
     public FileChooser() {
         go = new JButton("Choose");
