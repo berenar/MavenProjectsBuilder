@@ -52,6 +52,7 @@ class ProjectPanel extends JPanel {
                     + "/media/tick.png"));
         } catch (IOException e) {
             e.printStackTrace();
+            System.out.println(tick);
         }
         this.tickLabel = new JLabel(new ImageIcon(this.tick));
     }

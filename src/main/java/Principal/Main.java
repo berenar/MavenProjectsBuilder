@@ -7,6 +7,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 
 class Main extends JFrame {
@@ -62,12 +64,23 @@ class Main extends JFrame {
         setLocationRelativeTo(null);//null: centers window
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("mvnCompiler 1.0");
-        try {
+
+        System.out.println("dhfh "+ getClass().getResource("mvn_logo_2.png"));
+
+
+/*        String filepath = "media/mvn_logo_2.png";
+        InputStream inputStream = ClassLoader.class.getResourceAsStream(filepath);
+        System.out.println(inputStream);
+        setIconImage(ImageIO(new File(String.valueOf(inputStream))));*/
+
+        //setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("./mvn_logo_2.png")));
+
+/*        try {
             setIconImage(ImageIO.read(new File(System.getProperty("user.dir")
                     + "/media/mvn_logo_2.png")));
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     private void nouProjectPan() {
