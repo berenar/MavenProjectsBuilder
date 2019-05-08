@@ -5,7 +5,6 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
 class ProjectPanel extends JPanel {
@@ -33,7 +32,7 @@ class ProjectPanel extends JPanel {
     private final Border fc_border;
     private BufferedImage tick;
 
-    private JLabel tickLabel;
+    private final JLabel tickLabel;
     private final int tickLabel_size = 35;
 
     private int id;

@@ -6,10 +6,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+@SuppressWarnings("ALL")
 class Main extends JFrame {
 
     private final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -30,7 +30,7 @@ class Main extends JFrame {
 
     private final String compileCommand = "mvn clean install";
     private boolean success = true;
-    Timer t;
+    private Timer t;
     private JOptionPane pane;
     private JDialog dialog;
 
@@ -113,7 +113,6 @@ class Main extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 //reset success value
                 success = true;
-                allTicksToFalse();
                 compileChosen();
             }
         });
@@ -132,6 +131,7 @@ class Main extends JFrame {
                             "Error compiling project number " + selected_projects.get(i).getId() + ".",
                             "Compilation halted",
                             JOptionPane.ERROR_MESSAGE);
+                    allTicksToFalse();
                     success = false;
                     break;
                 }
@@ -183,11 +183,10 @@ class Main extends JFrame {
         return oneOrMore;
     }
 
-    private void reSetBounds() {
+    private void reSetBounds(){
         add_project.setBounds(50, panel_height - 100, add_project_size, add_project_size);
         compile.setBounds(160 + add_project_size, panel_height - 100, compile_width, compile_height);
     }
-
 
 
     public static void main(String[] args) {
