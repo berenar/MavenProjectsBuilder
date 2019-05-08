@@ -5,10 +5,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 
 class Main extends JFrame {
@@ -31,18 +29,12 @@ class Main extends JFrame {
 
     private final String compileCommand = "mvn clean install";
     private boolean success = true;
-    private Timer t;
+    Timer t;
     private JOptionPane pane;
     private JDialog dialog;
 
 
     private Main() {
-
-        try {
-            BufferedImage tick = ImageIO.read(new File(String.valueOf(this.getClass().getResource("../../resources/tick.png"))));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         initUI();
     }
 
@@ -71,10 +63,9 @@ class Main extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("mvnCompiler 1.0");
         try {
-            setIconImage(ImageIO.read(new File(getClass().getResource("../../resources/mvn_logo_2.png").toURI())));
+            setIconImage(ImageIO.read(new File(System.getProperty("user.dir")
+                    + "/media/mvn_logo_2.png")));
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (URISyntaxException e) {
             e.printStackTrace();
         }
     }
