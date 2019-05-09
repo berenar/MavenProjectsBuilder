@@ -32,7 +32,7 @@ class Main extends JFrame {
     private JOptionPane pane;
     private JDialog dialog;
 
-    private Output out = new Output();
+    private final Output out = new Output();
 
     private Main() {
         initUI();
@@ -94,7 +94,7 @@ class Main extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 nouProjectPan();
-                out.initOutput(contentPane,panel_height, panel_width);
+                out.initOutput(contentPane, panel_height, panel_width);
                 out.removeOutput();
                 reSetBounds();
             }
@@ -126,8 +126,6 @@ class Main extends JFrame {
                     }
                 });
                 t1.start();
-
-
             }
         });
     }
@@ -139,7 +137,7 @@ class Main extends JFrame {
             if (selected_projects.get(i).getFc().isChosen()) {
                 String path = selected_projects.get(i).getFc().getPath();
                 try {
-                    pb.executeCommand(out,"cd " + "\"" + path + "\"" + " && " + compileCommand, getContentPane());
+                    pb.executeCommand(out, "cd " + "\"" + path + "\"" + " && " + compileCommand, getContentPane());
                 } catch (Exception e) {
                     contentPane.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
                     JOptionPane.showMessageDialog(getContentPane(),
