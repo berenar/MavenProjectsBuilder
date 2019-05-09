@@ -7,19 +7,18 @@ class Output {
 
     private JTextArea console;
     private JScrollPane scrollPane;
-    private final int output_height = 200;
-    private boolean output_visible = false;
+    private final int output_height;
+    private boolean output_visible;
 
     public Output() {
-
+        output_height = 200;
+        output_visible = false;
     }
 
     public int addOutput(Container contentPane, int panel_height, int panel_width) {
-        output_visible = true;
-
         int previous_panel_height = panel_height;
         panel_height = panel_height + output_height;
-        contentPane.setSize(panel_width, panel_height);
+        //contentPane.setSize(panel_width, panel_height);
         console = new JTextArea(10, 50);
         console.setEditable(false);
         console.setBackground(Color.BLACK);
@@ -30,16 +29,16 @@ class Output {
         scrollPane.setBounds(0, previous_panel_height - 12, panel_width - 5, output_height - 15);
         contentPane.add(scrollPane);
 
+        output_visible = true;
         return panel_height;
     }
 
     public int removeOutput(Container contentPane, int panel_height, int panel_width) {
-        output_visible = false;
-
         contentPane.remove(scrollPane);
         panel_height = panel_height - output_height;
-        contentPane.setSize(panel_width, panel_height);
+        //contentPane.setSize(panel_width, panel_height);
 
+        output_visible = false;
         return panel_height;
     }
 

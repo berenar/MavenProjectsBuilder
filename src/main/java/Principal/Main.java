@@ -54,7 +54,7 @@ class Main extends JFrame {
         nouCompile();
 
         //CONFIGURE JFRAME
-        this.setSize(panel_width, panel_height);
+        upd_frame_size();
 //        this.setResizable(false);
         this.setLocationRelativeTo(null);//null: centers window
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -68,6 +68,7 @@ class Main extends JFrame {
             System.out.println("Error reading image: mvn_logo_2.png");
             System.exit(1);
         }
+
     }
 
     private void nouProjectPan() {
@@ -76,7 +77,7 @@ class Main extends JFrame {
         project_panel.addProjectPan(contentPane);
         selected_projects.add(project_panel);
         panel_height += project_panel.getJl_path_height() + 20;
-        this.setSize(panel_width, panel_height);
+        upd_frame_size();
     }
 
     private void nouAddProject() {
@@ -90,11 +91,18 @@ class Main extends JFrame {
         add_project.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                boolean temporaly_removed = false;
                 nouProjectPan();
                 if (out.isOutput_visible()) {
+                    temporaly_removed = true;
                     panel_height = out.removeOutput(contentPane, panel_height, panel_width);
+                    upd_frame_size();
                 }
                 reSetBounds();
+                if (temporaly_removed) {
+                    panel_height = out.addOutput(contentPane, panel_height, panel_width);
+                    upd_frame_size();
+                }
             }
         });
     }
@@ -107,6 +115,7 @@ class Main extends JFrame {
         contentPane.add(compile);
 
         compile.addActionListener(new ActionListener() {
+
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!out.isOutput_visible()) {
@@ -114,7 +123,10 @@ class Main extends JFrame {
                     Thread t_out = new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            panel_height = out.addOutput(contentPane, panel_height, panel_width);
+                            if (anySelectedProjects()) {
+                                panel_height = out.addOutput(contentPane, panel_height, panel_width);
+                                upd_frame_size();
+                            }
                         }
                     });
                     t_out.start();
@@ -130,10 +142,13 @@ class Main extends JFrame {
                         compileChosen();
                     }
                 });
-
                 t_compile.start();
             }
         });
+    }
+
+    private void upd_frame_size() {
+        this.setSize(panel_width, panel_height);
     }
 
 
