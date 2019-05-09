@@ -38,7 +38,6 @@ public class FileChooser extends JPanel implements ActionListener {
         }
     }
 
-
     public Dimension getPreferredSize() {
         return new Dimension(200, 200);
     }

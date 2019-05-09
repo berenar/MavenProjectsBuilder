@@ -1,4 +1,6 @@
 Principal\FileChooser.class
+Principal\TextAreaNotEditable.class
+Principal\TextAreaNotEditable$1.class
 Principal\ProjectPanel.class
 Principal\Main$2.class
 Principal\Main$1.class

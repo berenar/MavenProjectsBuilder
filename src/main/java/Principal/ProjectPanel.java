@@ -48,11 +48,11 @@ class ProjectPanel extends JPanel {
         this.fc_border = BorderFactory.createLineBorder(Color.GRAY, 1);
         try {
             this.tick = ImageIO.read(getClass().getClassLoader().getResource("tick.png"));
-            if (tick==null){
-                System.out.println("Error reading image: tick.png");
-            }
         } catch (IOException e) {
             e.printStackTrace();
+        }catch (IllegalArgumentException e){
+            System.out.println("Error reading image: tick.png");
+            System.exit(1);
         }
         this.tickLabel = new JLabel(new ImageIcon(this.tick));
     }
@@ -95,7 +95,4 @@ class ProjectPanel extends JPanel {
         return tickLabel;
     }
 
-    public JLabel getJl_path() {
-        return jl_path;
-    }
 }

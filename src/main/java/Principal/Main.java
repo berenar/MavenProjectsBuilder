@@ -5,7 +5,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -35,7 +34,7 @@ class Main extends JFrame {
 
     private JTextArea console;
     private JScrollPane scrollPane;
-    private final int output_height = 100;
+    private final int output_height = 200;
     private boolean output_visible = false;
 
     private Main() {
@@ -62,18 +61,19 @@ class Main extends JFrame {
 
         //CONFIGURE JFRAME
         this.setSize(panel_width, panel_height);
-        //this.setResizable(false);
+        this.setResizable(false);
         this.setLocationRelativeTo(null);//null: centers window
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setTitle("mvnCompiler 1.1");
         try {
-            BufferedImage icon = ImageIO.read(getClass().getClassLoader().getResource("mvn_logo_2.png"));
-            if (icon != null) {
-                this.setIconImage(icon);
-            }
+            this.setIconImage(ImageIO.read(getClass().getClassLoader().getResource("mvn_logo_2.png")));
         } catch (IOException e) {
             e.printStackTrace();
+        }catch (IllegalArgumentException e){
+            System.out.println("Error reading image: mvn_logo_2.png");
+            System.exit(1);
         }
+
     }
 
     private void nouProjectPan() {
@@ -82,8 +82,7 @@ class Main extends JFrame {
         project_panel.addProjectPan(contentPane);
         selected_projects.add(project_panel);
         panel_height += project_panel.getJl_path_height() + 20;
-        setSize(panel_width, panel_height);
-        repaint();
+        this.setSize(panel_width, panel_height);
     }
 
     private void nouAddProject() {
@@ -98,8 +97,8 @@ class Main extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 nouProjectPan();
+                removeOutput();
                 reSetBounds();
-                contentPane.repaint();
             }
         });
     }
@@ -114,7 +113,9 @@ class Main extends JFrame {
         compile.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                showConsole();
+                if (!output_visible) {
+                    addOutput();
+                }
                 //reset success value
                 success = true;
                 compileChosen();
@@ -122,21 +123,36 @@ class Main extends JFrame {
         });
     }
 
-    private void showConsole() {
-        if (output_visible == false) {
-            output_visible = true;
+    private void addOutput() {
+        output_visible = true;
 
-            int previous_panel_height = panel_height;
-            panel_height = panel_height + output_height;
+        int previous_panel_height = panel_height;
+        panel_height = panel_height + output_height;
+        this.setSize(panel_width, panel_height);
+
+        console = new JTextArea(10, 50);
+        console.setEditable(false);
+        console.setBackground(Color.BLACK);
+        console.setFont(new Font("Arial", Font.PLAIN, 12));
+        console.setForeground(Color.WHITE);
+
+        scrollPane = new JScrollPane(console);
+        scrollPane.setBounds(0, previous_panel_height - 12, panel_width - 5, output_height - 15);
+        contentPane.add(scrollPane);
+        //TODO: llevar
+        console.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultrices feugiat venenatis. Donec laoreet ligula eu tortor viverra gravida ac at neque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras porttitor dignissim dictum. Maecenas finibus tempus maximus. Suspendisse quis condimentum justo.\n" +
+                "Nunc faucibus felis feugiat lectus pretium tempor. Donec molestie dapibus gravida. Suspendisse ut erat at magna dictum dignissim. Vestibulum consectetur nibh non massa vehicula placerat. Vestibulum faucibus quam at enim suscipit fringilla. Integer quis fringilla est, at pulvinar erat. Phasellus aliquam leo non aliquam scelerisque. Nunc condimentum ipsum nec eros accumsan porta. Nam eu sapien nec ante rutrum rutrum vel in nulla. In hac habitasse platea dictumst. Praesent ipsum sem, condimentum a lorem nec, consequat scelerisque diam. Maecenas pharetra consequat nunc suscipit placerat.\n" +
+                "Nunc feugiat mattis nibh, sit amet faucibus nisl venenatis eget. Curabitur sapien nunc, euismod sed consectetur ac, convallis in nunc. Nulla ac mollis sapien, a molestie tellus. Suspendisse ut libero sit amet neque imperdiet cursus vitae quis dolor. Nulla semper turpis felis, scelerisque ornare turpis hendrerit dapibus. Nulla et varius ex, ac tincidunt nunc. Nullam nec arcu dictum, placerat ipsum eget, ullamcorper odio. Cras at odio a elit porta interdum. Proin nec convallis tortor, at pretium mi. Curabitur varius sapien sed pretium volutpat. Aliquam ut est sed mauris faucibus semper. Suspendisse varius laoreet nunc. Aenean placerat elit a faucibus fermentum. Nam venenatis tristique turpis non lobortis.\n" +
+                "Nulla vel rhoncus tellus. Sed eleifend elit nec quam tempus blandit. Vivamus iaculis augue quis neque dapibus, vel aliquam nisl tristique. Duis tempus sed odio ac imperdiet. Cras vulputate arcu sed iaculis bibendum. Aenean aliquet consectetur diam ut aliquam. In id fermentum tellus. Sed aliquam magna ut tellus sodales, a commodo ex vehicula. Sed mattis elit mollis, euismod felis sed, euismod justo. Sed dignissim mi in pulvinar sodales. Morbi sit amet risus elementum, convallis mauris eu, pulvinar nunc. Mauris hendrerit ante enim, vitae porttitor dui ultrices ut. Pellentesque vulputate sollicitudin scelerisque. Pellentesque id lorem et diam congue pellentesque. Cras justo magna, fringilla ac arcu id, porta dignissim tortor. Suspendisse ac libero eu sapien convallis sagittis ut quis justo.\n" +
+                "Aenean a orci porttitor nunc tincidunt condimentum. In eget maximus ante. Morbi laoreet cursus mi, auctor sollicitudin urna dictum vitae. Nullam cursus, tellus in condimentum consequat, leo mi luctus quam, vitae ultricies ipsum urna facilisis tortor. Vivamus in turpis sollicitudin, ultrices mauris eu, interdum lorem. Nam maximus ipsum ut nisl volutpat consectetur. Donec dignissim, sem quis porta mattis, orci augue iaculis nibh, id posuere nisi nisi ac arcu. Aliquam pellentesque nisl in luctus vulputate. Phasellus ex augue, dignissim vitae erat a, dictum auctor metus. In a purus a velit ultrices luctus. Morbi a libero diam.");
+    }
+
+    private void removeOutput() {
+        if (output_visible) {
+            output_visible = false;
+            contentPane.remove(scrollPane);
+            panel_height = panel_height - output_height;
             setSize(panel_width, panel_height);
-
-            console = new JTextArea(10, 50);
-            console.setEditable(false);
-
-            scrollPane = new JScrollPane(console);
-            scrollPane.setBounds(0, previous_panel_height, panel_width, output_height);
-            contentPane.add(scrollPane);
-
         }
     }
 
@@ -153,7 +169,6 @@ class Main extends JFrame {
                             "Error compiling project number " + selected_projects.get(i).getId() + ".",
                             "Compilation halted",
                             JOptionPane.ERROR_MESSAGE);
-                    allTicksToFalse();
                     success = false;
                     break;
                 }
@@ -185,14 +200,6 @@ class Main extends JFrame {
         pane = new JOptionPane("");
         dialog = pane.createDialog("");
         dialog.setVisible(true);
-    }
-
-
-    private void allTicksToFalse() {
-        for (int i = 0; i < selected_projects.size(); i++) {
-            selected_projects.get(i).getTickLabel().setVisible(false);
-        }
-        repaint();
     }
 
     private boolean anySelectedProjects() {
