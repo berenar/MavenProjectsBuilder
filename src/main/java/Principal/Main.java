@@ -9,7 +9,6 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@SuppressWarnings("ALL")
 class Main extends JFrame {
 
     private final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -34,6 +33,10 @@ class Main extends JFrame {
     private JOptionPane pane;
     private JDialog dialog;
 
+    private JTextArea console;
+    private JScrollPane scrollPane;
+    private final int output_height = 100;
+    private boolean output_visible = false;
 
     private Main() {
         initUI();
@@ -59,13 +62,13 @@ class Main extends JFrame {
 
         //CONFIGURE JFRAME
         this.setSize(panel_width, panel_height);
-        this.setResizable(false);
+        //this.setResizable(false);
         this.setLocationRelativeTo(null);//null: centers window
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setTitle("mvnCompiler 1.1");
         try {
             BufferedImage icon = ImageIO.read(getClass().getClassLoader().getResource("mvn_logo_2.png"));
-            if (icon != null){
+            if (icon != null) {
                 this.setIconImage(icon);
             }
         } catch (IOException e) {
@@ -111,11 +114,30 @@ class Main extends JFrame {
         compile.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                showConsole();
                 //reset success value
                 success = true;
                 compileChosen();
             }
         });
+    }
+
+    private void showConsole() {
+        if (output_visible == false) {
+            output_visible = true;
+
+            int previous_panel_height = panel_height;
+            panel_height = panel_height + output_height;
+            setSize(panel_width, panel_height);
+
+            console = new JTextArea(10, 50);
+            console.setEditable(false);
+
+            scrollPane = new JScrollPane(console);
+            scrollPane.setBounds(0, previous_panel_height, panel_width, output_height);
+            contentPane.add(scrollPane);
+
+        }
     }
 
     private void compileChosen() {
@@ -183,7 +205,7 @@ class Main extends JFrame {
         return oneOrMore;
     }
 
-    private void reSetBounds(){
+    private void reSetBounds() {
         add_project.setBounds(50, panel_height - 100, add_project_size, add_project_size);
         compile.setBounds(160 + add_project_size, panel_height - 100, compile_width, compile_height);
     }

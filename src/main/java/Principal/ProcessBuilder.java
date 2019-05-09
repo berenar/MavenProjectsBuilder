@@ -19,6 +19,7 @@ class ProcessBuilder {
             if (line.contains("BUILD FAILURE")) {
                 throw new Exception();
             }
+            //TODO: fer el print a un jtextarea
             System.out.println(line);
         }
         contentPane.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
