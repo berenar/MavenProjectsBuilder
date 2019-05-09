@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 
 class ProcessBuilder {
 
-    public void executeCommand(String command, Container contentPane) throws Exception {
+    public void executeCommand(Output out, String command, Container contentPane) throws Exception {
         contentPane.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 
         java.lang.ProcessBuilder processBuilder = new java.lang.ProcessBuilder();
@@ -21,6 +21,7 @@ class ProcessBuilder {
             }
             //TODO: fer el print a un jtextarea
             System.out.println(line);
+            out.getConsole().setText(line);
         }
         contentPane.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
     }

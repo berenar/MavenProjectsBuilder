@@ -56,7 +56,6 @@
                             <icon>src/main/resources/mvn_logo_2.ico</icon>
                             <jre>
                                 <minVersion>1.5.0</minVersion>
-                                <maxVersion>1.6.0</maxVersion>
                                 <initialHeapSize>512</initialHeapSize>
                                 <maxHeapSize>1024</maxHeapSize>
                             </jre>
