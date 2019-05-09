@@ -47,10 +47,11 @@ class ProjectPanel extends JPanel {
         this.jb_fc = fc.getGo();
         this.fc_border = BorderFactory.createLineBorder(Color.GRAY, 1);
         try {
+            //noinspection ConstantConditions
             this.tick = ImageIO.read(getClass().getClassLoader().getResource("tick.png"));
         } catch (IOException e) {
             e.printStackTrace();
-        }catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             System.out.println("Error reading image: tick.png");
             System.exit(1);
         }

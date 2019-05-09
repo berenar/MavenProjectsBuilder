@@ -28,11 +28,8 @@ class Main extends JFrame {
 
     private final String compileCommand = "mvn clean install";
     private boolean success = true;
-    private Timer t;
-    private JOptionPane pane;
-    private JDialog dialog;
 
-    private final Output out = new Output();
+    private Output out = new Output();
 
     private Main() {
         initUI();
@@ -63,6 +60,7 @@ class Main extends JFrame {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setTitle("mvnCompiler 1.1");
         try {
+            //noinspection ConstantConditions
             this.setIconImage(ImageIO.read(getClass().getClassLoader().getResource("mvn_logo_2.png")));
         } catch (IOException e) {
             e.printStackTrace();
@@ -70,7 +68,6 @@ class Main extends JFrame {
             System.out.println("Error reading image: mvn_logo_2.png");
             System.exit(1);
         }
-
     }
 
     private void nouProjectPan() {
@@ -94,8 +91,9 @@ class Main extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 nouProjectPan();
-                out.initOutput(contentPane, panel_height, panel_width);
-                out.removeOutput();
+                if (out.isOutput_visible()) {
+                    panel_height = out.removeOutput(contentPane, panel_height, panel_width);
+                }
                 reSetBounds();
             }
         });
@@ -111,21 +109,29 @@ class Main extends JFrame {
         compile.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //Create new thread to be able to paint ticks meanwhile compilation
-                Thread t1 = new Thread(new Runnable() {
+                if (!out.isOutput_visible()) {
+                    //Thread for the output
+                    Thread t_out = new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            panel_height = out.addOutput(contentPane, panel_height, panel_width);
+                        }
+                    });
+                    t_out.start();
+                }
+
+                //Thread for the compilation
+                Thread t_compile = new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        if (!out.isOutput_visible()) {
-                            out.initOutput(contentPane, panel_height, panel_width);
-                            out.addOutput();
-                        }
                         //reset success value
                         success = true;
                         allTicksToFalse();
                         compileChosen();
                     }
                 });
-                t1.start();
+
+                t_compile.start();
             }
         });
     }
