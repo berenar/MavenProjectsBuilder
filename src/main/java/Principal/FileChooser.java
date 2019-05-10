@@ -10,24 +10,34 @@ import java.awt.event.ActionListener;
 
 public class FileChooser extends JPanel implements ActionListener {
 
+    //FileChooser components
     private final JButton go;
     private JFileChooser chooser;
-    private final String chooser_title = "Select a project directory";
-
     private JLabel projectName; //pointed by ProjectPanel.jl_path
 
+    //FileChooser Title and path
+    private final String chooser_title = "Select a project directory";
     private String path;
 
+    //true if the project has been chosen
     private boolean chosen;
 
+    /**
+     * Constructor for the FileChooser class
+     */
     public FileChooser() {
         go = new JButton("Choose");
         go.setBackground(new java.awt.Color(186, 195, 211));
         go.addActionListener(this);
         add(go);
-        chosen =  false;
+        chosen = false;
     }
 
+    /**
+     * Action of the File chooser
+     *
+     * @param e event
+     */
     public void actionPerformed(ActionEvent e) {
         chooser = new JFileChooser();
         chooser.setCurrentDirectory(new java.io.File(System.getProperty("user.home")));
@@ -42,22 +52,47 @@ public class FileChooser extends JPanel implements ActionListener {
         }
     }
 
+    /**
+     * Preferred size of the File Chooser
+     *
+     * @return size
+     */
     public Dimension getPreferredSize() {
         return new Dimension(200, 200);
     }
 
+    /**
+     * Getter for the go button (Choose)
+     *
+     * @return go button
+     */
     public JButton getGo() {
         return this.go;
     }
 
+    /**
+     * Setter for the project name
+     *
+     * @param projectName project name
+     */
     public void setProjectName(JLabel projectName) {
         this.projectName = projectName;
     }
 
+    /**
+     * Getter for the project path
+     *
+     * @return project path
+     */
     public String getPath() {
         return path;
     }
 
+    /**
+     * Getter for chosen
+     *
+     * @return true if the project has been chosen
+     */
     public boolean isChosen() {
         return chosen;
     }
