@@ -5,16 +5,31 @@ import java.awt.*;
 
 class Output {
 
+    //Swing Components
     private JTextArea console;
     private JScrollPane scrollPane;
+
+    //Console height
     private final int output_height;
+
+    //True if the console is visible
     private boolean output_visible;
 
+    /**
+     * Constructor of the class
+     */
     public Output() {
         output_height = 200;
         output_visible = false;
     }
 
+    /**
+     * Adds the console to the bottom of the JFrame and sets output_visible to true
+     * @param contentPane JFrame contents
+     * @param panel_height JFrame height
+     * @param panel_width JFrame width
+     * @return updated panel_height
+     */
     public int addOutput(Container contentPane, int panel_height, int panel_width) {
         int previous_panel_height = panel_height;
         panel_height = panel_height + output_height;
@@ -35,6 +50,12 @@ class Output {
         return panel_height;
     }
 
+    /**
+     * Removes the console of the JFrame and sets output_visible to false
+     * @param contentPane JFrame contents
+     * @param panel_height JFrame height
+     * @return updated panel_height
+     */
     public int removeOutput(Container contentPane, int panel_height) {
         contentPane.remove(scrollPane);
         panel_height = panel_height - output_height;
@@ -43,10 +64,18 @@ class Output {
         return panel_height;
     }
 
+    /**
+     * Getter for output_visible
+     * @return true if output_visible is true
+     */
     public boolean isOutput_visible() {
         return output_visible;
     }
 
+    /**
+     * Getter for console
+     * @return console
+     */
     public JTextArea getConsole() {
         return console;
     }

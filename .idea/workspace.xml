@@ -3,14 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="9af1c438-9010-47fe-8454-f8fc81abc00b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Principal/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Principal/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Principal/Output.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Principal/Output.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Principal/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Principal/Main$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Principal/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Principal/Main$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Principal/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Principal/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/mvnCompiler.exe" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -32,8 +29,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Output.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="31" lean-forward="true" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+            <state relative-caret-position="1292">
+              <caret line="76" column="22" selection-start-line="76" selection-start-column="22" selection-end-line="76" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1377#1378#0" expanded="true" />
@@ -219,8 +216,8 @@
         <option value="$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java" />
         <option value="$PROJECT_DIR$/src/main/java/Principal/ProcessBuilder.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/Principal/Output.java" />
         <option value="$PROJECT_DIR$/src/main/java/Principal/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/Output.java" />
       </list>
     </option>
   </component>
@@ -499,14 +496,7 @@
       <workItem from="1557316474897" duration="538000" />
       <workItem from="1557381740890" duration="3379000" />
       <workItem from="1557385495454" duration="13254000" />
-      <workItem from="1557471220095" duration="4511000" />
-    </task>
-    <task id="LOCAL-00005" summary="just abans de fusionar main amb filechooser">
-      <created>1556619438848</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1556619438848</updated>
+      <workItem from="1557471220095" duration="4826000" />
     </task>
     <task id="LOCAL-00006" summary="liada intentant fusionar">
       <created>1556620342250</created>
@@ -844,11 +834,18 @@
       <option name="project" value="LOCAL" />
       <updated>1557474051287</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="javadoc for Main">
+      <created>1557475750817</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1557475750817</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128561000" />
+    <option name="totallyTimeSpent" value="128876000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -910,7 +907,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="error: java: cannot find symbol FileChooser" />
     <MESSAGE value="pareix que funciona" />
     <MESSAGE value="cursor en loading mentre compila" />
     <MESSAGE value="es redimensiona el text del jlabel del path pero encara aixi s'ha de fer mes gran el jlabel" />
@@ -935,7 +931,8 @@
     <MESSAGE value="ja es redimensiona correctament el frame amb l'output, falta que les linies a l'output no es sobrescriguin, pq ara per ara nomes en mostra una i borra l'anterior" />
     <MESSAGE value="les linies de l'output es concatenen i es fa automaticament scroll a la darrera linia" />
     <MESSAGE value="la consola funciona com s'espera" />
-    <option name="LAST_COMMIT_MESSAGE" value="la consola funciona com s'espera" />
+    <MESSAGE value="javadoc for Main" />
+    <option name="LAST_COMMIT_MESSAGE" value="javadoc for Main" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/.name" />
@@ -1111,8 +1108,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Output.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="31" lean-forward="true" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+        <state relative-caret-position="1292">
+          <caret line="76" column="22" selection-start-line="76" selection-start-column="22" selection-end-line="76" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1377#1378#0" expanded="true" />
