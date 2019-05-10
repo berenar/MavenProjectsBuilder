@@ -18,12 +18,15 @@ class Output {
     //True if the console is visible
     private boolean output_visible;
 
+    Color color_out;
+
     /**
      * Constructor of the class
      */
     public Output() {
         output_height = 200;
         output_visible = false;
+        color_out = new Color(0, 53, 102);
     }
 
     /**
@@ -39,7 +42,7 @@ class Output {
         panel_height = panel_height + output_height;
         console = new JTextArea(10, 50);
         console.setEditable(false);
-        console.setBackground(Color.BLACK);
+        console.setBackground(color_out);
         console.setFont(new Font("Arial", Font.PLAIN, 12));
         console.setForeground(Color.WHITE);
 

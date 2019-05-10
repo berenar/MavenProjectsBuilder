@@ -23,6 +23,9 @@ class Main extends JFrame {
     private JButton compile;
     private final Output out = new Output();
 
+    //JButtons color
+    Color color_jb = new Color(128, 191, 255);
+
     //component sizes
     private final int add_project_size = 30;
     private final int compile_width = 200;
@@ -59,6 +62,7 @@ class Main extends JFrame {
 
         //CONFIGURE JFRAME
         upd_frame_size();
+        contentPane.setBackground(Color.WHITE);
         this.setResizable(false);
         this.setLocationRelativeTo(null);//null: centers window
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -78,7 +82,7 @@ class Main extends JFrame {
      * Adds a new Project panel
      */
     private void nouProjectPan() {
-        project_panel = new ProjectPanel();
+        project_panel = new ProjectPanel(color_jb);
         project_panel.configureProjectPan(selected_projects.size() + 1);
         project_panel.addProjectPan(contentPane);
         selected_projects.add(project_panel);
@@ -94,7 +98,7 @@ class Main extends JFrame {
         add_project.setMargin(new Insets(0, 0, 0, 0));
         add_project.setFont(new Font("Arial", Font.PLAIN, 20));
         add_project.setBounds(50, panel_height - 100, add_project_size, add_project_size);
-        add_project.setBackground(new java.awt.Color(186, 195, 211));
+        add_project.setBackground(color_jb);
         contentPane.add(add_project);
 
         add_project.addActionListener(new ActionListener() {
@@ -123,7 +127,7 @@ class Main extends JFrame {
         compile = new JButton("Compile all");
         compile.setFont(new Font("Arial", Font.PLAIN, 20));
         compile.setBounds(160 + add_project_size, panel_height - 100, compile_width, compile_height);
-        compile.setBackground(new java.awt.Color(186, 195, 211));
+        compile.setBackground(color_jb);
         contentPane.add(compile);
 
         compile.addActionListener(new ActionListener() {
@@ -151,12 +155,21 @@ class Main extends JFrame {
                         //reset success value
                         success = true;
                         allTicksToFalse();
+                        colorizeSelected();
                         compileChosen();
                     }
                 });
                 t_compile.start();
             }
         });
+    }
+
+    private void colorizeSelected() {
+        for (int i = 0; i < selected_projects.size(); i++) {
+            if (selected_projects.get(i).getFc().isChosen()) {
+                selected_projects.get(i).colorizeProjectPane();
+            }
+        }
     }
 
     /**

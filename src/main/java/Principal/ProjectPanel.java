@@ -22,7 +22,11 @@ class ProjectPanel extends JPanel {
     private final JButton jb_git;
     private BufferedImage tick;
     private final JLabel tickLabel;
-    private final Border border;
+
+    //Border and colors for components
+    private final Border border = BorderFactory.createLineBorder(Color.GRAY, 1);
+    private Color color_jb;
+    private Color color_jl = new Color(204, 230, 255);
 
     //File chooser for the jb_fc button
     private final FileChooser fc = new FileChooser();
@@ -47,15 +51,18 @@ class ProjectPanel extends JPanel {
 
     /**
      * Initializes project panel components
+     *
+     * @param color_jb
      */
-    public ProjectPanel() {
+    public ProjectPanel(Color color_jb) {
+        this.color_jb = color_jb;
         this.jl_order = new JLabel("", SwingConstants.CENTER);
-        this.border = BorderFactory.createLineBorder(Color.GRAY, 1);
         this.jl_path = new JLabel(". . .", SwingConstants.CENTER);
         fc.setProjectName(jl_path);
         this.jb_fc = fc.getGo();
+        this.jb_fc.setBackground(Color.WHITE);
         this.jb_git = new JButton("Git");
-        this.jb_git.setBackground(new java.awt.Color(186, 195, 211));
+        this.jb_git.setBackground(Color.WHITE);
         try {
             //noinspection ConstantConditions
             this.tick = ImageIO.read(getClass().getClassLoader().getResource("tick.png"));
@@ -89,7 +96,7 @@ class ProjectPanel extends JPanel {
         this.jb_git.setBorder(border);
         this.tickLabel.setBounds(jb_git.getBounds().x + jbs_width + x_margin,
                 y_initial * n - 5, tickLabel_size, tickLabel_size);
-        //this.tickLabel.setVisible(false);
+        this.tickLabel.setVisible(false);
     }
 
     /**
@@ -103,6 +110,23 @@ class ProjectPanel extends JPanel {
         contentPane.add(this.jb_fc);
         contentPane.add(this.jb_git);
         contentPane.add(this.tickLabel);
+    }
+
+    /**
+     * Sets Project panel components background color
+     */
+    public void colorizeProjectPane() {
+        this.jl_order.setOpaque(true);
+        this.jl_order.setBackground(color_jl);
+
+        this.jl_path.setOpaque(true);
+        this.jl_path.setBackground(color_jl);
+
+        this.jb_fc.setOpaque(true);
+        this.jb_fc.setBackground(this.color_jb);
+
+        this.jb_git.setOpaque(true);
+        this.jb_git.setBackground(this.color_jb);
     }
 
     /**

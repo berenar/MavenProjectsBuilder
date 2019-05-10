@@ -27,7 +27,6 @@ public class FileChooser extends JPanel implements ActionListener {
      */
     public FileChooser() {
         go = new JButton("Local");
-        go.setBackground(new java.awt.Color(186, 195, 211));
         go.addActionListener(this);
         add(go);
         chosen = false;
