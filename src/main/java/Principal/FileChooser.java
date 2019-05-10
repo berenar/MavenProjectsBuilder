@@ -26,7 +26,7 @@ public class FileChooser extends JPanel implements ActionListener {
      * Constructor for the FileChooser class
      */
     public FileChooser() {
-        go = new JButton("Choose");
+        go = new JButton("Local");
         go.setBackground(new java.awt.Color(186, 195, 211));
         go.addActionListener(this);
         add(go);

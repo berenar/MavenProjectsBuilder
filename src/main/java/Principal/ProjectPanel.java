@@ -17,12 +17,12 @@ class ProjectPanel extends JPanel {
 
     //Swing components
     private final JLabel jl_order;
-    private final Border jl_order_border;
     private final JLabel jl_path;
     private final JButton jb_fc;
-    private final Border fc_border;
+    private final JButton jb_git;
     private BufferedImage tick;
     private final JLabel tickLabel;
+    private final Border border;
 
     //File chooser for the jb_fc button
     private final FileChooser fc = new FileChooser();
@@ -38,8 +38,8 @@ class ProjectPanel extends JPanel {
     private final int jl_order_size = 30;
     private final int jl_path_width = 400;
     private final int jl_path_height = 30;
-    private final int jb_fc_width = 90;
-    private final int jb_fc_height = 30;
+    private final int jbs_width = 90;
+    private final int jbs_height = 30;
     private final int tickLabel_size = 35;
 
     //id of the project
@@ -50,11 +50,12 @@ class ProjectPanel extends JPanel {
      */
     public ProjectPanel() {
         this.jl_order = new JLabel("", SwingConstants.CENTER);
-        this.jl_order_border = BorderFactory.createLineBorder(Color.GRAY, 1);
+        this.border = BorderFactory.createLineBorder(Color.GRAY, 1);
         this.jl_path = new JLabel(". . .", SwingConstants.CENTER);
         fc.setProjectName(jl_path);
         this.jb_fc = fc.getGo();
-        this.fc_border = BorderFactory.createLineBorder(Color.GRAY, 1);
+        this.jb_git = new JButton("Git");
+        this.jb_git.setBackground(new java.awt.Color(186, 195, 211));
         try {
             //noinspection ConstantConditions
             this.tick = ImageIO.read(getClass().getClassLoader().getResource("tick.png"));
@@ -76,17 +77,19 @@ class ProjectPanel extends JPanel {
      */
     public void configureProjectPan(int n) {
         this.id = n;
-        jl_order.setText(String.valueOf(id));
-        jl_order.setBounds(x_initial, y_initial * n, jl_order_size, jl_order_size);
-        jl_order.setBorder(jl_order_border);
-        jl_path.setBounds(x_initial + jl_order_size + x_margin,
+        this.jl_order.setText(String.valueOf(id));
+        this.jl_order.setBounds(x_initial, y_initial * n, jl_order_size, jl_order_size);
+        this.jl_order.setBorder(border);
+        this.jl_path.setBounds(jl_order.getBounds().x + jl_order_size + x_margin,
                 y_initial * n, jl_path_width, jl_path_height);
-        jl_path.setBorder(fc_border);
-        jb_fc.setBounds(x_initial + jl_order_size + jl_path_width + x_margin * 2,
-                y_initial * n, jb_fc_width, jb_fc_height);
-        tickLabel.setBounds(x_initial + jl_order_size + jl_path_width + tickLabel_size + x_margin * 9,
+        this.jl_path.setBorder(border);
+        this.jb_fc.setBounds(jl_path.getBounds().x + jl_path_width + x_margin,
+                y_initial * n, jbs_width, jbs_height);
+        this.jb_git.setBounds(jb_fc.getBounds().x + jbs_width + x_margin, y_initial * n, jbs_width, jbs_height);
+        this.jb_git.setBorder(border);
+        this.tickLabel.setBounds(jb_git.getBounds().x + jbs_width + x_margin,
                 y_initial * n - 5, tickLabel_size, tickLabel_size);
-        tickLabel.setVisible(false);
+        //this.tickLabel.setVisible(false);
     }
 
     /**
@@ -95,10 +98,11 @@ class ProjectPanel extends JPanel {
      * @param contentPane JFrame
      */
     public void addProjectPan(Container contentPane) {
-        contentPane.add(jl_order);
-        contentPane.add(jl_path);
-        contentPane.add(jb_fc);
-        contentPane.add(tickLabel);
+        contentPane.add(this.jl_order);
+        contentPane.add(this.jl_path);
+        contentPane.add(this.jb_fc);
+        contentPane.add(this.jb_git);
+        contentPane.add(this.tickLabel);
     }
 
     /**

@@ -13,7 +13,7 @@ class Main extends JFrame {
     private final ArrayList<ProjectPanel> selected_projects = new ArrayList<ProjectPanel>();
 
     //JFrame size
-    private final int panel_width = (Toolkit.getDefaultToolkit().getScreenSize().width / 3) + 50;
+    private final int panel_width = (Toolkit.getDefaultToolkit().getScreenSize().width / 3) + 150;
     private int panel_height = 150;
 
     //Swing components
@@ -28,8 +28,9 @@ class Main extends JFrame {
     private final int compile_width = 200;
     private final int compile_height = 30;
 
-    //command to execute
+    //commands to execute
     private final String compileCommand = "mvn clean install";
+    private final String cloneCommand = "git clone";
 
     //to know if all projects compiled
     private boolean success = true;
