@@ -7,7 +7,17 @@ import java.io.InputStreamReader;
 
 class ProcessBuilder {
 
+    /**
+     * Executes a command in a terminal and outputs results
+     *
+     * @param out         Console where results will be displayed
+     * @param command     the command to execute
+     * @param contentPane JFrame
+     * @param id          project id
+     * @throws Exception thrown if something went wrong
+     */
     public void executeCommand(Output out, String command, Container contentPane, int id) throws Exception {
+        //Set the cursor to a wait cursor
         contentPane.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 
         java.lang.ProcessBuilder processBuilder = new java.lang.ProcessBuilder();
@@ -31,6 +41,7 @@ class ProcessBuilder {
                 throw new Exception();
             }
         }
+        //sets the cursor to it's default value
         contentPane.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
     }
 }
