@@ -10,26 +10,29 @@ import java.util.ArrayList;
 
 class Main extends JFrame {
 
-    private final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-
     private final ArrayList<ProjectPanel> selected_projects = new ArrayList<ProjectPanel>();
 
-    private final int panel_width = (screenSize.width / 3) + 50;
+    //JFrame size
+    private final int panel_width = (Toolkit.getDefaultToolkit().getScreenSize().width / 3) + 50;
     private int panel_height = 150;
 
+    //Swing components
     private Container contentPane;
     private ProjectPanel project_panel;
     private JButton add_project;
     private JButton compile;
+    private final Output out = new Output();
 
+    //component sizes
     private final int add_project_size = 30;
     private final int compile_width = 200;
     private final int compile_height = 30;
 
+    //command to execute
     private final String compileCommand = "mvn clean install";
-    private boolean success = true;
 
-    private final Output out = new Output();
+    //to know if all projects compiled
+    private boolean success = true;
 
     private Main() {
         initUI();
@@ -55,10 +58,10 @@ class Main extends JFrame {
 
         //CONFIGURE JFRAME
         upd_frame_size();
-//        this.setResizable(false);
+        this.setResizable(false);
         this.setLocationRelativeTo(null);//null: centers window
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setTitle("mvnCompiler 1.1");
+        this.setTitle("mvnCompiler 1.2");
         try {
             //noinspection ConstantConditions
             this.setIconImage(ImageIO.read(getClass().getClassLoader().getResource("mvn_logo_2.png")));
@@ -68,9 +71,11 @@ class Main extends JFrame {
             System.out.println("Error reading image: mvn_logo_2.png");
             System.exit(1);
         }
-
     }
 
+    /**
+     * Adds a new Project panel
+     */
     private void nouProjectPan() {
         project_panel = new ProjectPanel();
         project_panel.configureProjectPan(selected_projects.size() + 1);
@@ -80,6 +85,9 @@ class Main extends JFrame {
         upd_frame_size();
     }
 
+    /**
+     * Adds a new Add Project button (+)
+     */
     private void nouAddProject() {
         add_project = new JButton("+");
         add_project.setMargin(new Insets(0, 0, 0, 0));
@@ -107,6 +115,9 @@ class Main extends JFrame {
         });
     }
 
+    /**
+     * Adds a new compile button (Compile all)
+     */
     private void nouCompile() {
         compile = new JButton("Compile all");
         compile.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -147,6 +158,9 @@ class Main extends JFrame {
         });
     }
 
+    /**
+     * Updates the JFrame size with the current values for the width and height
+     */
     private void upd_frame_size() {
         this.setSize(panel_width, panel_height);
     }
@@ -158,7 +172,7 @@ class Main extends JFrame {
             if (selected_projects.get(i).getFc().isChosen()) {
                 String path = selected_projects.get(i).getFc().getPath();
                 try {
-                    pb.executeCommand(out, "cd " + "\"" + path + "\"" + " && " + compileCommand, getContentPane(),selected_projects.get(i).getId());
+                    pb.executeCommand(out, "cd " + "\"" + path + "\"" + " && " + compileCommand, getContentPane(), selected_projects.get(i).getId());
                 } catch (Exception e) {
                     contentPane.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
                     JOptionPane.showMessageDialog(getContentPane(),
@@ -180,13 +194,18 @@ class Main extends JFrame {
         }
     }
 
+    /**
+     * Sets all project ticks to false for a new compilation
+     */
     private void allTicksToFalse() {
         for (int i = 0; i < selected_projects.size(); i++) {
             selected_projects.get(i).getTickLabel().setVisible(false);
         }
-        repaint();
     }
 
+    /**
+     * @return = true if at least one project is selected in the file chooser
+     */
     private boolean anySelectedProjects() {
         boolean oneOrMore = false;
         for (int i = 0; i < selected_projects.size(); i++) {
@@ -197,11 +216,13 @@ class Main extends JFrame {
         return oneOrMore;
     }
 
+    /**
+     * Updates add_project and compile buttons bounds to match a new screen size
+     */
     private void reSetBounds() {
         add_project.setBounds(50, panel_height - 100, add_project_size, add_project_size);
         compile.setBounds(160 + add_project_size, panel_height - 100, compile_width, compile_height);
     }
-
 
     public static void main(String[] args) {
         Main ex = new Main();

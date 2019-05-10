@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>brnt</groupId>
     <artifactId>mvnCompiler</artifactId>
-    <version>1.1</version>
+    <version>1.2</version>
 
     <build>
         <plugins>
@@ -45,9 +45,8 @@
                         </goals>
                         <configuration>
                             <headerType>gui</headerType>
-                            <outfile>target/mvnCompiler.exe</outfile>
+                            <outfile>target/mvnCompiler-${project.version}.exe</outfile>
                             <jar>target/${project.artifactId}-${project.version}.jar</jar>
-                            <!-- if <dontWrapJar>true</dontWrapJar> change to this conf <jar>${project.artifactId}-${project.version}.jar</jar> -->
                             <dontWrapJar>false</dontWrapJar>
                             <errTitle>Error in launch4j plugin</errTitle>
                             <classPath>
@@ -63,7 +62,7 @@
                                 <fileVersion>1.0.0.0</fileVersion>
                                 <txtFileVersion>1.0.0.0</txtFileVersion>
                                 <fileDescription>des</fileDescription>
-                                <copyright>Copyright (c) 2014 </copyright>
+                                <copyright>Copyright (c) 2014</copyright>
                                 <companyName>comp</companyName>
                                 <productVersion>3.0.0.0</productVersion>
                                 <txtProductVersion>${project.version}</txtProductVersion>
