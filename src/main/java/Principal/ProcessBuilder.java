@@ -24,7 +24,7 @@ class ProcessBuilder {
         processBuilder.command("cmd.exe", "/c", command);
         Process process = processBuilder.start();
         BufferedReader reader =
-                new BufferedReader(new InputStreamReader(process.getInputStream()));
+                new BufferedReader(new InputStreamReader(process.getInputStream(),"UTF-8"));
         String line;
         while ((line = reader.readLine()) != null) {
             System.out.println(line);
