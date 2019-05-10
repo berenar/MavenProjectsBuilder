@@ -29,14 +29,16 @@ class Output {
         scrollPane.setBounds(0, previous_panel_height - 23, panel_width - 15, output_height - 15);
         contentPane.add(scrollPane);
 
+        //auto scroll to the last line
+        console.setCaretPosition(console.getDocument().getLength());
+
         output_visible = true;
         return panel_height;
     }
 
-    public int removeOutput(Container contentPane, int panel_height, int panel_width) {
+    public int removeOutput(Container contentPane, int panel_height) {
         contentPane.remove(scrollPane);
         panel_height = panel_height - output_height;
-        //contentPane.setSize(panel_width, panel_height);
 
         output_visible = false;
         return panel_height;
@@ -50,3 +52,4 @@ class Output {
         return console;
     }
 }
+

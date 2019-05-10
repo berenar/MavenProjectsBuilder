@@ -29,7 +29,7 @@ class Main extends JFrame {
     private final String compileCommand = "mvn clean install";
     private boolean success = true;
 
-    private Output out = new Output();
+    private final Output out = new Output();
 
     private Main() {
         initUI();
@@ -91,15 +91,15 @@ class Main extends JFrame {
         add_project.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                boolean temporaly_removed = false;
+                boolean temporary_removed = false;
                 nouProjectPan();
                 if (out.isOutput_visible()) {
-                    temporaly_removed = true;
-                    panel_height = out.removeOutput(contentPane, panel_height, panel_width);
+                    temporary_removed = true;
+                    panel_height = out.removeOutput(contentPane, panel_height);
                     upd_frame_size();
                 }
                 reSetBounds();
-                if (temporaly_removed) {
+                if (temporary_removed) {
                     panel_height = out.addOutput(contentPane, panel_height, panel_width);
                     upd_frame_size();
                 }
@@ -158,7 +158,7 @@ class Main extends JFrame {
             if (selected_projects.get(i).getFc().isChosen()) {
                 String path = selected_projects.get(i).getFc().getPath();
                 try {
-                    pb.executeCommand(out, "cd " + "\"" + path + "\"" + " && " + compileCommand, getContentPane());
+                    pb.executeCommand(out, "cd " + "\"" + path + "\"" + " && " + compileCommand, getContentPane(),selected_projects.get(i).getId());
                 } catch (Exception e) {
                     contentPane.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
                     JOptionPane.showMessageDialog(getContentPane(),
