@@ -1,7 +1,10 @@
 package Principal;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Font;
 
 class Output {
 
@@ -25,9 +28,10 @@ class Output {
 
     /**
      * Adds the console to the bottom of the JFrame and sets output_visible to true
-     * @param contentPane JFrame contents
+     *
+     * @param contentPane  JFrame contents
      * @param panel_height JFrame height
-     * @param panel_width JFrame width
+     * @param panel_width  JFrame width
      * @return updated panel_height
      */
     public int addOutput(Container contentPane, int panel_height, int panel_width) {
@@ -52,7 +56,8 @@ class Output {
 
     /**
      * Removes the console of the JFrame and sets output_visible to false
-     * @param contentPane JFrame contents
+     *
+     * @param contentPane  JFrame contents
      * @param panel_height JFrame height
      * @return updated panel_height
      */
@@ -66,6 +71,7 @@ class Output {
 
     /**
      * Getter for output_visible
+     *
      * @return true if output_visible is true
      */
     public boolean isOutput_visible() {
@@ -74,6 +80,7 @@ class Output {
 
     /**
      * Getter for console
+     *
      * @return console
      */
     public JTextArea getConsole() {

@@ -1,44 +1,53 @@
 package Principal;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.Border;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Container;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 class ProjectPanel extends JPanel {
 
-
-    private final int x_initial = 50;
-    private final int y_initial = 50;
-
-    private final int x_margin = 10;
-
-    private final int jl_order_size = 30;
-
-    private final int jl_path_width = 400;
-
-    private final int jl_path_height = 30;
-
-    private final int jb_fc_width = 90;
-    private final int jb_fc_height = 30;
-
+    //Swing components
     private final JLabel jl_order;
     private final Border jl_order_border;
-
     private final JLabel jl_path;
     private final JButton jb_fc;
     private final Border fc_border;
     private BufferedImage tick;
-
     private final JLabel tickLabel;
-    private final int tickLabel_size = 35;
 
-    private int id;
-
+    //File chooser for the jb_fc button
     private final FileChooser fc = new FileChooser();
 
+    //Where to start painting components
+    private final int x_initial = 50;
+    private final int y_initial = 50;
+
+    //JFrame margin
+    private final int x_margin = 10;
+
+    //Component sizes
+    private final int jl_order_size = 30;
+    private final int jl_path_width = 400;
+    private final int jl_path_height = 30;
+    private final int jb_fc_width = 90;
+    private final int jb_fc_height = 30;
+    private final int tickLabel_size = 35;
+
+    //id of the project
+    private int id;
+
+    /**
+     * Initializes project panel components
+     */
     public ProjectPanel() {
         this.jl_order = new JLabel("", SwingConstants.CENTER);
         this.jl_order_border = BorderFactory.createLineBorder(Color.GRAY, 1);
@@ -58,6 +67,13 @@ class ProjectPanel extends JPanel {
         this.tickLabel = new JLabel(new ImageIcon(this.tick));
     }
 
+    /**
+     * Sets id for the project
+     * Sets project panel components bounds
+     * Sets the tickLabel to false
+     *
+     * @param n id
+     */
     public void configureProjectPan(int n) {
         this.id = n;
         jl_order.setText(String.valueOf(id));
@@ -73,6 +89,11 @@ class ProjectPanel extends JPanel {
         tickLabel.setVisible(false);
     }
 
+    /**
+     * Adds project panel components to the JFrame
+     *
+     * @param contentPane JFrame
+     */
     public void addProjectPan(Container contentPane) {
         contentPane.add(jl_order);
         contentPane.add(jl_path);
@@ -80,18 +101,38 @@ class ProjectPanel extends JPanel {
         contentPane.add(tickLabel);
     }
 
+    /**
+     * Getter for fc File Chooser
+     *
+     * @return file chooser
+     */
     public FileChooser getFc() {
         return fc;
     }
 
+    /**
+     * Getter for the JLabel path
+     *
+     * @return JLabel path
+     */
     public int getJl_path_height() {
         return jl_path_height;
     }
 
+    /**
+     * Getter for the project id
+     *
+     * @return id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Getter for the tickLabel
+     *
+     * @return tickLabel
+     */
     public JLabel getTickLabel() {
         return tickLabel;
     }

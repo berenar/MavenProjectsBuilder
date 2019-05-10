@@ -1,6 +1,7 @@
 package Principal;
 
-import java.awt.*;
+import java.awt.Container;
+import java.awt.Cursor;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
