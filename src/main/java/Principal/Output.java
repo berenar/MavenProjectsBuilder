@@ -26,7 +26,7 @@ class Output {
         console.setForeground(Color.WHITE);
 
         scrollPane = new JScrollPane(console);
-        scrollPane.setBounds(0, previous_panel_height - 12, panel_width - 5, output_height - 15);
+        scrollPane.setBounds(0, previous_panel_height - 23, panel_width - 15, output_height - 15);
         contentPane.add(scrollPane);
 
         output_visible = true;
