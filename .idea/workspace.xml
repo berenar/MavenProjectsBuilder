@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9af1c438-9010-47fe-8454-f8fc81abc00b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Principal/ProjectPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Principal/ProjectPanel.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -28,7 +28,7 @@
             <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Main.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="77">
-                  <caret line="178" column="5" lean-forward="true" selection-start-line="178" selection-start-column="5" selection-end-line="178" selection-end-column="5" />
+                  <caret line="178" column="5" selection-start-line="178" selection-start-column="5" selection-end-line="178" selection-end-column="5" />
                 </state>
               </provider>
             </entry>
@@ -36,8 +36,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="510">
-                  <caret line="120" column="64" selection-start-line="120" selection-start-column="56" selection-end-line="120" selection-end-column="64" />
+                <state relative-caret-position="442">
+                  <caret line="115" column="67" selection-start-line="115" selection-start-column="67" selection-end-line="115" selection-end-column="67" />
                   <folding>
                     <element signature="e#3490#3649#0" expanded="true" />
                     <element signature="e#3648#3649#0" expanded="true" />
@@ -54,7 +54,7 @@
             <entry file="file://$PROJECT_DIR$/src/main/java/Principal/FileChooser.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="952">
-                  <caret line="59" column="51" lean-forward="true" selection-start-line="59" selection-start-column="51" selection-end-line="59" selection-end-column="51" />
+                  <caret line="59" column="51" selection-start-line="59" selection-start-column="51" selection-end-line="59" selection-end-column="51" />
                   <folding>
                     <element signature="e#3132#3133#0" expanded="true" />
                     <element signature="e#3281#3282#0" expanded="true" />
@@ -494,14 +494,7 @@
       <workItem from="1557471220095" duration="6196000" />
       <workItem from="1557483547486" duration="247000" />
       <workItem from="1557730739842" duration="2636000" />
-      <workItem from="1557733893347" duration="12126000" />
-    </task>
-    <task id="LOCAL-00017" summary="proves amb jlist duna llista de proj_pans">
-      <created>1556795289461</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1556795289461</updated>
+      <workItem from="1557733893347" duration="12400000" />
     </task>
     <task id="LOCAL-00018" summary="intent de jlist de panels, pero no se pot pq cellrenderer nomes mostra Strings">
       <created>1556866942288</created>
@@ -839,11 +832,18 @@
       <option name="project" value="LOCAL" />
       <updated>1557747469507</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="corregida comanda de clone pero tampoc funciona">
+      <created>1557747990315</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1557747990315</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="151325000" />
+    <option name="totallyTimeSpent" value="151599000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -856,6 +856,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.059168443" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -867,7 +868,7 @@
       <window_info anchor="bottom" id="Messages" order="0" weight="0.2636656" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.3290461" />
-      <window_info active="true" anchor="bottom" x="32" y="841" width="1876" height="125" id="Run" order="3" sideWeight="0.49840087" type="SLIDING" visible="true" weight="0.1329046" />
+      <window_info anchor="bottom" x="32" y="841" width="1876" height="125" id="Run" order="3" sideWeight="0.49840087" type="SLIDING" weight="0.1329046" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.42979637" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -904,7 +905,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="proves permetent llegir imatges des de jar canviant la manera en q es llegeixen" />
     <MESSAGE value="funciona llegir les imatges des de intellij i usant:&#10;image = ImageIO.read(getClass().getClassLoader().getResource(&quot;image.png&quot;)&#10;https://stackoverflow.com/questions/34099330/java-how-to-add-image-using-getresource" />
     <MESSAGE value="FUNCIONA LLEGIR LES IMATGES TANT A INTELLIJ COM AL JAR COM AL EXE" />
     <MESSAGE value="Versio 1.1" />
@@ -929,7 +929,8 @@
     <MESSAGE value="Added user feedback each 3 failed attempts" />
     <MESSAGE value="started git clone" />
     <MESSAGE value="no pareix q faci res el boto de Git" />
-    <option name="LAST_COMMIT_MESSAGE" value="no pareix q faci res el boto de Git" />
+    <MESSAGE value="corregida comanda de clone pero tampoc funciona" />
+    <option name="LAST_COMMIT_MESSAGE" value="corregida comanda de clone pero tampoc funciona" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/.name" />
@@ -1076,25 +1077,14 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="77">
-          <caret line="178" column="5" lean-forward="true" selection-start-line="178" selection-start-column="5" selection-end-line="178" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="120" column="64" selection-start-line="120" selection-start-column="56" selection-end-line="120" selection-end-column="64" />
-          <folding>
-            <element signature="e#3490#3649#0" expanded="true" />
-            <element signature="e#3648#3649#0" expanded="true" />
-          </folding>
+          <caret line="178" column="5" selection-start-line="178" selection-start-column="5" selection-end-line="178" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Principal/FileChooser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="952">
-          <caret line="59" column="51" lean-forward="true" selection-start-line="59" selection-start-column="51" selection-end-line="59" selection-end-column="51" />
+          <caret line="59" column="51" selection-start-line="59" selection-start-column="51" selection-end-line="59" selection-end-column="51" />
           <folding>
             <element signature="e#3132#3133#0" expanded="true" />
             <element signature="e#3281#3282#0" expanded="true" />
@@ -1109,6 +1099,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="426">
           <caret line="29" column="35" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="115" column="67" selection-start-line="115" selection-start-column="67" selection-end-line="115" selection-end-column="67" />
+          <folding>
+            <element signature="e#3490#3649#0" expanded="true" />
+            <element signature="e#3648#3649#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

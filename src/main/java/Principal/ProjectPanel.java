@@ -111,9 +111,9 @@ class ProjectPanel extends JPanel {
 
     private void prepareProject() {
         //Create destination directory
-        String dest_path = ".\\temp_git";
-        new File(dest_path).mkdir();
-        String curr_path = System.getProperty("user.dir");
+        //String dest_path = ".\\temp_git";
+        //new File(dest_path).mkdir();
+        String curr_path = System.getProperty("user.dir")+"\\1";
         System.out.println(curr_path);
 
         System.out.println(jtf_path.getText());
