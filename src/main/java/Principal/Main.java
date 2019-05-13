@@ -33,7 +33,6 @@ class Main extends JFrame {
 
     //commands to execute
     private final String compileCommand = "mvn clean install";
-    private final String cloneCommand = "git clone";
 
     //to know if all projects compiled
     private boolean success = true;

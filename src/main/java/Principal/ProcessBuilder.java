@@ -24,21 +24,25 @@ class ProcessBuilder {
         processBuilder.command("cmd.exe", "/c", command);
         Process process = processBuilder.start();
         BufferedReader reader =
-                new BufferedReader(new InputStreamReader(process.getInputStream(),"UTF-8"));
+                new BufferedReader(new InputStreamReader(process.getInputStream(), "UTF-8"));
         String line;
         while ((line = reader.readLine()) != null) {
             System.out.println(line);
             out.getConsole().append(" " + line + "\n");
             out.getConsole().setCaretPosition(out.getConsole().getDocument().getLength());
-            if (line.contains("BUILD FAILURE")) {
-                out.getConsole().append(" \n");
-                out.getConsole().append(" \n");
-                out.getConsole().append(" ****************************************" + "\n");
-                out.getConsole().append(" *  Error compiling project number  " + id + " *" + "\n");
-                out.getConsole().append(" ****************************************" + "\n");
-                out.getConsole().append(" \n");
-                out.getConsole().append(" \n");
-                throw new Exception();
+            if (command == "mvn clean install") {
+                if (line.contains("BUILD FAILURE")) {
+                    out.getConsole().append(" \n");
+                    out.getConsole().append(" \n");
+                    out.getConsole().append(" ****************************************" + "\n");
+                    out.getConsole().append(" *  Error compiling project number  " + id + " *" + "\n");
+                    out.getConsole().append(" ****************************************" + "\n");
+                    out.getConsole().append(" \n");
+                    out.getConsole().append(" \n");
+                    throw new Exception();
+                }
+            } else if (command == "git clone") {
+
             }
         }
         //sets the cursor to it's default value

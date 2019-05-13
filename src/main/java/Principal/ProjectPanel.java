@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
 
 class ProjectPanel extends JPanel {
 
@@ -19,6 +20,7 @@ class ProjectPanel extends JPanel {
     private final JButton jb_git;
     private BufferedImage tick;
     private final JLabel tickLabel;
+    private final Output out = new Output();
 
     //Border and colors for components
     private final Border border = BorderFactory.createLineBorder(Color.GRAY, 1);
@@ -28,6 +30,7 @@ class ProjectPanel extends JPanel {
     //File chooser for the jb_fc button
     private final FileChooser fc = new FileChooser();
 
+    private final String cloneCommand = "git clone";
 
     //Where to start painting components
     private final int x_initial = 50;
@@ -97,12 +100,24 @@ class ProjectPanel extends JPanel {
         jb_git.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                prepareProject();
             }
         });
         this.tickLabel.setBounds(jb_git.getBounds().x + jbs_width + x_margin,
                 y_initial * n - 5, tickLabel_size, tickLabel_size);
         this.tickLabel.setVisible(false);
+    }
+
+    private void prepareProject() {
+        System.out.println(jtf_path.getText());
+        ProcessBuilder pb = new ProcessBuilder();
+        try {
+            pb.executeCommand(out, "cd " + "\"" + jtf_path.getText() + "\"" + " && " + cloneCommand,
+                    this, 0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
 

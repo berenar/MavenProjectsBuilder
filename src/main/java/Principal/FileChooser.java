@@ -10,7 +10,7 @@ public class FileChooser extends JPanel implements ActionListener {
     //FileChooser components
     private final JButton go;
     private JFileChooser chooser;
-    private JTextField projectName; //pointed by ProjectPanel.jl_path
+    private JTextField projectName; //pointed by ProjectPanel.jtf_path
 
     //FileChooser Title and path
     private final String chooser_title = "Select a project directory";

@@ -5,13 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Principal/FileChooser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Principal/FileChooser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Principal/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Principal/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Principal/ProcessBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Principal/ProcessBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Principal/repoChooser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Principal/FileChooser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Principal/FileChooser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Principal/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Principal/Main$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Principal/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Principal/Main$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Principal/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Principal/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Principal/ProjectPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Principal/ProjectPanel.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -29,23 +24,27 @@
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="true" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.48513675">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Main.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="442">
-                  <caret line="140" column="63" selection-start-line="140" selection-start-column="63" selection-end-line="140" selection-end-column="63" />
+                <state relative-caret-position="357">
+                  <caret line="194" column="95" selection-start-line="194" selection-start-column="43" selection-end-line="194" selection-end-column="95" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1134">
-                  <caret line="99" selection-start-line="99" selection-end-line="99" />
+                <state relative-caret-position="425">
+                  <caret line="114" column="68" selection-start-line="114" selection-start-column="68" selection-end-line="114" selection-end-column="68" />
+                  <folding>
+                    <element signature="e#3490#3649#0" expanded="true" />
+                    <element signature="e#3648#3649#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -57,15 +56,24 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/Principal/FileChooser.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="618">
-                  <caret line="83" column="69" selection-start-line="83" selection-start-column="69" selection-end-line="83" selection-end-column="69" />
+                <state relative-caret-position="153">
+                  <caret line="12" column="70" selection-start-line="12" selection-start-column="70" selection-end-line="12" selection-end-column="70" />
                   <folding>
-                    <element signature="e#3123#3124#0" expanded="true" />
-                    <element signature="e#3272#3273#0" expanded="true" />
-                    <element signature="e#3473#3474#0" expanded="true" />
-                    <element signature="e#3617#3618#0" expanded="true" />
-                    <element signature="e#3778#3779#0" expanded="true" />
+                    <element signature="e#3132#3133#0" expanded="true" />
+                    <element signature="e#3281#3282#0" expanded="true" />
+                    <element signature="e#3482#3483#0" expanded="true" />
+                    <element signature="e#3626#3627#0" expanded="true" />
+                    <element signature="e#3787#3788#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/Principal/ProcessBuilder.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="443">
+                  <caret line="30" column="46" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="46" />
                 </state>
               </provider>
             </entry>
@@ -83,8 +91,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>rep</find>
-      <find>closeJDialog</find>
       <find>image</find>
       <find>print</find>
       <find>add</find>
@@ -98,7 +104,6 @@
       <find>t1</find>
       <find>addout</find>
       <find>setsiz</find>
-      <find>out</find>
       <find>exec</find>
       <find>screenSize</find>
       <find>mvnC</find>
@@ -111,8 +116,11 @@
       <find>class</find>
       <find>classL</find>
       <find>upd_frame_size</find>
-      <find>fc</find>
       <find>compile</find>
+      <find>fc</find>
+      <find>mvn</find>
+      <find>content</find>
+      <find>out</find>
     </findStrings>
     <replaceStrings>
       <replace>button_fl</replace>
@@ -208,11 +216,11 @@
         <option value="$PROJECT_DIR$/src/main/java/Principal/TextAreaNotEditable.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/Principal/Output.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Principal/ProcessBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/java/Principal/repoChooser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/ProcessBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/java/Principal/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/Principal/FileChooser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java" />
       </list>
     </option>
   </component>
@@ -489,14 +497,7 @@
       <workItem from="1557471220095" duration="6196000" />
       <workItem from="1557483547486" duration="247000" />
       <workItem from="1557730739842" duration="2636000" />
-      <workItem from="1557733893347" duration="9070000" />
-    </task>
-    <task id="LOCAL-00014" summary="Revert &quot;la finestra es redimensiona segons el nombre de Project_pan's&quot;&#10;&#10;This reverts commit 37b3976e">
-      <created>1556786279655</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1556786279655</updated>
+      <workItem from="1557733893347" duration="10938000" />
     </task>
     <task id="LOCAL-00015" summary="afegit jlabel per l'ordre">
       <created>1556787651365</created>
@@ -834,11 +835,18 @@
       <option name="project" value="LOCAL" />
       <updated>1557737940718</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="Added user feedback each 3 failed attempts">
+      <created>1557744841304</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1557744841304</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="148269000" />
+    <option name="totallyTimeSpent" value="150137000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -900,7 +908,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="proves canviant el imageio.read pero no funciona" />
     <MESSAGE value="Revert &quot;proves canviant el imageio.read pero no funciona&quot;&#10;&#10;This reverts commit 43c7d5df" />
     <MESSAGE value="funciona executant des de intelliJ, pero no executant el jar o l'exe" />
     <MESSAGE value="proves permetent llegir imatges des de jar canviant la manera en q es llegeixen" />
@@ -925,7 +932,8 @@
     <MESSAGE value="no es llegeixen els accents, o almanco no s'escriuen correctament al output" />
     <MESSAGE value="començada classe repoChooser" />
     <MESSAGE value="sha de llevar la classe repoChooser&#10;el path de git es posara al jlabel q ja hi ha&#10;i depenent de si es tria local o git es fara una accio o una altra" />
-    <option name="LAST_COMMIT_MESSAGE" value="sha de llevar la classe repoChooser&#10;el path de git es posara al jlabel q ja hi ha&#10;i depenent de si es tria local o git es fara una accio o una altra" />
+    <MESSAGE value="Added user feedback each 3 failed attempts" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added user feedback each 3 failed attempts" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/.name" />
@@ -1048,13 +1056,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/ProcessBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Output.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -1076,30 +1077,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/ProcessBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1134">
-          <caret line="99" selection-start-line="99" selection-end-line="99" />
+        <state relative-caret-position="443">
+          <caret line="30" column="46" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="140" column="63" selection-start-line="140" selection-start-column="63" selection-end-line="140" selection-end-column="63" />
+        <state relative-caret-position="357">
+          <caret line="194" column="95" selection-start-line="194" selection-start-column="43" selection-end-line="194" selection-end-column="95" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Principal/FileChooser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="618">
-          <caret line="83" column="69" selection-start-line="83" selection-start-column="69" selection-end-line="83" selection-end-column="69" />
+        <state relative-caret-position="153">
+          <caret line="12" column="70" selection-start-line="12" selection-start-column="70" selection-end-line="12" selection-end-column="70" />
           <folding>
-            <element signature="e#3123#3124#0" expanded="true" />
-            <element signature="e#3272#3273#0" expanded="true" />
-            <element signature="e#3473#3474#0" expanded="true" />
-            <element signature="e#3617#3618#0" expanded="true" />
-            <element signature="e#3778#3779#0" expanded="true" />
+            <element signature="e#3132#3133#0" expanded="true" />
+            <element signature="e#3281#3282#0" expanded="true" />
+            <element signature="e#3482#3483#0" expanded="true" />
+            <element signature="e#3626#3627#0" expanded="true" />
+            <element signature="e#3787#3788#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="114" column="68" selection-start-line="114" selection-start-column="68" selection-end-line="114" selection-end-column="68" />
+          <folding>
+            <element signature="e#3490#3649#0" expanded="true" />
+            <element signature="e#3648#3649#0" expanded="true" />
           </folding>
         </state>
       </provider>
