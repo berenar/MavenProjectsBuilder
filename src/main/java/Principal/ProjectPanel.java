@@ -13,7 +13,6 @@ import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
 class ProjectPanel extends JPanel {
@@ -67,7 +66,7 @@ class ProjectPanel extends JPanel {
         fc.setProjectName(jl_path);
         this.jb_fc = fc.getGo();
         this.jb_fc.setBackground(Color.WHITE);
-        this.jb_git = rc.getGo();
+        this.jb_git = new JButton("Git");
         this.jb_git.setBackground(Color.WHITE);
         try {
             //noinspection ConstantConditions
@@ -101,6 +100,12 @@ class ProjectPanel extends JPanel {
                 y_initial * n, jbs_width, jbs_height);
         this.jb_git.setBounds(jb_fc.getBounds().x + jbs_width + x_margin, y_initial * n, jbs_width, jbs_height);
         this.jb_git.setBorder(border);
+        jb_git.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                rc.open();
+            }
+        });
         this.tickLabel.setBounds(jb_git.getBounds().x + jbs_width + x_margin,
                 y_initial * n - 5, tickLabel_size, tickLabel_size);
         this.tickLabel.setVisible(false);
@@ -171,10 +176,5 @@ class ProjectPanel extends JPanel {
      */
     public JLabel getTickLabel() {
         return tickLabel;
-    }
-
-    private void createTempDir() {
-        String path = ".\\temp_git";
-        new File(path).mkdir();
     }
 }
