@@ -8,6 +8,7 @@ import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -109,10 +110,15 @@ class ProjectPanel extends JPanel {
     }
 
     private void prepareProject() {
+        //Create destination directory
+        String dest_path = ".\\temp_git";
+        new File(dest_path).mkdir();
+        String curr_path = System.getProperty("user.dir");
+
         System.out.println(jtf_path.getText());
         ProcessBuilder pb = new ProcessBuilder();
         try {
-            pb.executeCommand(out, "cd " + "\"" + jtf_path.getText() + "\"" + " && " + cloneCommand,
+            pb.executeCommand(out, cloneCommand + " " + jtf_path + curr_path + "\"" + dest_path,
                     this, 0);
         } catch (Exception e) {
             e.printStackTrace();
