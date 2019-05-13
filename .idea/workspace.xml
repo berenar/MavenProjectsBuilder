@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9af1c438-9010-47fe-8454-f8fc81abc00b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Principal/ProjectPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Principal/ProjectPanel.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -36,8 +36,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="442">
-                  <caret line="115" column="67" selection-start-line="115" selection-start-column="67" selection-end-line="115" selection-end-column="67" />
+                <state relative-caret-position="522">
+                  <caret line="121" column="55" selection-start-line="121" selection-start-column="55" selection-end-line="121" selection-end-column="55" />
                   <folding>
                     <element signature="e#3490#3649#0" expanded="true" />
                     <element signature="e#3648#3649#0" expanded="true" />
@@ -88,7 +88,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>image</find>
       <find>print</find>
       <find>add</find>
       <find>ico</find>
@@ -118,6 +117,7 @@
       <find>mvn</find>
       <find>content</find>
       <find>out</find>
+      <find>curr_path</find>
     </findStrings>
     <replaceStrings>
       <replace>button_fl</replace>
@@ -133,6 +133,7 @@
       <replace>repaintButtons</replace>
       <replace>reSetBounds</replace>
       <replace>t_compile</replace>
+      <replace>dest_path</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\Users\bernat.pericas\Documents\MvnCompiler\src\main\java\Principal</dir>
@@ -494,14 +495,7 @@
       <workItem from="1557471220095" duration="6196000" />
       <workItem from="1557483547486" duration="247000" />
       <workItem from="1557730739842" duration="2636000" />
-      <workItem from="1557733893347" duration="12400000" />
-    </task>
-    <task id="LOCAL-00018" summary="intent de jlist de panels, pero no se pot pq cellrenderer nomes mostra Strings">
-      <created>1556866942288</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1556866942289</updated>
+      <workItem from="1557733893347" duration="12986000" />
     </task>
     <task id="LOCAL-00019" summary="boto add_proj afegeix un nou project_pan i es repinta mes avall pero no redimensiona la finestra">
       <created>1556871810136</created>
@@ -839,11 +833,18 @@
       <option name="project" value="LOCAL" />
       <updated>1557747990315</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="ja funciona el clone pero falta decidir els directoris">
+      <created>1557748155252</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1557748155252</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="151599000" />
+    <option name="totallyTimeSpent" value="152185000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -868,7 +869,7 @@
       <window_info anchor="bottom" id="Messages" order="0" weight="0.2636656" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.3290461" />
-      <window_info anchor="bottom" x="32" y="841" width="1876" height="125" id="Run" order="3" sideWeight="0.49840087" type="SLIDING" weight="0.1329046" />
+      <window_info active="true" anchor="bottom" x="32" y="841" width="1876" height="125" id="Run" order="3" sideWeight="0.49840087" type="SLIDING" visible="true" weight="0.1329046" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.42979637" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -905,7 +906,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="funciona llegir les imatges des de intellij i usant:&#10;image = ImageIO.read(getClass().getClassLoader().getResource(&quot;image.png&quot;)&#10;https://stackoverflow.com/questions/34099330/java-how-to-add-image-using-getresource" />
     <MESSAGE value="FUNCIONA LLEGIR LES IMATGES TANT A INTELLIJ COM AL JAR COM AL EXE" />
     <MESSAGE value="Versio 1.1" />
     <MESSAGE value="s'afegeix el jtextarea pero no es redimensiona be el frame" />
@@ -930,7 +930,8 @@
     <MESSAGE value="started git clone" />
     <MESSAGE value="no pareix q faci res el boto de Git" />
     <MESSAGE value="corregida comanda de clone pero tampoc funciona" />
-    <option name="LAST_COMMIT_MESSAGE" value="corregida comanda de clone pero tampoc funciona" />
+    <MESSAGE value="ja funciona el clone pero falta decidir els directoris" />
+    <option name="LAST_COMMIT_MESSAGE" value="ja funciona el clone pero falta decidir els directoris" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/.name" />
@@ -1104,8 +1105,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="115" column="67" selection-start-line="115" selection-start-column="67" selection-end-line="115" selection-end-column="67" />
+        <state relative-caret-position="522">
+          <caret line="121" column="55" selection-start-line="121" selection-start-column="55" selection-end-line="121" selection-end-column="55" />
           <folding>
             <element signature="e#3490#3649#0" expanded="true" />
             <element signature="e#3648#3649#0" expanded="true" />

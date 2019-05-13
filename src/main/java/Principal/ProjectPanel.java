@@ -102,6 +102,7 @@ class ProjectPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 prepareProject();
+                //TODO: actualitzar el jtfpath amb el dest_path
             }
         });
         this.tickLabel.setBounds(jb_git.getBounds().x + jbs_width + x_margin,
@@ -111,21 +112,16 @@ class ProjectPanel extends JPanel {
 
     private void prepareProject() {
         //Create destination directory
-        //String dest_path = ".\\temp_git";
-        //new File(dest_path).mkdir();
-        String curr_path = System.getProperty("user.dir")+"\\1";
-        System.out.println(curr_path);
-
-        System.out.println(jtf_path.getText());
+        String dest_path = System.getProperty("user.dir") + "\\git_temp";
         ProcessBuilder pb = new ProcessBuilder();
-        String com = cloneCommand + " " + jtf_path.getText() + " " + curr_path;
+        String com = cloneCommand + " " + jtf_path.getText() + " " + dest_path;
         System.out.println(com);
         try {
             pb.executeCommand(out, com, this, 0);
         } catch (Exception e) {
             e.printStackTrace();
+            System.out.println("Error fent el git clone");
         }
-
     }
 
 
