@@ -10,7 +10,10 @@ import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 
 class ProjectPanel extends JPanel {
@@ -30,6 +33,9 @@ class ProjectPanel extends JPanel {
 
     //File chooser for the jb_fc button
     private final FileChooser fc = new FileChooser();
+
+    //Repository chooser for jb_git
+    private final repoChooser rc = new repoChooser();
 
     //Where to start painting components
     private final int x_initial = 50;
@@ -61,7 +67,7 @@ class ProjectPanel extends JPanel {
         fc.setProjectName(jl_path);
         this.jb_fc = fc.getGo();
         this.jb_fc.setBackground(Color.WHITE);
-        this.jb_git = new JButton("Git");
+        this.jb_git = rc.getGo();
         this.jb_git.setBackground(Color.WHITE);
         try {
             //noinspection ConstantConditions
@@ -79,6 +85,7 @@ class ProjectPanel extends JPanel {
      * Sets id for the project
      * Sets project panel components bounds
      * Sets the tickLabel to false
+     * Sets jb_git action
      *
      * @param n id
      */
@@ -98,6 +105,7 @@ class ProjectPanel extends JPanel {
                 y_initial * n - 5, tickLabel_size, tickLabel_size);
         this.tickLabel.setVisible(false);
     }
+
 
     /**
      * Adds project panel components to the JFrame
@@ -165,4 +173,8 @@ class ProjectPanel extends JPanel {
         return tickLabel;
     }
 
+    private void createTempDir() {
+        String path = ".\\temp_git";
+        new File(path).mkdir();
+    }
 }

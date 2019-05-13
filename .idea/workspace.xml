@@ -2,15 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9af1c438-9010-47fe-8454-f8fc81abc00b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Principal/repoChooser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Principal/FileChooser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Principal/FileChooser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Principal/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Principal/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Principal/Output.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Principal/Output.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Principal/FileChooser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Principal/FileChooser.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Principal/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Principal/Main$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Principal/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Principal/Main$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Principal/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Principal/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Principal/ProcessBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Principal/ProcessBuilder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Principal/ProjectPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Principal/ProjectPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -32,21 +36,30 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="83" column="34" lean-forward="true" selection-start-line="83" selection-start-column="34" selection-end-line="83" selection-end-column="34" />
-              <folding>
-                <element signature="e#325#339#0" expanded="true" />
-                <element signature="e#5906#5907#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="204">
+              <caret line="64" column="21" selection-start-line="64" selection-start-column="21" selection-end-line="64" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="69" column="33" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Principal/repoChooser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1802">
-              <caret line="117" column="35" selection-start-line="117" selection-start-column="16" selection-end-line="117" selection-end-column="35" />
+            <state relative-caret-position="561">
+              <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#765#766#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -54,12 +67,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Principal/FileChooser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="47" column="26" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
-              <folding>
-                <element signature="e#2086#2087#0" expanded="true" />
-                <element signature="e#2132#2133#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="238">
+              <caret line="30" column="16" lean-forward="true" selection-start-line="28" selection-start-column="8" selection-end-line="30" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -67,17 +76,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Principal/ProcessBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="26" column="84" selection-start-line="26" selection-start-column="84" selection-end-line="26" selection-end-column="84" />
+            <state relative-caret-position="238">
+              <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Output.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="44" column="39" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
+            <state relative-caret-position="408">
+              <caret line="28" column="40" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -86,7 +95,7 @@
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
-              <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+              <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -102,8 +111,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>repaintButtons</find>
-      <find>path</find>
       <find>id</find>
       <find>icon</find>
       <find>chosen</find>
@@ -132,6 +139,8 @@
       <find>border</find>
       <find>color</find>
       <find>opaque</find>
+      <find>class</find>
+      <find>classL</find>
     </findStrings>
     <replaceStrings>
       <replace>button_fl</replace>
@@ -226,11 +235,12 @@
         <option value="$PROJECT_DIR$/src/main/java/Principal/s.java" />
         <option value="$PROJECT_DIR$/src/main/java/Principal/TextAreaNotEditable.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/Principal/ProcessBuilder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java" />
         <option value="$PROJECT_DIR$/src/main/java/Principal/FileChooser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Principal/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/Principal/Output.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/ProcessBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/repoChooser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java" />
       </list>
     </option>
   </component>
@@ -243,7 +253,17 @@
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
-      <expand />
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="mvnCompiler" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="mvnCompiler" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
       <select />
     </treeState>
   </component>
@@ -261,7 +281,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -299,6 +318,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -461,8 +481,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Maven.mvnCompiler [clean,package]" />
         <item itemvalue="Maven.mvnCompiler [clean,package,install]" />
+        <item itemvalue="Maven.mvnCompiler [clean,package]" />
         <item itemvalue="Maven.mvnCompiler [clean]" />
         <item itemvalue="Maven.mvnCompiler [package]" />
       </list>
@@ -496,20 +516,8 @@
       <workItem from="1557385495454" duration="13254000" />
       <workItem from="1557471220095" duration="6196000" />
       <workItem from="1557483547486" duration="247000" />
-    </task>
-    <task id="LOCAL-00010" summary="es poden crear nous proj_pan">
-      <created>1556779506083</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1556779506083</updated>
-    </task>
-    <task id="LOCAL-00011" summary="es poden crear nous proj_pan">
-      <created>1556782054963</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1556782054963</updated>
+      <workItem from="1557730739842" duration="2636000" />
+      <workItem from="1557733893347" duration="2014000" />
     </task>
     <task id="LOCAL-00012" summary="la finestra es redimensiona segons el nombre de Project_pan's">
       <created>1556783120826</created>
@@ -840,11 +848,25 @@
       <option name="project" value="LOCAL" />
       <updated>1557487047839</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="changed color palette to blue">
+      <created>1557489455528</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1557489455528</updated>
+    </task>
+    <task id="LOCAL-00060" summary="no es llegeixen els accents, o almanco no s'escriuen correctament al output">
+      <created>1557489796961</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1557489796961</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136130000" />
+    <option name="totallyTimeSpent" value="141213000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -859,7 +881,7 @@
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17537314" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17857143" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -869,7 +891,7 @@
       <window_info anchor="bottom" id="Messages" order="0" weight="0.2636656" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.3290461" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49840087" visible="true" weight="0.21114683" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49840087" visible="true" weight="0.17792068" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.21221864" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -906,8 +928,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="els ticks es mostren una vegada ha acabat de compilar, no durant cada iteracio" />
-    <MESSAGE value="prova: moure imatge tick al main, pero no, tampoc funciona be" />
     <MESSAGE value="ho fa be amb aquesta solucio https://www.dreamincode.net/forums/topic/299309-close-a-joptionpane-window-using-code/&#10;pero no sempre, a vegades es tanca el dialog massa rapid" />
     <MESSAGE value="es pinten els ticks correctament en compilar cada projecte, encara que s'ha aconseguit fent una xapussa" />
     <MESSAGE value="proves canviant el imageio.read pero no funciona" />
@@ -931,7 +951,9 @@
     <MESSAGE value="prova de commit" />
     <MESSAGE value="prova de commit des de master local" />
     <MESSAGE value="boto Git afegit, pero no fa res" />
-    <option name="LAST_COMMIT_MESSAGE" value="boto Git afegit, pero no fa res" />
+    <MESSAGE value="changed color palette to blue" />
+    <MESSAGE value="no es llegeixen els accents, o almanco no s'escriuen correctament al output" />
+    <option name="LAST_COMMIT_MESSAGE" value="no es llegeixen els accents, o almanco no s'escriuen correctament al output" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/.name" />
@@ -1054,53 +1076,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+        <state relative-caret-position="204">
+          <caret line="64" column="21" selection-start-line="64" selection-start-column="21" selection-end-line="64" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/ProcessBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="83" column="34" lean-forward="true" selection-start-line="83" selection-start-column="34" selection-end-line="83" selection-end-column="34" />
-          <folding>
-            <element signature="e#325#339#0" expanded="true" />
-            <element signature="e#5906#5907#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="238">
+          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Output.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="28" column="40" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Principal/FileChooser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="47" column="26" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
+        <state relative-caret-position="238">
+          <caret line="30" column="16" lean-forward="true" selection-start-line="28" selection-start-column="8" selection-end-line="30" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/repoChooser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
           <folding>
-            <element signature="e#2086#2087#0" expanded="true" />
-            <element signature="e#2132#2133#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#765#766#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1802">
-          <caret line="117" column="35" selection-start-line="117" selection-start-column="16" selection-end-line="117" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/ProcessBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="26" column="84" selection-start-line="26" selection-start-column="84" selection-end-line="26" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Output.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="44" column="39" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
+        <state relative-caret-position="425">
+          <caret line="69" column="33" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="33" />
         </state>
       </provider>
     </entry>
