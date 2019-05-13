@@ -114,12 +114,14 @@ class ProjectPanel extends JPanel {
         String dest_path = ".\\temp_git";
         new File(dest_path).mkdir();
         String curr_path = System.getProperty("user.dir");
+        System.out.println(curr_path);
 
         System.out.println(jtf_path.getText());
         ProcessBuilder pb = new ProcessBuilder();
+        String com = cloneCommand + " " + jtf_path.getText() + " " + curr_path;
+        System.out.println(com);
         try {
-            pb.executeCommand(out, cloneCommand + " " + jtf_path + curr_path + "\"" + dest_path,
-                    this, 0);
+            pb.executeCommand(out, com, this, 0);
         } catch (Exception e) {
             e.printStackTrace();
         }
