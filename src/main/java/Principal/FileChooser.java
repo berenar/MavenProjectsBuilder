@@ -1,9 +1,6 @@
 package Principal;
 
-import javax.swing.JButton;
-import javax.swing.JFileChooser;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,7 +10,7 @@ public class FileChooser extends JPanel implements ActionListener {
     //FileChooser components
     private final JButton go;
     private JFileChooser chooser;
-    private JLabel projectName; //pointed by ProjectPanel.jl_path
+    private JTextField projectName; //pointed by ProjectPanel.jl_path
 
     //FileChooser Title and path
     private final String chooser_title = "Select a project directory";
@@ -21,6 +18,9 @@ public class FileChooser extends JPanel implements ActionListener {
 
     //true if the project has been chosen
     private boolean chosen;
+
+
+    private int retry;
 
     /**
      * Constructor for the FileChooser class
@@ -38,17 +38,56 @@ public class FileChooser extends JPanel implements ActionListener {
      * @param e event
      */
     public void actionPerformed(ActionEvent e) {
-        chooser = new JFileChooser();
-        chooser.setCurrentDirectory(new java.io.File(System.getProperty("user.home")));
-        chooser.setDialogTitle(chooser_title);
-        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-            projectName.setText(chooser.getSelectedFile().getName());
-            path = chooser.getSelectedFile().getPath();
+        retry++;
+        if (retry >= 3) {
+            //User has failed 3 attempts to select a project
+            userFeedback("local");
+        } else if (!projectName.getText().isEmpty()) {
+            //User has manually introduced an URL
+            path = projectName.getText();
             chosen = true;
         } else {
-            System.out.println("No Selection");
+            chooser = new JFileChooser();
+            chooser.setCurrentDirectory(new java.io.File(System.getProperty("user.home")));
+            chooser.setDialogTitle(chooser_title);
+            chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+            if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+                path = chooser.getSelectedFile().getPath();
+                projectName.setText(path);
+                chosen = true;
+                retry = 0;
+            } else {
+                System.out.println("No Selection");
+            }
         }
+    }
+
+    public void userFeedback(String button) {
+        switch (button) {
+            case "local":
+                //Invoked clicking Local button
+                if (projectName.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(this,
+                            "You have to select a project or input its path",
+                            "Quick tip",
+                            JOptionPane.PLAIN_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(this,
+                            "You have already selected the project: \n" + path,
+                            "Quick tip",
+                            JOptionPane.PLAIN_MESSAGE);
+                }
+                retry = 0;
+                break;
+            case "compile":
+                //Invoked using Compile all button
+                JOptionPane.showMessageDialog(this,
+                        "Click Local or Git buttons to submit the URL",
+                        "Quick tip",
+                        JOptionPane.PLAIN_MESSAGE);
+                break;
+        }
+
     }
 
     /**
@@ -74,7 +113,7 @@ public class FileChooser extends JPanel implements ActionListener {
      *
      * @param projectName project name
      */
-    public void setProjectName(JLabel projectName) {
+    public void setProjectName(JTextField projectName) {
         this.projectName = projectName;
     }
 

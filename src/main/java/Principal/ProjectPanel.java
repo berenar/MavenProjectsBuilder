@@ -1,12 +1,7 @@
 package Principal;
 
 import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.Color;
 import java.awt.Container;
@@ -19,7 +14,7 @@ class ProjectPanel extends JPanel {
 
     //Swing components
     private final JLabel jl_order;
-    private final JLabel jl_path;
+    private final JTextField jtf_path;
     private final JButton jb_fc;
     private final JButton jb_git;
     private BufferedImage tick;
@@ -33,8 +28,6 @@ class ProjectPanel extends JPanel {
     //File chooser for the jb_fc button
     private final FileChooser fc = new FileChooser();
 
-    //Repository chooser for jb_git
-    private final repoChooser rc = new repoChooser();
 
     //Where to start painting components
     private final int x_initial = 50;
@@ -62,8 +55,9 @@ class ProjectPanel extends JPanel {
     public ProjectPanel(Color color_jb) {
         this.color_jb = color_jb;
         this.jl_order = new JLabel("", SwingConstants.CENTER);
-        this.jl_path = new JLabel(". . .", SwingConstants.CENTER);
-        fc.setProjectName(jl_path);
+        this.jtf_path = new JTextField();
+        this.jtf_path.setHorizontalAlignment(JTextField.CENTER);
+        fc.setProjectName(jtf_path);
         this.jb_fc = fc.getGo();
         this.jb_fc.setBackground(Color.WHITE);
         this.jb_git = new JButton("Git");
@@ -93,17 +87,17 @@ class ProjectPanel extends JPanel {
         this.jl_order.setText(String.valueOf(id));
         this.jl_order.setBounds(x_initial, y_initial * n, jl_order_size, jl_order_size);
         this.jl_order.setBorder(border);
-        this.jl_path.setBounds(jl_order.getBounds().x + jl_order_size + x_margin,
+        this.jtf_path.setBounds(jl_order.getBounds().x + jl_order_size + x_margin,
                 y_initial * n, jl_path_width, jl_path_height);
-        this.jl_path.setBorder(border);
-        this.jb_fc.setBounds(jl_path.getBounds().x + jl_path_width + x_margin,
+        this.jtf_path.setBorder(border);
+        this.jb_fc.setBounds(jtf_path.getBounds().x + jl_path_width + x_margin,
                 y_initial * n, jbs_width, jbs_height);
         this.jb_git.setBounds(jb_fc.getBounds().x + jbs_width + x_margin, y_initial * n, jbs_width, jbs_height);
         this.jb_git.setBorder(border);
         jb_git.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                rc.open();
+
             }
         });
         this.tickLabel.setBounds(jb_git.getBounds().x + jbs_width + x_margin,
@@ -119,7 +113,7 @@ class ProjectPanel extends JPanel {
      */
     public void addProjectPan(Container contentPane) {
         contentPane.add(this.jl_order);
-        contentPane.add(this.jl_path);
+        contentPane.add(this.jtf_path);
         contentPane.add(this.jb_fc);
         contentPane.add(this.jb_git);
         contentPane.add(this.tickLabel);
@@ -132,8 +126,8 @@ class ProjectPanel extends JPanel {
         this.jl_order.setOpaque(true);
         this.jl_order.setBackground(color_jl);
 
-        this.jl_path.setOpaque(true);
-        this.jl_path.setBackground(color_jl);
+        this.jtf_path.setOpaque(true);
+        this.jtf_path.setBackground(color_jl);
 
         this.jb_fc.setOpaque(true);
         this.jb_fc.setBackground(this.color_jb);

@@ -38,6 +38,8 @@ class Main extends JFrame {
     //to know if all projects compiled
     private boolean success = true;
 
+    private int retry;
+
     private Main() {
         initUI();
     }
@@ -47,8 +49,9 @@ class Main extends JFrame {
         contentPane.setLayout(null);
 
         //TITLE
-        JLabel title_app = new JLabel("Select projects to be compiled");
-        title_app.setBounds(((panel_width / 2) - 90), 0, panel_width, 50);
+        JLabel title_app = new JLabel("Introduce a project path manually (and click Local) or click " +
+                "one of the two buttons to select a project");
+        title_app.setBounds(100, 0, panel_width, 50);
         contentPane.add(title_app);
 
         //PROJECT PANEL
@@ -134,7 +137,11 @@ class Main extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (!out.isOutput_visible()) {
+                retry++;
+                if (retry >= 3) {
+                    project_panel.getFc().userFeedback("compile");
+                    retry = 0;
+                } else if (!out.isOutput_visible()) {
                     //Thread for the output
                     Thread t_out = new Thread(new Runnable() {
                         @Override
