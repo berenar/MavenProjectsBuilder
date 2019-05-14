@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.sql.SQLOutput;
 
 class ProjectPanel extends JPanel {
 
@@ -50,6 +51,11 @@ class ProjectPanel extends JPanel {
 
     //true if project has been cloned
     private boolean cloned = false;
+
+    String git_url;
+    String nom_repo;
+    String dest_path;
+    String com;
 
     /**
      * Initializes project panel components
@@ -117,23 +123,31 @@ class ProjectPanel extends JPanel {
      * Sets the project as chosen
      */
     private void prepareProject() {
-        String git_url = jtf_path.getText();
-        //Get substring of the repository name
-        String nom_repo = git_url.substring(git_url.lastIndexOf("/") + 1, git_url.indexOf(".git"));
-        //Create destination directory
-        String dest_path = System.getProperty("user.dir") + "\\.git_temp\\" + nom_repo;
-        ProcessBuilder pb = new ProcessBuilder();
-        String com = cloneCommand + " " + git_url + " " + dest_path;
-        try {
-            cloned = pb.executeCommand(com);
-            this.fc.setChosen(true);
-            this.jtf_path.setText(nom_repo);
-            this.fc.setPath(dest_path);
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Error cloning git repository");
-        }
+        //Thread for the cloning process
+        Thread t_clone = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                jb_git.setText("Cloning...");
+                git_url = jtf_path.getText();
+                //Get substring of the repository name
+                nom_repo = git_url.substring(git_url.lastIndexOf("/") + 1, git_url.indexOf(".git"));
+                //Create destination directory
+                dest_path = System.getProperty("user.dir") + "\\.git_temp\\" + nom_repo;
+                ProcessBuilder pb = new ProcessBuilder();
+                com = cloneCommand + " " + git_url + " " + dest_path;
+                try {
+                    cloned = pb.executeCommand(com);
+                } catch (IOException | InterruptedException e) {
+                    e.printStackTrace();
+                }
+                fc.setChosen(true);
+                jtf_path.setText(nom_repo);
+                fc.setPath(dest_path);
+                jb_git.setText("Cloned");
+            }
+        });
 
+        t_clone.start();
     }
 
 
