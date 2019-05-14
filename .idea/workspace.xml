@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9af1c438-9010-47fe-8454-f8fc81abc00b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Principal/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Principal/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Principal/ProcessBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Principal/ProcessBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Principal/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Principal/Main$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Principal/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Principal/Main$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Principal/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Principal/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Principal/ProcessBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Principal/ProcessBuilder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Principal/ProjectPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Principal/ProjectPanel.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -26,29 +32,37 @@
     <splitter split-orientation="horizontal" split-proportion="0.5490779">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Main.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="266">
-                  <caret line="202" column="55" lean-forward="true" selection-start-line="199" selection-start-column="20" selection-end-line="202" selection-end-column="55" />
+                <state relative-caret-position="306">
+                  <caret line="180" column="45" selection-start-line="180" selection-start-column="45" selection-end-line="180" selection-end-column="45" />
                   <folding>
                     <element signature="e#325#339#0" expanded="true" />
-                    <element signature="e#5261#5601#0" expanded="true" />
-                    <element signature="e#5600#5601#0" expanded="true" />
+                    <element signature="e#3304#4059#0" expanded="true" />
+                    <element signature="e#4058#4059#0" expanded="true" />
+                    <element signature="e#5814#6227#0" expanded="true" />
+                    <element signature="e#6226#6227#0" expanded="true" />
+                    <element signature="e#7467#7468#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="203">
-                  <caret line="127" column="21" lean-forward="true" selection-start-line="127" selection-start-column="21" selection-end-line="127" selection-end-column="21" />
+                <state relative-caret-position="269">
+                  <caret line="55" column="35" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
                   <folding>
                     <element signature="e#3419#3631#0" expanded="true" />
                     <element signature="e#3630#3631#0" expanded="true" />
+                    <element signature="e#4095#4683#0" expanded="true" />
                     <element signature="e#4682#4683#0" expanded="true" />
+                    <element signature="e#5726#5727#0" expanded="true" />
+                    <element signature="e#5758#5759#0" expanded="true" />
+                    <element signature="e#6791#6792#0" expanded="true" />
+                    <element signature="e#6821#6822#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -58,11 +72,11 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/Principal/FileChooser.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="251">
-                  <caret line="128" selection-start-line="128" selection-end-line="128" />
+                <state relative-caret-position="476">
+                  <caret line="61" column="13" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
                   <folding>
                     <element signature="e#3086#3087#0" expanded="true" />
                     <element signature="e#3132#3133#0" expanded="true" />
@@ -83,10 +97,10 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/Principal/ProcessBuilder.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="353">
+                <state relative-caret-position="531">
                   <caret line="54" column="46" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
                 </state>
               </provider>
@@ -105,9 +119,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>allTicksToFalse</find>
-      <find>jre</find>
-      <find>ticks</find>
       <find>t1</find>
       <find>addout</find>
       <find>setsiz</find>
@@ -122,10 +133,8 @@
       <find>class</find>
       <find>classL</find>
       <find>upd_frame_size</find>
-      <find>compile</find>
       <find>fc</find>
       <find>mvn</find>
-      <find>content</find>
       <find>curr_path</find>
       <find>color</find>
       <find>prepareProject</find>
@@ -135,6 +144,11 @@
       <find>compile all</find>
       <find>cloned</find>
       <find>thre</find>
+      <find>content</find>
+      <find>finished</find>
+      <find>cloning</find>
+      <find>anyProjectCloning</find>
+      <find>compile</find>
     </findStrings>
     <replaceStrings>
       <replace>button_fl</replace>
@@ -232,10 +246,10 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/Principal/Output.java" />
         <option value="$PROJECT_DIR$/src/main/java/Principal/repoChooser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Principal/ProcessBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/java/Principal/FileChooser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Principal/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/ProcessBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/Main.java" />
       </list>
     </option>
   </component>
@@ -477,14 +491,7 @@
       <workItem from="1557483547486" duration="247000" />
       <workItem from="1557730739842" duration="2636000" />
       <workItem from="1557733893347" duration="12986000" />
-      <workItem from="1557817307988" duration="8526000" />
-    </task>
-    <task id="LOCAL-00022" summary="es redimensiona la finestra al afegir un nou ProjectPanel">
-      <created>1556880309410</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1556880309410</updated>
+      <workItem from="1557817307988" duration="10855000" />
     </task>
     <task id="LOCAL-00023" summary="Codi analitzat i corregit">
       <created>1556881527561</created>
@@ -822,11 +829,18 @@
       <option name="project" value="LOCAL" />
       <updated>1557824091134</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="el cloning process es fa en 2n pla i no bloqueja l'execució">
+      <created>1557827871658</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1557827871658</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="160711000" />
+    <option name="totallyTimeSpent" value="163040000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -851,7 +865,7 @@
       <window_info anchor="bottom" id="Messages" order="0" weight="0.2636656" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.3290461" />
-      <window_info active="true" anchor="bottom" auto_hide="true" x="32" y="841" width="1876" height="125" id="Run" order="3" sideWeight="0.49840087" visible="true" weight="0.22400858" />
+      <window_info active="true" anchor="bottom" auto_hide="true" x="32" y="841" width="1876" height="125" id="Run" order="3" sideWeight="0.49840087" visible="true" weight="0.20257235" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.42979637" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -893,7 +907,6 @@
       <path value="$PROJECT_DIR$/git_temp" />
       <path value="$PROJECT_DIR$/temp_git" />
     </ignored-roots>
-    <MESSAGE value="abans de passar l'output a una classe a part" />
     <MESSAGE value="ara les accions del boto de compilar es llancen en un nou thread&#10;ja no fa falta fer la xapussa del dialog ocult" />
     <MESSAGE value="output a una classe apart, no hi ha errors pero per algun motiu no es redimensiona el frame i per tant no es veu l'output" />
     <MESSAGE value="ja es redimensiona correctament el frame amb l'output, falta que les linies a l'output no es sobrescriguin, pq ara per ara nomes en mostra una i borra l'anterior" />
@@ -918,7 +931,8 @@
     <MESSAGE value="despres del code analisis no funciona" />
     <MESSAGE value="funciona el git clone" />
     <MESSAGE value="funciona, falta fer que executi el clone en un nou thread per no bloquejar la app" />
-    <option name="LAST_COMMIT_MESSAGE" value="funciona, falta fer que executi el clone en un nou thread per no bloquejar la app" />
+    <MESSAGE value="el cloning process es fa en 2n pla i no bloqueja l'execució" />
+    <option name="LAST_COMMIT_MESSAGE" value="el cloning process es fa en 2n pla i no bloqueja l'execució" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/.name" />
@@ -1056,17 +1070,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Principal/repoChooser.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/ProcessBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="54" column="46" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Principal/FileChooser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="128" selection-start-line="128" selection-end-line="128" />
+        <state relative-caret-position="476">
+          <caret line="61" column="13" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
           <folding>
             <element signature="e#3086#3087#0" expanded="true" />
             <element signature="e#3132#3133#0" expanded="true" />
@@ -1086,26 +1093,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/ProcessBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="202" column="55" lean-forward="true" selection-start-line="199" selection-start-column="20" selection-end-line="202" selection-end-column="55" />
-          <folding>
-            <element signature="e#325#339#0" expanded="true" />
-            <element signature="e#5261#5601#0" expanded="true" />
-            <element signature="e#5600#5601#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="531">
+          <caret line="54" column="46" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="127" column="21" lean-forward="true" selection-start-line="127" selection-start-column="21" selection-end-line="127" selection-end-column="21" />
+        <state relative-caret-position="269">
+          <caret line="55" column="35" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
           <folding>
             <element signature="e#3419#3631#0" expanded="true" />
             <element signature="e#3630#3631#0" expanded="true" />
+            <element signature="e#4095#4683#0" expanded="true" />
             <element signature="e#4682#4683#0" expanded="true" />
+            <element signature="e#5726#5727#0" expanded="true" />
+            <element signature="e#5758#5759#0" expanded="true" />
+            <element signature="e#6791#6792#0" expanded="true" />
+            <element signature="e#6821#6822#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="180" column="45" selection-start-line="180" selection-start-column="45" selection-end-line="180" selection-end-column="45" />
+          <folding>
+            <element signature="e#325#339#0" expanded="true" />
+            <element signature="e#3304#4059#0" expanded="true" />
+            <element signature="e#4058#4059#0" expanded="true" />
+            <element signature="e#5814#6227#0" expanded="true" />
+            <element signature="e#6226#6227#0" expanded="true" />
+            <element signature="e#7467#7468#0" expanded="true" />
           </folding>
         </state>
       </provider>

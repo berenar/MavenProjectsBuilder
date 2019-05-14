@@ -53,6 +53,7 @@ class ProcessBuilder {
 
     /**
      * Executes a simple command in background
+     *
      * @param command
      * @return true when the process has finished
      * @throws IOException
@@ -62,8 +63,7 @@ class ProcessBuilder {
         java.lang.ProcessBuilder processBuilder = new java.lang.ProcessBuilder();
         processBuilder.command("cmd.exe", "/c", command);
         Process process = processBuilder.start();
-        System.out.println(process.waitFor());
-        System.out.println("HA ACABAT");
+        process.waitFor();
         return true;
     }
 }

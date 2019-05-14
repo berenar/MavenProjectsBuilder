@@ -49,7 +49,10 @@ class ProjectPanel extends JPanel {
     //id of the project
     private int id;
 
-    //true if project has been cloned
+    //true if the project is being cloned
+    private boolean cloning = false;
+
+    //true if project has finished cloning
     private boolean cloned = false;
 
     String git_url;
@@ -127,6 +130,7 @@ class ProjectPanel extends JPanel {
         Thread t_clone = new Thread(new Runnable() {
             @Override
             public void run() {
+                cloning = true;
                 jb_git.setText("Cloning...");
                 git_url = jtf_path.getText();
                 //Get substring of the repository name
@@ -143,6 +147,7 @@ class ProjectPanel extends JPanel {
                 fc.setChosen(true);
                 jtf_path.setText(nom_repo);
                 fc.setPath(dest_path);
+                cloning = false;
                 jb_git.setText("Cloned");
             }
         });
@@ -215,5 +220,9 @@ class ProjectPanel extends JPanel {
      */
     public JLabel getTickLabel() {
         return tickLabel;
+    }
+
+    public boolean isCloning() {
+        return cloning;
     }
 }

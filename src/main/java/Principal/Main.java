@@ -34,6 +34,8 @@ class Main extends JFrame {
     //commands to execute
     private final String compileCommand = "mvn clean install";
 
+    private boolean compiling = false;
+
     //to know if all projects compiled
     private boolean success = true;
 
@@ -106,17 +108,19 @@ class Main extends JFrame {
         add_project.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                boolean temporary_removed = false;
-                nouProjectPan();
-                if (out.isOutput_visible()) {
-                    temporary_removed = true;
-                    panel_height = out.removeOutput(contentPane, panel_height);
-                    upd_frame_size();
-                }
-                reSetBounds();
-                if (temporary_removed) {
-                    panel_height = out.addOutput(contentPane, panel_height, panel_width);
-                    upd_frame_size();
+                if (!compiling) {
+                    boolean temporary_removed = false;
+                    nouProjectPan();
+                    if (out.isOutput_visible()) {
+                        temporary_removed = true;
+                        panel_height = out.removeOutput(contentPane, panel_height);
+                        upd_frame_size();
+                    }
+                    reSetBounds();
+                    if (temporary_removed) {
+                        panel_height = out.addOutput(contentPane, panel_height, panel_width);
+                        upd_frame_size();
+                    }
                 }
             }
         });
@@ -136,38 +140,70 @@ class Main extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                retry++;
-                if (retry >= 3) {
-                    project_panel.getFc().userFeedback("compile");
-                    retry = 0;
-                } else if (!out.isOutput_visible()) {
-                    //Thread for the output
-                    Thread t_out = new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (anySelectedProjects()) {
-                                panel_height = out.addOutput(contentPane, panel_height, panel_width);
-                                upd_frame_size();
-                            }
-                        }
-                    });
-                    t_out.start();
-                }
-
-                //Thread for the compilation
-                Thread t_compile = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        //reset success value
-                        success = true;
-                        allTicksToFalse();
-                        colorizeSelected();
-                        compileChosen();
+                if (anyProjectIsCloning()) {
+                    int reply = JOptionPane.showConfirmDialog(null,
+                            "There are projects being cloned, are you sure you want to start compiling?",
+                            "Hey",
+                            JOptionPane.YES_NO_OPTION);
+                    if (reply == JOptionPane.YES_OPTION) {
+                        actuallyCompile();
+                    } else {
+                        System.out.println("okay no fare res");
                     }
-                });
-                t_compile.start();
+                }
             }
         });
+    }
+
+    private void actuallyCompile() {
+        retry++;
+        if (retry >= 3) {
+            project_panel.getFc().userFeedback("compile");
+            retry = 0;
+        } else if (!out.isOutput_visible()) {
+            //Thread for the output
+            Thread t_out = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    if (anySelectedProjects()) {
+                        panel_height = out.addOutput(contentPane, panel_height, panel_width);
+                        upd_frame_size();
+                    }
+                }
+            });
+            t_out.start();
+        }
+
+        //Thread for the compilation
+        Thread t_compile = new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                //reset success value
+                success = true;
+                allTicksToFalse();
+                colorizeSelected();
+                compileChosen();
+            }
+        });
+        t_compile.start();
+    }
+
+    /**
+     * Checks if there is any project being cloned
+     *
+     * @return true if at least one is being cloned
+     */
+    private boolean anyProjectIsCloning() {
+        boolean atLeastOne = false;
+        for (int i = 0; i < selected_projects.size(); i++) {
+            if (selected_projects.get(i).isCloning()) {
+                atLeastOne = true;
+            }
+        }
+        System.out.println("cloning?" + atLeastOne);
+        return atLeastOne;
+
     }
 
     private void colorizeSelected() {
@@ -187,6 +223,7 @@ class Main extends JFrame {
 
 
     private void compileChosen() {
+        compiling = true;
         compile.setText("Compiling...");
         ProcessBuilder pb = new ProcessBuilder();
         for (int i = 0; i < selected_projects.size(); i++) {
@@ -207,14 +244,19 @@ class Main extends JFrame {
                 selected_projects.get(i).getTickLabel().setVisible(true);
             }
         }
-        compile.setText("Finished Compiling");
+
         //Last message if all went well
         if (success && anySelectedProjects()) {
+
+            compile.setText("Finished Compiling");
             JOptionPane.showMessageDialog(getContentPane(),
                     "All projects have been successfully compiled.",
                     "Success!",
                     JOptionPane.PLAIN_MESSAGE);
+        } else {
+            compile.setText("Compile all");
         }
+        compiling = false;
     }
 
     /**
