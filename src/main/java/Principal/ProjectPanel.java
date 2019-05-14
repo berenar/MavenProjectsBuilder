@@ -23,6 +23,7 @@ class ProjectPanel extends JPanel {
 
     //Border and colors for components
     private final Border border = BorderFactory.createLineBorder(Color.GRAY, 1);
+    private final Border emptyBorder = BorderFactory.createEmptyBorder(0, 0, 0, 0);
     private Color color_jb;
     private Color color_jl = new Color(204, 230, 255);
 
@@ -110,7 +111,7 @@ class ProjectPanel extends JPanel {
         jb_git.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (!cloned) {
+                if (!cloned && !jtf_path.getText().isEmpty()) {
                     prepareProject();
                 }
             }
@@ -173,17 +174,21 @@ class ProjectPanel extends JPanel {
      * Sets Project panel components background color
      */
     public void colorizeProjectPane() {
-        this.jl_order.setOpaque(true);
-        this.jl_order.setBackground(color_jl);
+        jl_order.setOpaque(true);
+        jl_order.setBackground(color_jl);
+        jl_order.setBorder(emptyBorder);
 
-        this.jtf_path.setOpaque(true);
-        this.jtf_path.setBackground(color_jl);
+        jtf_path.setOpaque(true);
+        jtf_path.setBackground(color_jl);
+        jtf_path.setBorder(emptyBorder);
 
-        this.jb_fc.setOpaque(true);
-        this.jb_fc.setBackground(this.color_jb);
+        jb_fc.setOpaque(true);
+        jb_fc.setBackground(this.color_jb);
+        jb_fc.setBorderPainted(false);
 
-        this.jb_git.setOpaque(true);
-        this.jb_git.setBackground(this.color_jb);
+        jb_git.setOpaque(true);
+        jb_git.setBackground(this.color_jb);
+        jb_fc.setBorderPainted(false);
     }
 
     /**

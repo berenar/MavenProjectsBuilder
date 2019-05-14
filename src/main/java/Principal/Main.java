@@ -99,6 +99,7 @@ class Main extends JFrame {
      */
     private void nouAddProject() {
         add_project = new JButton("+");
+        add_project.setBorderPainted(false);
         add_project.setMargin(new Insets(0, 0, 0, 0));
         add_project.setFont(new Font("Arial", Font.PLAIN, 20));
         add_project.setBounds(50, panel_height - 100, add_project_size, add_project_size);
@@ -131,6 +132,7 @@ class Main extends JFrame {
      */
     private void nouCompile() {
         compile = new JButton("Compile all");
+        compile.setBorderPainted(false);
         compile.setFont(new Font("Arial", Font.PLAIN, 20));
         compile.setBounds(160 + add_project_size, panel_height - 100, compile_width, compile_height);
         compile.setBackground(color_jb);
@@ -150,6 +152,8 @@ class Main extends JFrame {
                     } else {
                         System.out.println("okay no fare res");
                     }
+                }else{
+                    actuallyCompile();
                 }
             }
         });
