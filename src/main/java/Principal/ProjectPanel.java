@@ -22,8 +22,8 @@ class ProjectPanel extends JPanel {
 
     //Border and colors for components
     private final Border border = BorderFactory.createLineBorder(Color.GRAY, 1);
-    private final Color color_jb;
-    private final Color color_jl = new Color(204, 230, 255);
+    private Color color_jb;
+    private Color color_jl = new Color(204, 230, 255);
 
     //File chooser for the jb_fc button
     private final FileChooser fc = new FileChooser();
