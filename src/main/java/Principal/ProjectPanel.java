@@ -17,13 +17,14 @@ class ProjectPanel extends JPanel {
     private final JTextField jtf_path;
     private final JButton jb_fc;
     private final JButton jb_git;
+    private final boolean compiling;
     private BufferedImage tick;
     private final JLabel tickLabel;
 
     //Border and colors for components
     private final Border emptyBorder = BorderFactory.createEmptyBorder(0, 0, 0, 0);
-    private Color selected;
-    private Color notWhite = new Color(230, 247, 255);
+    private final Color selected;
+    private final Color notWhite = new Color(230, 247, 255);
 
     //File chooser for the jb_fc button
     private final FileChooser fc = new FileChooser();
@@ -54,25 +55,29 @@ class ProjectPanel extends JPanel {
     //true if project has finished cloning
     private boolean cloned = false;
 
-    String git_url;
-    String nom_repo;
-    String dest_path;
-    String com;
+    private String git_url;
+    private String nom_repo;
+    private String dest_path;
+    private String com;
+
+    private int retry_clone;
 
     /**
      * Initializes project panel components
      *
      * @param selected color of the buttons
+     * @param compiling
      */
-    public ProjectPanel(Color selected) {
+    public ProjectPanel(Color selected, boolean compiling) {
         this.selected = selected;
+        this.compiling = compiling;
         this.jl_order = new JLabel("", SwingConstants.CENTER);
         this.jtf_path = new JTextField();
         this.jtf_path.setHorizontalAlignment(JTextField.CENTER);
         fc.setProjectName(jtf_path);
         this.jb_fc = fc.getGo();
         this.jb_fc.setBackground(Color.WHITE);
-        this.jb_git = new JButton("Git");
+        this.jb_git = new JButton("Clone");
         this.jb_git.setBackground(Color.WHITE);
         try {
             //noinspection ConstantConditions
@@ -116,7 +121,8 @@ class ProjectPanel extends JPanel {
         jb_git.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (!cloned && !jtf_path.getText().isEmpty()) {
+
+                if (!cloned && !jtf_path.getText().isEmpty() && !compiling) {
                     prepareProject();
                 }
             }
@@ -150,6 +156,7 @@ class ProjectPanel extends JPanel {
                     cloned = pb.executeCommand(com);
                 } catch (IOException | InterruptedException e) {
                     e.printStackTrace();
+                    System.out.println("Crack");
                 }
                 fc.setChosen(true);
                 jtf_path.setText(nom_repo);
@@ -231,5 +238,9 @@ class ProjectPanel extends JPanel {
 
     public boolean isCloning() {
         return cloning;
+    }
+
+    public JTextField getJtf_path() {
+        return jtf_path;
     }
 }

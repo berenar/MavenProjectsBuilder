@@ -24,7 +24,7 @@ class Main extends JFrame {
     private final Output out = new Output();
 
     //JButtons color
-    private final Color selected = new Color(128, 191, 255);
+    private final Color color_selected = new Color(128, 191, 255);
 
     //component sizes
     private final int add_project_size = 30;
@@ -39,7 +39,7 @@ class Main extends JFrame {
     //to know if all projects compiled
     private boolean success = true;
 
-    private int retry;
+    private int retry_Local;
 
     private Main() {
         initUI();
@@ -86,7 +86,7 @@ class Main extends JFrame {
      * Adds a new Project panel
      */
     private void nouProjectPan() {
-        project_panel = new ProjectPanel(selected);
+        project_panel = new ProjectPanel(color_selected,compiling);
         project_panel.configureProjectPan(selected_projects.size() + 1);
         project_panel.addProjectPan(contentPane);
         selected_projects.add(project_panel);
@@ -103,7 +103,7 @@ class Main extends JFrame {
         add_project.setMargin(new Insets(0, 0, 0, 0));
         add_project.setFont(new Font("Arial", Font.PLAIN, 20));
         add_project.setBounds(50, panel_height - 100, add_project_size, add_project_size);
-        add_project.setBackground(selected);
+        add_project.setBackground(color_selected);
         contentPane.add(add_project);
 
         add_project.addActionListener(new ActionListener() {
@@ -135,7 +135,7 @@ class Main extends JFrame {
         compile.setBorderPainted(false);
         compile.setFont(new Font("Arial", Font.PLAIN, 20));
         compile.setBounds(160 + add_project_size, panel_height - 100, compile_width, compile_height);
-        compile.setBackground(selected);
+        compile.setBackground(color_selected);
         contentPane.add(compile);
 
         compile.addActionListener(new ActionListener() {
@@ -160,10 +160,10 @@ class Main extends JFrame {
     }
 
     private void actuallyCompile() {
-        retry++;
-        if (retry >= 3) {
+        retry_Local++;
+        if (retry_Local >= 3) {
             project_panel.getFc().userFeedback("compile");
-            retry = 0;
+            retry_Local = 0;
         } else if (!out.isOutput_visible()) {
             //Thread for the output
             Thread t_out = new Thread(new Runnable() {
@@ -185,12 +185,26 @@ class Main extends JFrame {
 
                 //reset success value
                 success = true;
+                selectProjects();
                 allTicksToFalse();
                 colorizeSelected();
                 compileChosen();
             }
         });
         t_compile.start();
+    }
+
+    /**
+     * If the user has entered the path manually, the path and the chosen variables have to be set
+     */
+    private void selectProjects() {
+        System.out.println("manually entered");
+        for (int i = 0; i < selected_projects.size(); i++) {
+            ProjectPanel project = selected_projects.get(i);
+            project.getFc().setPath(project.getJtf_path().getText());
+            project.getFc().getProjectName().setText(project.getFc().getPath());
+            project.getFc().setChosen(true);
+        }
     }
 
     /**
@@ -226,6 +240,9 @@ class Main extends JFrame {
     }
 
 
+    /**
+     * Compile chosen projects
+     */
     private void compileChosen() {
         compiling = true;
         compile.setText("Compiling...");
@@ -257,10 +274,29 @@ class Main extends JFrame {
                     "All projects have been successfully compiled.",
                     "Success!",
                     JOptionPane.PLAIN_MESSAGE);
-        } else {
-            compile.setText("Compile all");
         }
+
+        waitAndResetCompileText();
         compiling = false;
+    }
+
+    /**
+     * Wait 5 seconds to set the Compile button back to it's original text
+     */
+    private void waitAndResetCompileText() {
+        Thread t_resetCompileText = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                compile.setText("Compile all");
+            }
+        });
+
+        t_resetCompileText.start();
     }
 
     /**
@@ -273,7 +309,7 @@ class Main extends JFrame {
     }
 
     /**
-     * @return = true if at least one project is selected in the file chooser
+     * @return = true if at least one project is color_selected in the file chooser
      */
     private boolean anySelectedProjects() {
         boolean oneOrMore = false;

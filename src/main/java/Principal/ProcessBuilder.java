@@ -32,7 +32,6 @@ class ProcessBuilder {
             System.out.println(line);
             out.getConsole().append(" " + line + "\n");
             out.getConsole().setCaretPosition(out.getConsole().getDocument().getLength());
-            if (command == "mvn clean install") {
                 if (line.contains("BUILD FAILURE")) {
                     out.getConsole().append(" \n");
                     out.getConsole().append(" \n");
@@ -43,9 +42,7 @@ class ProcessBuilder {
                     out.getConsole().append(" \n");
                     throw new Exception();
                 }
-            } else if (command == "git clone") {
 
-            }
         }
         //sets the cursor to it's default value
         contentPane.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));

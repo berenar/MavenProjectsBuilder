@@ -10,6 +10,9 @@ public class FileChooser extends JPanel implements ActionListener {
     //FileChooser components
     private final JButton go;
     private JFileChooser chooser;
+
+
+
     private JTextField projectName; //pointed by ProjectPanel.jtf_path
 
     //FileChooser Title and path
@@ -146,6 +149,10 @@ public class FileChooser extends JPanel implements ActionListener {
     }
     public void setPath(String path) {
         this.path = path;
+    }
+
+    public JTextField getProjectName() {
+        return projectName;
     }
 
 }
