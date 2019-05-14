@@ -3,6 +3,7 @@ package Principal;
 import java.awt.Container;
 import java.awt.Cursor;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
@@ -50,9 +51,19 @@ class ProcessBuilder {
         contentPane.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
     }
 
-    public void executeCommand(String command) throws Exception {
+    /**
+     * Executes a simple command in background
+     * @param command
+     * @return true when the process has finished
+     * @throws IOException
+     * @throws InterruptedException
+     */
+    public boolean executeCommand(String command) throws IOException, InterruptedException {
         java.lang.ProcessBuilder processBuilder = new java.lang.ProcessBuilder();
         processBuilder.command("cmd.exe", "/c", command);
-        processBuilder.start();
+        Process process = processBuilder.start();
+        System.out.println(process.waitFor());
+        System.out.println("HA ACABAT");
+        return true;
     }
 }

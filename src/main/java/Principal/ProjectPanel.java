@@ -48,6 +48,9 @@ class ProjectPanel extends JPanel {
     //id of the project
     private int id;
 
+    //true if project has been cloned
+    private boolean cloned = false;
+
     /**
      * Initializes project panel components
      *
@@ -98,7 +101,9 @@ class ProjectPanel extends JPanel {
         jb_git.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                prepareProject();
+                if (!cloned) {
+                    prepareProject();
+                }
             }
         });
         this.tickLabel.setBounds(jb_git.getBounds().x + jbs_width + x_margin,
@@ -116,17 +121,19 @@ class ProjectPanel extends JPanel {
         //Get substring of the repository name
         String nom_repo = git_url.substring(git_url.lastIndexOf("/") + 1, git_url.indexOf(".git"));
         //Create destination directory
-        String dest_path = System.getProperty("user.dir") + "\\git_temp\\" + nom_repo;
+        String dest_path = System.getProperty("user.dir") + "\\.git_temp\\" + nom_repo;
         ProcessBuilder pb = new ProcessBuilder();
         String com = cloneCommand + " " + git_url + " " + dest_path;
         try {
-            pb.executeCommand(com);
+            cloned = pb.executeCommand(com);
+            this.fc.setChosen(true);
+            this.jtf_path.setText(nom_repo);
+            this.fc.setPath(dest_path);
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Error cloning git repository");
         }
-        this.jtf_path.setText(dest_path);
-        this.fc.setChosen(true);
+
     }
 
 

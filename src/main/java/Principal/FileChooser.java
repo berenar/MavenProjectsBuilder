@@ -14,6 +14,7 @@ public class FileChooser extends JPanel implements ActionListener {
 
     //FileChooser Title and path
     private final String chooser_title = "Select a project directory";
+
     private String path;
 
     //true if the project has been chosen
@@ -143,4 +144,8 @@ public class FileChooser extends JPanel implements ActionListener {
     public void setChosen(boolean chosen) {
         this.chosen = chosen;
     }
+    public void setPath(String path) {
+        this.path = path;
+    }
+
 }

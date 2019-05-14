@@ -187,6 +187,7 @@ class Main extends JFrame {
 
 
     private void compileChosen() {
+        compile.setText("Compiling...");
         ProcessBuilder pb = new ProcessBuilder();
         for (int i = 0; i < selected_projects.size(); i++) {
             if (selected_projects.get(i).getFc().isChosen()) {
@@ -206,6 +207,7 @@ class Main extends JFrame {
                 selected_projects.get(i).getTickLabel().setVisible(true);
             }
         }
+        compile.setText("Finished Compiling");
         //Last message if all went well
         if (success && anySelectedProjects()) {
             JOptionPane.showMessageDialog(getContentPane(),
