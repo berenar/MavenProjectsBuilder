@@ -8,9 +8,7 @@ import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
 class ProjectPanel extends JPanel {
 
@@ -21,12 +19,11 @@ class ProjectPanel extends JPanel {
     private final JButton jb_git;
     private BufferedImage tick;
     private final JLabel tickLabel;
-    private final Output out = new Output();
 
     //Border and colors for components
     private final Border border = BorderFactory.createLineBorder(Color.GRAY, 1);
-    private Color color_jb;
-    private Color color_jl = new Color(204, 230, 255);
+    private final Color color_jb;
+    private final Color color_jl = new Color(204, 230, 255);
 
     //File chooser for the jb_fc button
     private final FileChooser fc = new FileChooser();
@@ -54,7 +51,7 @@ class ProjectPanel extends JPanel {
     /**
      * Initializes project panel components
      *
-     * @param color_jb
+     * @param color_jb color of the buttons
      */
     public ProjectPanel(Color color_jb) {
         this.color_jb = color_jb;
@@ -102,7 +99,6 @@ class ProjectPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 prepareProject();
-                //TODO: actualitzar el jtfpath amb el dest_path
             }
         });
         this.tickLabel.setBounds(jb_git.getBounds().x + jbs_width + x_margin,
@@ -110,18 +106,27 @@ class ProjectPanel extends JPanel {
         this.tickLabel.setVisible(false);
     }
 
+    /**
+     * Clones the repository in a new folder
+     * Sets the local path of the newly cloned repository
+     * Sets the project as chosen
+     */
     private void prepareProject() {
+        String git_url = jtf_path.getText();
+        //Get substring of the repository name
+        String nom_repo = git_url.substring(git_url.lastIndexOf("/") + 1, git_url.indexOf(".git"));
         //Create destination directory
-        String dest_path = System.getProperty("user.dir") + "\\git_temp";
+        String dest_path = System.getProperty("user.dir") + "\\git_temp\\" + nom_repo;
         ProcessBuilder pb = new ProcessBuilder();
-        String com = cloneCommand + " " + jtf_path.getText() + " " + dest_path;
-        System.out.println(com);
+        String com = cloneCommand + " " + git_url + " " + dest_path;
         try {
-            pb.executeCommand(out, com, this, 0);
+            pb.executeCommand(com);
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error fent el git clone");
+            System.out.println("Error cloning git repository");
         }
+        this.jtf_path.setText(dest_path);
+        this.fc.setChosen(true);
     }
 
 

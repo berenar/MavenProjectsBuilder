@@ -24,7 +24,7 @@ class Main extends JFrame {
     private final Output out = new Output();
 
     //JButtons color
-    Color color_jb = new Color(128, 191, 255);
+    private final Color color_jb = new Color(128, 191, 255);
 
     //component sizes
     private final int add_project_size = 30;
@@ -192,7 +192,8 @@ class Main extends JFrame {
             if (selected_projects.get(i).getFc().isChosen()) {
                 String path = selected_projects.get(i).getFc().getPath();
                 try {
-                    pb.executeCommand(out, "cd " + "\"" + path + "\"" + " && " + compileCommand, getContentPane(), selected_projects.get(i).getId());
+                    pb.executeCommand(out, "cd " + "\"" + path + "\"" + " && " + compileCommand,
+                            getContentPane(), selected_projects.get(i).getId());
                 } catch (Exception e) {
                     contentPane.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
                     JOptionPane.showMessageDialog(getContentPane(),

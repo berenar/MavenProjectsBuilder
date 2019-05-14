@@ -134,4 +134,13 @@ public class FileChooser extends JPanel implements ActionListener {
     public boolean isChosen() {
         return chosen;
     }
+
+    /**
+     * Setter for chosen
+     *
+     * @param chosen the new value of chosen
+     */
+    public void setChosen(boolean chosen) {
+        this.chosen = chosen;
+    }
 }

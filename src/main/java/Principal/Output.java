@@ -18,7 +18,7 @@ class Output {
     //True if the console is visible
     private boolean output_visible;
 
-    Color color_out;
+    private final Color color_out;
 
     /**
      * Constructor of the class

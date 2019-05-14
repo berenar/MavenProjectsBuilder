@@ -4,6 +4,7 @@ import java.awt.Container;
 import java.awt.Cursor;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 
 class ProcessBuilder {
 
@@ -24,7 +25,7 @@ class ProcessBuilder {
         processBuilder.command("cmd.exe", "/c", command);
         Process process = processBuilder.start();
         BufferedReader reader =
-                new BufferedReader(new InputStreamReader(process.getInputStream(), "UTF-8"));
+                new BufferedReader(new InputStreamReader(process.getInputStream(), StandardCharsets.UTF_8));
         String line;
         while ((line = reader.readLine()) != null) {
             System.out.println(line);
@@ -47,5 +48,11 @@ class ProcessBuilder {
         }
         //sets the cursor to it's default value
         contentPane.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+    }
+
+    public void executeCommand(String command) throws Exception {
+        java.lang.ProcessBuilder processBuilder = new java.lang.ProcessBuilder();
+        processBuilder.command("cmd.exe", "/c", command);
+        processBuilder.start();
     }
 }
