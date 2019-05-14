@@ -24,7 +24,7 @@ class Main extends JFrame {
     private final Output out = new Output();
 
     //JButtons color
-    private final Color color_jb = new Color(128, 191, 255);
+    private final Color selected = new Color(128, 191, 255);
 
     //component sizes
     private final int add_project_size = 30;
@@ -86,7 +86,7 @@ class Main extends JFrame {
      * Adds a new Project panel
      */
     private void nouProjectPan() {
-        project_panel = new ProjectPanel(color_jb);
+        project_panel = new ProjectPanel(selected);
         project_panel.configureProjectPan(selected_projects.size() + 1);
         project_panel.addProjectPan(contentPane);
         selected_projects.add(project_panel);
@@ -103,7 +103,7 @@ class Main extends JFrame {
         add_project.setMargin(new Insets(0, 0, 0, 0));
         add_project.setFont(new Font("Arial", Font.PLAIN, 20));
         add_project.setBounds(50, panel_height - 100, add_project_size, add_project_size);
-        add_project.setBackground(color_jb);
+        add_project.setBackground(selected);
         contentPane.add(add_project);
 
         add_project.addActionListener(new ActionListener() {
@@ -135,25 +135,25 @@ class Main extends JFrame {
         compile.setBorderPainted(false);
         compile.setFont(new Font("Arial", Font.PLAIN, 20));
         compile.setBounds(160 + add_project_size, panel_height - 100, compile_width, compile_height);
-        compile.setBackground(color_jb);
+        compile.setBackground(selected);
         contentPane.add(compile);
 
         compile.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (anyProjectIsCloning()) {
-                    int reply = JOptionPane.showConfirmDialog(null,
-                            "There are projects being cloned, are you sure you want to start compiling?",
-                            "Hey",
-                            JOptionPane.YES_NO_OPTION);
-                    if (reply == JOptionPane.YES_OPTION) {
-                        actuallyCompile();
+                if (!compiling) {
+                    if (anyProjectIsCloning()) {
+                        int reply = JOptionPane.showConfirmDialog(null,
+                                "There are projects being cloned, are you sure you want to start compiling?",
+                                "Hey",
+                                JOptionPane.YES_NO_OPTION);
+                        if (reply == JOptionPane.YES_OPTION) {
+                            actuallyCompile();
+                        }
                     } else {
-                        System.out.println("okay no fare res");
+                        actuallyCompile();
                     }
-                }else{
-                    actuallyCompile();
                 }
             }
         });

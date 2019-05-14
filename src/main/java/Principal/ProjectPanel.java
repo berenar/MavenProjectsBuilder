@@ -9,7 +9,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.sql.SQLOutput;
 
 class ProjectPanel extends JPanel {
 
@@ -22,10 +21,9 @@ class ProjectPanel extends JPanel {
     private final JLabel tickLabel;
 
     //Border and colors for components
-    private final Border border = BorderFactory.createLineBorder(Color.GRAY, 1);
     private final Border emptyBorder = BorderFactory.createEmptyBorder(0, 0, 0, 0);
-    private Color color_jb;
-    private Color color_jl = new Color(204, 230, 255);
+    private Color selected;
+    private Color notWhite = new Color(230, 247, 255);
 
     //File chooser for the jb_fc button
     private final FileChooser fc = new FileChooser();
@@ -64,10 +62,10 @@ class ProjectPanel extends JPanel {
     /**
      * Initializes project panel components
      *
-     * @param color_jb color of the buttons
+     * @param selected color of the buttons
      */
-    public ProjectPanel(Color color_jb) {
-        this.color_jb = color_jb;
+    public ProjectPanel(Color selected) {
+        this.selected = selected;
         this.jl_order = new JLabel("", SwingConstants.CENTER);
         this.jtf_path = new JTextField();
         this.jtf_path.setHorizontalAlignment(JTextField.CENTER);
@@ -97,17 +95,24 @@ class ProjectPanel extends JPanel {
      * @param n id
      */
     public void configureProjectPan(int n) {
-        this.id = n;
-        this.jl_order.setText(String.valueOf(id));
-        this.jl_order.setBounds(x_initial, y_initial * n, jl_order_size, jl_order_size);
-        this.jl_order.setBorder(border);
-        this.jtf_path.setBounds(jl_order.getBounds().x + jl_order_size + x_margin,
-                y_initial * n, jl_path_width, jl_path_height);
-        this.jtf_path.setBorder(border);
-        this.jb_fc.setBounds(jtf_path.getBounds().x + jl_path_width + x_margin,
-                y_initial * n, jbs_width, jbs_height);
-        this.jb_git.setBounds(jb_fc.getBounds().x + jbs_width + x_margin, y_initial * n, jbs_width, jbs_height);
-        this.jb_git.setBorder(border);
+        id = n;
+        jl_order.setText(String.valueOf(id));
+        jl_order.setBounds(x_initial, y_initial * id, jl_order_size, jl_order_size);
+        jl_order.setBackground(notWhite);
+
+        jtf_path.setBounds(jl_order.getBounds().x + jl_order_size + x_margin,
+                y_initial * id, jl_path_width, jl_path_height);
+        jtf_path.setBorder(emptyBorder);
+        jtf_path.setBackground(notWhite);
+
+        jb_fc.setBounds(jtf_path.getBounds().x + jl_path_width + x_margin,
+                y_initial * id, jbs_width, jbs_height);
+        jb_fc.setBorderPainted(false);
+        jb_fc.setBackground(notWhite);
+
+        jb_git.setBounds(jb_fc.getBounds().x + jbs_width + x_margin, y_initial * id, jbs_width, jbs_height);
+        jb_git.setBorderPainted(false);
+        jb_git.setBackground(notWhite);
         jb_git.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -116,9 +121,10 @@ class ProjectPanel extends JPanel {
                 }
             }
         });
-        this.tickLabel.setBounds(jb_git.getBounds().x + jbs_width + x_margin,
+
+        tickLabel.setBounds(jb_git.getBounds().x + jbs_width + x_margin,
                 y_initial * n - 5, tickLabel_size, tickLabel_size);
-        this.tickLabel.setVisible(false);
+        tickLabel.setVisible(false);
     }
 
     /**
@@ -174,20 +180,16 @@ class ProjectPanel extends JPanel {
      * Sets Project panel components background color
      */
     public void colorizeProjectPane() {
-        jl_order.setOpaque(true);
-        jl_order.setBackground(color_jl);
-        jl_order.setBorder(emptyBorder);
-
         jtf_path.setOpaque(true);
-        jtf_path.setBackground(color_jl);
+        jtf_path.setBackground(selected);
         jtf_path.setBorder(emptyBorder);
 
         jb_fc.setOpaque(true);
-        jb_fc.setBackground(this.color_jb);
+        jb_fc.setBackground(this.selected);
         jb_fc.setBorderPainted(false);
 
         jb_git.setOpaque(true);
-        jb_git.setBackground(this.color_jb);
+        jb_git.setBackground(this.selected);
         jb_fc.setBorderPainted(false);
     }
 
