@@ -122,6 +122,7 @@ class ProjectPanel extends JPanel {
         jb_git.setBounds(jb_fc.getBounds().x + jbs_width + x_margin, y_initial * id, jbs_width, jbs_height);
         jb_git.setBorderPainted(false);
         jb_git.setBackground(notWhite);
+
         jb_git.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -130,7 +131,7 @@ class ProjectPanel extends JPanel {
                 }
 
                 if (!cloned && !jtf_path.getText().isEmpty() && !compiling) {
-                    if (jtf_path.getText().contains("git")){
+                    if (jtf_path.getText().contains("git")) {
                         prepareProject();
                     }
                 }
@@ -158,18 +159,19 @@ class ProjectPanel extends JPanel {
                 //Get substring of the repository name
                 nom_repo = git_url.substring(git_url.lastIndexOf("/") + 1, git_url.indexOf(".git"));
                 //Create destination directory
-                dest_path = System.getProperty("user.dir") + "\\.git_temp\\" + nom_repo;
+                dest_path = System.getProperty("user.dir") + "\\.mvnCompiler_temp\\" + nom_repo;
                 ProcessBuilder pb = new ProcessBuilder();
                 com = cloneCommand + " " + git_url + " " + dest_path;
                 try {
                     cloned = pb.executeCommand(com);
                 } catch (IOException | InterruptedException e) {
                     e.printStackTrace();
-                    System.out.println("Crack");
+                    //TODO: mostrar popup a l'usuari
                 }
+                System.out.println(dest_path);
+                fc.setPath(dest_path);
                 fc.setChosen(true);
                 jtf_path.setText(nom_repo);
-                fc.setPath(dest_path);
                 cloning = false;
                 jb_git.setText("Cloned");
             }
@@ -251,5 +253,9 @@ class ProjectPanel extends JPanel {
 
     public JTextField getJtf_path() {
         return jtf_path;
+    }
+
+    public boolean isCloned() {
+        return cloned;
     }
 }

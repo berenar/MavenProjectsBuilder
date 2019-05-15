@@ -5,6 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -91,7 +92,12 @@ class Main extends JFrame {
             System.out.println("Error reading image: mvn_logo_2.png");
             System.exit(1);
         }
-        System.out.println(System.getProperty("user.dir"));
+
+
+        JOptionPane.showMessageDialog(contentPane,
+                System.getProperty("user.dir"),
+                "Current directory",
+                JOptionPane.PLAIN_MESSAGE);
     }
 
     /**
@@ -197,13 +203,30 @@ class Main extends JFrame {
                             JOptionPane.YES_NO_OPTION);
                     if (reply_2 == JOptionPane.YES_OPTION) {
                         dispose();
-                        //TODO: delete .git_temp
+                        String temp_path = System.getProperty("user.dir") + "\\.mvnCompiler_temp\\";
+                        if (!deleteDirectory(new File(temp_path))){
+                            JOptionPane.showMessageDialog(contentPane,
+                                    "The .mvnCompiler_temp folder with temporal files could not be deleted, " +
+                                            "you may want to delete it yourself",
+                                    "Hey",
+                                    JOptionPane.INFORMATION_MESSAGE);
+                        }
                         Main ex = new Main();
                         ex.setVisible(true);
                     }
                 }
             }
         });
+    }
+
+    private boolean deleteDirectory(File directoryToBeDeleted) {
+        File[] allContents = directoryToBeDeleted.listFiles();
+        if (allContents != null) {
+            for (File file : allContents) {
+                deleteDirectory(file);
+            }
+        }
+        return directoryToBeDeleted.delete();
     }
 
 
@@ -304,7 +327,7 @@ class Main extends JFrame {
                 } catch (Exception e) {
                     contentPane.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
                     JOptionPane.showMessageDialog(contentPane,
-                            "Error compiling project number " + selected_projects.get(i).getId() + ".",
+                            "Error compiling project number " + selected_projects.get(i).getId(),
                             "Compilation halted",
                             JOptionPane.ERROR_MESSAGE);
                     success = false;
@@ -319,7 +342,7 @@ class Main extends JFrame {
 
             compile.setText("Finished Compiling");
             JOptionPane.showMessageDialog(contentPane,
-                    "All projects have been successfully compiled.",
+                    "All projects have been successfully compiled",
                     "Success!",
                     JOptionPane.PLAIN_MESSAGE);
         }
@@ -361,7 +384,7 @@ class Main extends JFrame {
         String path;
         for (int i = 0; i < selected_projects.size(); i++) {
             path = selected_projects.get(i).getJtf_path().getText();
-            if (!path.isEmpty() && !path.contains("git")) {
+            if (!path.isEmpty()  && !path.contains("git")) {
                 allEmpty = false;
             }
         }
@@ -375,7 +398,7 @@ class Main extends JFrame {
 
         for (int i = 0; i < selected_projects.size(); i++) {
             ProjectPanel project = selected_projects.get(i);
-            if (!project.getJtf_path().getText().isEmpty()) {
+            if (!project.getJtf_path().getText().isEmpty() && !project.isCloned()) {
                 //The path of the project is not empty
                 project.getFc().setPath(project.getJtf_path().getText());
                 project.getFc().getProjectName().setText(project.getFc().getPath());

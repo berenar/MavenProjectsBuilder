@@ -89,7 +89,7 @@ public class FileChooser extends JPanel implements ActionListener {
             case "compile":
                 //Invoked using Compile all button
                 JOptionPane.showMessageDialog(parentContentPane,
-                        "Click Local or Git buttons to submit the URL",
+                        "Click Local or Clone buttons to submit the URL",
                         "Quick tip",
                         JOptionPane.PLAIN_MESSAGE);
                 break;

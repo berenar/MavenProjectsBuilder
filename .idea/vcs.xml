@@ -5,6 +5,8 @@
     <mapping directory="$PROJECT_DIR$/.git_temp/apps-payment" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/.git_temp/apps-tpv" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/.git_temp/apps-tpv-manager" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/.git_temp/mvnCompiler" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/.mvnCompiler_temp/apps-payment" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/git_temp/1" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/git_temp/2" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/git_temp/3" vcs="Git" />
