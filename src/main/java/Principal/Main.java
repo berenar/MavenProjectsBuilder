@@ -40,6 +40,7 @@ class Main extends JFrame {
     //commands to execute
     private final String compileCommand = "mvn clean install";
 
+    //to know if there's any project being compiled
     private boolean compiling = false;
 
     //to know if all projects compiled
@@ -92,12 +93,6 @@ class Main extends JFrame {
             System.out.println("Error reading image: mvn_logo_2.png");
             System.exit(1);
         }
-
-
-        JOptionPane.showMessageDialog(contentPane,
-                System.getProperty("user.dir"),
-                "Current directory",
-                JOptionPane.PLAIN_MESSAGE);
     }
 
     /**
@@ -192,29 +187,37 @@ class Main extends JFrame {
         clear.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int reply_1 = JOptionPane.showConfirmDialog(contentPane,
-                        "You are trying to reset the app to it's initial state, are you sure?",
-                        "Be careful!",
-                        JOptionPane.YES_NO_OPTION);
-                if (reply_1 == JOptionPane.YES_OPTION) {
-                    int reply_2 = JOptionPane.showConfirmDialog(contentPane,
-                            "There is no coming back, ARE YOU SURE?",
-                            "BE CAREFUL!",
+                if (!compiling && !anyProjectIsCloning()) {
+                    int reply_1 = JOptionPane.showConfirmDialog(contentPane,
+                            "You are trying to reset the app to it's initial state, are you sure?",
+                            "Be careful!",
                             JOptionPane.YES_NO_OPTION);
-                    if (reply_2 == JOptionPane.YES_OPTION) {
-                        dispose();
-                        String temp_path = System.getProperty("user.dir") + "\\.mvnCompiler_temp\\";
-                        if (!deleteDirectory(new File(temp_path))){
-                            JOptionPane.showMessageDialog(contentPane,
-                                    "The .mvnCompiler_temp folder with temporal files could not be deleted, " +
-                                            "you may want to delete it yourself",
-                                    "Hey",
-                                    JOptionPane.INFORMATION_MESSAGE);
+                    if (reply_1 == JOptionPane.YES_OPTION) {
+                        int reply_2 = JOptionPane.showConfirmDialog(contentPane,
+                                "There is no coming back, ARE YOU SURE?",
+                                "BE CAREFUL!",
+                                JOptionPane.YES_NO_OPTION);
+                        if (reply_2 == JOptionPane.YES_OPTION) {
+                            dispose();
+                            String temp_path = System.getProperty("user.dir") + "\\.mvnCompiler_temp\\";
+                            if (!deleteDirectory(new File(temp_path))) {
+                                JOptionPane.showMessageDialog(contentPane,
+                                        "The .mvnCompiler_temp folder with temporal files could not be deleted, " +
+                                                "you may want to delete it yourself",
+                                        "Hey",
+                                        JOptionPane.INFORMATION_MESSAGE);
+                            }
+                            Main ex = new Main();
+                            ex.setVisible(true);
                         }
-                        Main ex = new Main();
-                        ex.setVisible(true);
                     }
+                } else {
+                    JOptionPane.showMessageDialog(contentPane,
+                            "You can't reset the program while cloning or compiling a project",
+                            "Forbidden",
+                            JOptionPane.ERROR_MESSAGE);
                 }
+
             }
         });
     }
@@ -384,7 +387,7 @@ class Main extends JFrame {
         String path;
         for (int i = 0; i < selected_projects.size(); i++) {
             path = selected_projects.get(i).getJtf_path().getText();
-            if (!path.isEmpty()  && !path.contains("git")) {
+            if (!path.isEmpty() && !path.contains("git")) {
                 allEmpty = false;
             }
         }

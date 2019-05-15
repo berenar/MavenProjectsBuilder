@@ -6,9 +6,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Principal/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Principal/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Principal/FileChooser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Principal/FileChooser.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Principal/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Principal/Main$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Principal/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Principal/Main$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Principal/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Principal/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Principal/ProjectPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Principal/ProjectPanel.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -26,26 +28,26 @@
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="true" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.61820745">
+    <splitter split-orientation="horizontal" split-proportion="0.6055046">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Main.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="357">
-                  <caret line="401" column="80" selection-start-line="401" selection-start-column="80" selection-end-line="401" selection-end-column="80" />
+                <state relative-caret-position="507">
+                  <caret line="211" column="25" lean-forward="true" selection-start-line="211" selection-start-column="25" selection-end-line="211" selection-end-column="25" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#5195#5923#0" expanded="true" />
-                    <element signature="e#5922#5923#0" expanded="true" />
-                    <element signature="e#6376#6791#0" expanded="true" />
-                    <element signature="e#6790#6791#0" expanded="true" />
-                    <element signature="e#9617#9618#0" expanded="true" />
-                    <element signature="e#8997#9259#0" expanded="true" />
-                    <element signature="e#9258#9259#0" expanded="true" />
-                    <element signature="e#10819#11161#0" expanded="true" />
-                    <element signature="e#11160#11161#0" expanded="true" />
-                    <element signature="e#16222#16223#0" expanded="true" />
+                    <element signature="e#5229#5964#0" expanded="true" />
+                    <element signature="e#5963#5964#0" expanded="true" />
+                    <element signature="e#6417#8049#0" expanded="true" />
+                    <element signature="e#8048#8049#0" expanded="true" />
+                    <element signature="e#9940#9941#0" expanded="true" />
+                    <element signature="e#10359#10621#0" expanded="true" />
+                    <element signature="e#10620#10621#0" expanded="true" />
+                    <element signature="e#10753#11095#0" expanded="true" />
+                    <element signature="e#11094#11095#0" expanded="true" />
+                    <element signature="e#16391#16392#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -54,19 +56,21 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="631">
-                  <caret line="259" column="5" selection-start-line="259" selection-start-column="5" selection-end-line="259" selection-end-column="5" />
+                <state relative-caret-position="272">
+                  <caret line="56" column="36" selection-start-line="56" selection-start-column="36" selection-end-line="56" selection-end-column="36" />
                   <folding>
                     <element signature="e#4077#4535#0" expanded="true" />
                     <element signature="e#4534#4535#0" expanded="true" />
                     <element signature="e#4990#6129#0" expanded="true" />
                     <element signature="e#6128#6129#0" expanded="true" />
-                    <element signature="e#7138#7139#0" expanded="true" />
-                    <element signature="e#7297#7298#0" expanded="true" />
-                    <element signature="e#7422#7423#0" expanded="true" />
-                    <element signature="e#7570#7571#0" expanded="true" />
-                    <element signature="e#7634#7635#0" expanded="true" />
-                    <element signature="e#7704#7705#0" expanded="true" />
+                    <element signature="e#6497#6498#0" expanded="true" />
+                    <element signature="e#6533#6534#0" expanded="true" />
+                    <element signature="e#7659#7660#0" expanded="true" />
+                    <element signature="e#7818#7819#0" expanded="true" />
+                    <element signature="e#7943#7944#0" expanded="true" />
+                    <element signature="e#8091#8092#0" expanded="true" />
+                    <element signature="e#8155#8156#0" expanded="true" />
+                    <element signature="e#8225#8226#0" expanded="true" />
                     <element signature="e#7745#7746#0" expanded="true" />
                     <element signature="e#7774#7775#0" expanded="true" />
                   </folding>
@@ -81,8 +85,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/Principal/FileChooser.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="388">
-                  <caret line="61" column="20" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="20" />
+                <state relative-caret-position="286">
+                  <caret line="93" column="51" selection-start-line="90" selection-start-column="16" selection-end-line="93" selection-end-column="51" />
                 </state>
               </provider>
             </entry>
@@ -109,10 +113,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>thre</find>
-      <find>content</find>
       <find>finished</find>
-      <find>cloning</find>
       <find>anyProjectCloning</find>
       <find>compile</find>
       <find>border</find>
@@ -135,10 +136,13 @@
       <find>out</find>
       <find>git_te</find>
       <find>clone</find>
-      <find>cloned</find>
-      <find>git</find>
       <find>proves</find>
+      <find>git</find>
       <find>getText</find>
+      <find>reset</find>
+      <find>cloned</find>
+      <find>cloning</find>
+      <find>compili</find>
     </findStrings>
     <replaceStrings>
       <replace>button_fl</replace>
@@ -239,8 +243,8 @@
         <option value="$PROJECT_DIR$/src/main/java/Principal/roundJButton.java" />
         <option value="$PROJECT_DIR$/src/main/java/Principal/roundBorder.java" />
         <option value="$PROJECT_DIR$/src/main/java/Principal/ProcessBuilder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Principal/FileChooser.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/FileChooser.java" />
         <option value="$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java" />
         <option value="$PROJECT_DIR$/src/main/java/Principal/Main.java" />
       </list>
@@ -501,14 +505,7 @@
       <workItem from="1557730739842" duration="2636000" />
       <workItem from="1557733893347" duration="12986000" />
       <workItem from="1557817307988" duration="15815000" />
-      <workItem from="1557903459768" duration="13414000" />
-    </task>
-    <task id="LOCAL-00031" summary="afegida imatge tick, pero malament">
-      <created>1557144081312</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1557144081313</updated>
+      <workItem from="1557903459768" duration="14978000" />
     </task>
     <task id="LOCAL-00032" summary="els ticks es mostren una vegada ha acabat de compilar, no durant cada iteracio">
       <created>1557213122984</created>
@@ -846,13 +843,20 @@
       <option name="project" value="LOCAL" />
       <updated>1557913357756</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="arreglat bug que no deixava compilar quan el projecte shavia clonat dun repository">
+      <created>1557920275026</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1557920275026</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="181414000" />
+    <option name="totallyTimeSpent" value="182978000" />
   </component>
-  <component name="TodoView">
+  <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
     </todo-panel>
@@ -916,8 +920,19 @@
       <path value="$PROJECT_DIR$/1" />
       <path value="$PROJECT_DIR$/git_temp" />
       <path value="$PROJECT_DIR$/temp_git" />
+      <path value="$PROJECT_DIR$/.git_temp/apps-payment" />
+      <path value="$PROJECT_DIR$/.git_temp/apps-tpv" />
+      <path value="$PROJECT_DIR$/.git_temp/apps-tpv-manager" />
+      <path value="$PROJECT_DIR$/.git_temp/mvnCompiler" />
+      <path value="$PROJECT_DIR$/.mvnCompiler_temp/apps-payment" />
+      <path value="$PROJECT_DIR$/.mvnCompiler_temp/apps-tpv-manager" />
+      <path value="$PROJECT_DIR$/git_temp/1" />
+      <path value="$PROJECT_DIR$/git_temp/2" />
+      <path value="$PROJECT_DIR$/git_temp/3" />
+      <path value="$PROJECT_DIR$/git_temp/apps-payment" />
+      <path value="$PROJECT_DIR$/git_temp/apps-tpv" />
+      <path value="$PROJECT_DIR$/git_temp/apps-tpv-manager" />
     </ignored-roots>
-    <MESSAGE value="javadoc for Output.java" />
     <MESSAGE value="javadoc for ProjectPanel.java" />
     <MESSAGE value="javadoc for FileChooser.java" />
     <MESSAGE value="prova de commit" />
@@ -942,7 +957,8 @@
     <MESSAGE value="funciona pero falta fer control derrors dusuari" />
     <MESSAGE value="control d'errors a mitjes" />
     <MESSAGE value="afegit reset button i accions, el contentpane es propaga per projectpanel fins filechooser per mostrar els missatges centrats" />
-    <option name="LAST_COMMIT_MESSAGE" value="afegit reset button i accions, el contentpane es propaga per projectpanel fins filechooser per mostrar els missatges centrats" />
+    <MESSAGE value="arreglat bug que no deixava compilar quan el projecte shavia clonat dun repository" />
+    <option name="LAST_COMMIT_MESSAGE" value="arreglat bug que no deixava compilar quan el projecte shavia clonat dun repository" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/.name" />
@@ -1092,26 +1108,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Principal/FileChooser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="61" column="20" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="20" />
+        <state relative-caret-position="286">
+          <caret line="93" column="51" selection-start-line="90" selection-start-column="16" selection-end-line="93" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="631">
-          <caret line="259" column="5" selection-start-line="259" selection-start-column="5" selection-end-line="259" selection-end-column="5" />
+        <state relative-caret-position="272">
+          <caret line="56" column="36" selection-start-line="56" selection-start-column="36" selection-end-line="56" selection-end-column="36" />
           <folding>
             <element signature="e#4077#4535#0" expanded="true" />
             <element signature="e#4534#4535#0" expanded="true" />
             <element signature="e#4990#6129#0" expanded="true" />
             <element signature="e#6128#6129#0" expanded="true" />
-            <element signature="e#7138#7139#0" expanded="true" />
-            <element signature="e#7297#7298#0" expanded="true" />
-            <element signature="e#7422#7423#0" expanded="true" />
-            <element signature="e#7570#7571#0" expanded="true" />
-            <element signature="e#7634#7635#0" expanded="true" />
-            <element signature="e#7704#7705#0" expanded="true" />
+            <element signature="e#6497#6498#0" expanded="true" />
+            <element signature="e#6533#6534#0" expanded="true" />
+            <element signature="e#7659#7660#0" expanded="true" />
+            <element signature="e#7818#7819#0" expanded="true" />
+            <element signature="e#7943#7944#0" expanded="true" />
+            <element signature="e#8091#8092#0" expanded="true" />
+            <element signature="e#8155#8156#0" expanded="true" />
+            <element signature="e#8225#8226#0" expanded="true" />
             <element signature="e#7745#7746#0" expanded="true" />
             <element signature="e#7774#7775#0" expanded="true" />
           </folding>
@@ -1120,20 +1138,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="401" column="80" selection-start-line="401" selection-start-column="80" selection-end-line="401" selection-end-column="80" />
+        <state relative-caret-position="507">
+          <caret line="211" column="25" lean-forward="true" selection-start-line="211" selection-start-column="25" selection-end-line="211" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5195#5923#0" expanded="true" />
-            <element signature="e#5922#5923#0" expanded="true" />
-            <element signature="e#6376#6791#0" expanded="true" />
-            <element signature="e#6790#6791#0" expanded="true" />
-            <element signature="e#9617#9618#0" expanded="true" />
-            <element signature="e#8997#9259#0" expanded="true" />
-            <element signature="e#9258#9259#0" expanded="true" />
-            <element signature="e#10819#11161#0" expanded="true" />
-            <element signature="e#11160#11161#0" expanded="true" />
-            <element signature="e#16222#16223#0" expanded="true" />
+            <element signature="e#5229#5964#0" expanded="true" />
+            <element signature="e#5963#5964#0" expanded="true" />
+            <element signature="e#6417#8049#0" expanded="true" />
+            <element signature="e#8048#8049#0" expanded="true" />
+            <element signature="e#9940#9941#0" expanded="true" />
+            <element signature="e#10359#10621#0" expanded="true" />
+            <element signature="e#10620#10621#0" expanded="true" />
+            <element signature="e#10753#11095#0" expanded="true" />
+            <element signature="e#11094#11095#0" expanded="true" />
+            <element signature="e#16391#16392#0" expanded="true" />
           </folding>
         </state>
       </provider>

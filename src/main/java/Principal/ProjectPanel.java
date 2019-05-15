@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 class ProjectPanel extends JPanel {
 
@@ -17,7 +19,6 @@ class ProjectPanel extends JPanel {
     private final JTextField jtf_path;
     private final JButton jb_fc;
     private final JButton jb_git;
-    private final boolean compiling;
     private BufferedImage tick;
     private final JLabel tickLabel;
 
@@ -49,6 +50,9 @@ class ProjectPanel extends JPanel {
     //id of the project
     private int id;
 
+    //pointer to Main.compiling
+    private final boolean compiling;
+
     //true if the project is being cloned
     private boolean cloning = false;
 
@@ -66,12 +70,12 @@ class ProjectPanel extends JPanel {
 
     /**
      * Initializes project panel components
-     *
-     * @param selected  color of the buttons
-     * @param compiling
+     *  @param selected  color of the buttons
+     * @param cloning
+     * @param compiling pointer to
      */
-    public ProjectPanel(Color selected, boolean compiling, Container parentContentPane ) {
-        this.fc= new FileChooser(parentContentPane);
+    public ProjectPanel(Color selected, boolean compiling, Container parentContentPane) {
+        this.fc = new FileChooser(parentContentPane);
         this.selected = selected;
         this.compiling = compiling;
         this.parentContentPane = parentContentPane;
@@ -126,7 +130,7 @@ class ProjectPanel extends JPanel {
         jb_git.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (jtf_path.getText().isEmpty()){
+                if (jtf_path.getText().isEmpty()) {
                     fc.setChosen(false);
                 }
 
@@ -166,18 +170,29 @@ class ProjectPanel extends JPanel {
                     cloned = pb.executeCommand(com);
                 } catch (IOException | InterruptedException e) {
                     e.printStackTrace();
-                    //TODO: mostrar popup a l'usuari
                 }
-                System.out.println(dest_path);
-                fc.setPath(dest_path);
-                fc.setChosen(true);
-                jtf_path.setText(nom_repo);
+                if (checkClonedDirectory(dest_path)) {
+                    fc.setPath(dest_path);
+                    fc.setChosen(true);
+                    jtf_path.setText(nom_repo);
+
+                    jb_git.setText("Cloned");
+                } else {
+                    JOptionPane.showMessageDialog(parentContentPane,
+                            "Error cloning the project " + id,
+                            "Error",
+                            JOptionPane.ERROR_MESSAGE);
+                    jb_git.setText("Error");
+                }
                 cloning = false;
-                jb_git.setText("Cloned");
             }
         });
 
         t_clone.start();
+    }
+
+    private boolean checkClonedDirectory(String dest_path) {
+        return Files.exists(Paths.get(dest_path));
     }
 
 
