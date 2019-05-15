@@ -81,7 +81,7 @@ class Main extends JFrame {
         this.setResizable(false);
         this.setLocationRelativeTo(null);//null: centers window
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setTitle("mvnCompiler 1.2");
+        this.setTitle("mvnCompiler 1.3");
         try {
             //noinspection ConstantConditions
             this.setIconImage(ImageIO.read(getClass().getClassLoader().getResource("mvn_logo_2.png")));
@@ -91,6 +91,7 @@ class Main extends JFrame {
             System.out.println("Error reading image: mvn_logo_2.png");
             System.exit(1);
         }
+        System.out.println(System.getProperty("user.dir"));
     }
 
     /**
@@ -196,6 +197,7 @@ class Main extends JFrame {
                             JOptionPane.YES_NO_OPTION);
                     if (reply_2 == JOptionPane.YES_OPTION) {
                         dispose();
+                        //TODO: delete .git_temp
                         Main ex = new Main();
                         ex.setVisible(true);
                     }
