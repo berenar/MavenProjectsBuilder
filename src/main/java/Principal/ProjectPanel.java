@@ -65,7 +65,7 @@ class ProjectPanel extends JPanel {
     /**
      * Initializes project panel components
      *
-     * @param selected color of the buttons
+     * @param selected  color of the buttons
      * @param compiling
      */
     public ProjectPanel(Color selected, boolean compiling) {
@@ -121,9 +121,14 @@ class ProjectPanel extends JPanel {
         jb_git.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (jtf_path.getText().isEmpty()){
+                    fc.setChosen(false);
+                }
 
                 if (!cloned && !jtf_path.getText().isEmpty() && !compiling) {
-                    prepareProject();
+                    if (jtf_path.getText().contains("git")){
+                        prepareProject();
+                    }
                 }
             }
         });

@@ -86,7 +86,7 @@ class Main extends JFrame {
      * Adds a new Project panel
      */
     private void nouProjectPan() {
-        project_panel = new ProjectPanel(color_selected,compiling);
+        project_panel = new ProjectPanel(color_selected, compiling);
         project_panel.configureProjectPan(selected_projects.size() + 1);
         project_panel.addProjectPan(contentPane);
         selected_projects.add(project_panel);
@@ -164,47 +164,72 @@ class Main extends JFrame {
         if (retry_Local >= 3) {
             project_panel.getFc().userFeedback("compile");
             retry_Local = 0;
-        } else if (!out.isOutput_visible()) {
-            //Thread for the output
-            Thread t_out = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    if (anySelectedProjects()) {
+        } else if (!allEmptyProjects()) {
+
+            //if the output is not visible, set it to visible
+            if (!out.isOutput_visible()) {
+                //Thread for the output
+                Thread t_out = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+
                         panel_height = out.addOutput(contentPane, panel_height, panel_width);
                         upd_frame_size();
+
                     }
+                });
+                t_out.start();
+            }
+
+            //Thread for the compilation
+            Thread t_compile = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    //reset success value
+                    success = true;
+                    selectProjects();
+                    allTicksToFalse();
+                    colorizeSelected();
+                    compileChosen();
                 }
             });
-            t_out.start();
+            t_compile.start();
         }
+    }
 
-        //Thread for the compilation
-        Thread t_compile = new Thread(new Runnable() {
-            @Override
-            public void run() {
-
-                //reset success value
-                success = true;
-                selectProjects();
-                allTicksToFalse();
-                colorizeSelected();
-                compileChosen();
+    /**
+     * Checks if all projects paths are empty
+     *
+     * @return true if all are empty
+     */
+    private boolean allEmptyProjects() {
+        boolean allEmpty = true;
+        String path;
+        for (int i = 0; i < selected_projects.size(); i++) {
+            path = selected_projects.get(i).getJtf_path().getText();
+            if (!path.isEmpty() && !path.contains("git")) {
+                allEmpty = false;
             }
-        });
-        t_compile.start();
+        }
+        return allEmpty;
     }
 
     /**
      * If the user has entered the path manually, the path and the chosen variables have to be set
      */
     private void selectProjects() {
-        System.out.println("manually entered");
+
         for (int i = 0; i < selected_projects.size(); i++) {
             ProjectPanel project = selected_projects.get(i);
-            project.getFc().setPath(project.getJtf_path().getText());
-            project.getFc().getProjectName().setText(project.getFc().getPath());
-            project.getFc().setChosen(true);
+            if (!project.getJtf_path().getText().isEmpty()) {
+                //The path of the project is not empty
+                project.getFc().setPath(project.getJtf_path().getText());
+                project.getFc().getProjectName().setText(project.getFc().getPath());
+                project.getFc().setChosen(true);
+
+            }
         }
+
     }
 
     /**
@@ -219,7 +244,6 @@ class Main extends JFrame {
                 atLeastOne = true;
             }
         }
-        System.out.println("cloning?" + atLeastOne);
         return atLeastOne;
 
     }
@@ -309,7 +333,7 @@ class Main extends JFrame {
     }
 
     /**
-     * @return = true if at least one project is color_selected in the file chooser
+     * @return = true if at least one project is selected in the file chooser
      */
     private boolean anySelectedProjects() {
         boolean oneOrMore = false;
