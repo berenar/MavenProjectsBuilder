@@ -27,7 +27,7 @@ class ProjectPanel extends JPanel {
     private final Color notWhite = new Color(230, 247, 255);
 
     //File chooser for the jb_fc button
-    private final FileChooser fc = new FileChooser();
+    private final FileChooser fc;
 
     private final String cloneCommand = "git clone";
 
@@ -62,15 +62,19 @@ class ProjectPanel extends JPanel {
 
     private int retry_clone;
 
+    private Container parentContentPane;
+
     /**
      * Initializes project panel components
      *
      * @param selected  color of the buttons
      * @param compiling
      */
-    public ProjectPanel(Color selected, boolean compiling) {
+    public ProjectPanel(Color selected, boolean compiling, Container parentContentPane ) {
+        this.fc= new FileChooser(parentContentPane);
         this.selected = selected;
         this.compiling = compiling;
+        this.parentContentPane = parentContentPane;
         this.jl_order = new JLabel("", SwingConstants.CENTER);
         this.jtf_path = new JTextField();
         this.jtf_path.setHorizontalAlignment(JTextField.CENTER);

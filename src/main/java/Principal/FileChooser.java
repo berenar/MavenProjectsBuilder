@@ -1,7 +1,7 @@
 package Principal;
 
 import javax.swing.*;
-import java.awt.Dimension;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -23,17 +23,20 @@ public class FileChooser extends JPanel implements ActionListener {
     //true if the project has been chosen
     private boolean chosen;
 
-
     private int retry;
+
+    private Container parentContentPane;
+
 
     /**
      * Constructor for the FileChooser class
      */
-    public FileChooser() {
+    public FileChooser(Container parentContentPane) {
         go = new JButton("Local");
         go.addActionListener(this);
         add(go);
         chosen = false;
+        this.parentContentPane = parentContentPane;
     }
 
     /**
@@ -71,12 +74,12 @@ public class FileChooser extends JPanel implements ActionListener {
             case "local":
                 //Invoked clicking Local button
                 if (projectName.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(this,
+                    JOptionPane.showMessageDialog(parentContentPane,
                             "You have to select a project or input its path",
                             "Quick tip",
                             JOptionPane.PLAIN_MESSAGE);
                 } else {
-                    JOptionPane.showMessageDialog(this,
+                    JOptionPane.showMessageDialog(parentContentPane,
                             "You have already selected the project: \n" + path,
                             "Quick tip",
                             JOptionPane.PLAIN_MESSAGE);
@@ -85,7 +88,7 @@ public class FileChooser extends JPanel implements ActionListener {
                 break;
             case "compile":
                 //Invoked using Compile all button
-                JOptionPane.showMessageDialog(this,
+                JOptionPane.showMessageDialog(parentContentPane,
                         "Click Local or Git buttons to submit the URL",
                         "Quick tip",
                         JOptionPane.PLAIN_MESSAGE);
