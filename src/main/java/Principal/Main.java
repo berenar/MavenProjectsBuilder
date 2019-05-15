@@ -83,7 +83,7 @@ class Main extends JFrame {
         this.setResizable(false);
         this.setLocationRelativeTo(null);//null: centers window
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setTitle("mvnCompiler 1.3");
+        this.setTitle("mvnCompiler 1.4");
         try {
             //noinspection ConstantConditions
             this.setIconImage(ImageIO.read(getClass().getClassLoader().getResource("mvn_logo_2.png")));
