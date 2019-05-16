@@ -13,8 +13,7 @@ import java.awt.Insets;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 import static Principal.Constants.*;
@@ -181,6 +180,47 @@ class Main extends JFrame {
         save.setBounds(500, panelHeight - 100, buttonWidth, componentHeight);
         save.setBackground(moreBlue);
         contentPane.add(save);
+
+        save.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String fileName = JOptionPane.showInputDialog(contentPane, "Name the file");
+                File f = new File(fileName + ".txt");
+
+                if (f.exists() && !f.isDirectory()) {
+                    int reply = JOptionPane.showConfirmDialog(contentPane,
+                            "File already exists, do you want to overwrite it?",
+                            "Warning", JOptionPane.YES_NO_OPTION);
+                    if (reply == JOptionPane.YES_OPTION) {
+                        writeFile(fileName);
+                    } else {
+                        JOptionPane.showMessageDialog(contentPane, "Nothing saved");
+                    }
+                } else {
+                    writeFile(fileName);
+                }
+            }
+        });
+    }
+
+    /**
+     * Writes a file with all project paths.
+     *
+     * @param fileName name of the file
+     */
+    private void writeFile(String fileName) {
+        PrintWriter writer = null;
+        try {
+            writer = new PrintWriter(fileName + ".txt", "UTF-8");
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (UnsupportedEncodingException ex) {
+            ex.printStackTrace();
+        }
+        for (int i = 0; i < selectedProjects.size(); i++) {
+            writer.println(selectedProjects.get(i).getJtfPath().getText());
+        }
+        writer.close();
     }
 
     /**
@@ -211,10 +251,10 @@ class Main extends JFrame {
                         if (reply2 == JOptionPane.YES_OPTION) {
                             dispose();
                             String tempPath = System.getProperty("user.dir") + "\\.mvnCompiler_temp\\";
-                            if (!deleteDirectory(new File(tempPath))) {
+                            if (deleteDirectory(new File(tempPath))) {
                                 JOptionPane.showMessageDialog(contentPane,
-                                        "The .mvnCompiler_temp folder with temporal files could not be " +
-                                                "deleted, you may want to delete it yourself",
+                                        "The folder with temporal files may have " +
+                                                "not been deleted, you might want to delete it yourself",
                                         "Hey",
                                         JOptionPane.INFORMATION_MESSAGE);
                             }
