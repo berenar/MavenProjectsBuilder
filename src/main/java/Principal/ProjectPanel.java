@@ -2,7 +2,6 @@ package Principal;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
@@ -11,6 +10,8 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+
+import static Principal.Constants.*;
 
 class ProjectPanel extends JPanel {
 
@@ -22,30 +23,8 @@ class ProjectPanel extends JPanel {
     private BufferedImage tick;
     private final JLabel tickLabel;
 
-    //Border and colors for components
-    private final Border emptyBorder = BorderFactory.createEmptyBorder(0, 0, 0, 0);
-    private final Color selected;
-    private final Color notWhite = new Color(230, 247, 255);
-
     //File chooser for the jb_fc button
     private final FileChooser fc;
-
-    private final String cloneCommand = "git clone";
-
-    //Where to start painting components
-    private final int x_initial = 50;
-    private final int y_initial = 50;
-
-    //JFrame margin
-    private final int x_margin = 10;
-
-    //Component sizes
-    private final int jl_order_size = 30;
-    private final int jl_path_width = 400;
-    private final int jl_path_height = 30;
-    private final int jbs_width = 90;
-    private final int jbs_height = 30;
-    private final int tickLabel_size = 35;
 
     //id of the project
     private int id;
@@ -75,9 +54,8 @@ class ProjectPanel extends JPanel {
      * @param selected  color of the buttons
      * @param compiling pointer to
      */
-    public ProjectPanel(Color selected, boolean compiling, Container parentContentPane) {
+    public ProjectPanel(boolean compiling, Container parentContentPane) {
         this.fc = new FileChooser(parentContentPane);
-        this.selected = selected;
         this.compiling = compiling;
         this.parentContentPane = parentContentPane;
         this.jl_order = new JLabel("", SwingConstants.CENTER);
@@ -219,7 +197,6 @@ class ProjectPanel extends JPanel {
         return Files.exists(Paths.get(dest_path));
     }
 
-
     /**
      * Adds project panel components to the JFrame
      *
@@ -238,15 +215,15 @@ class ProjectPanel extends JPanel {
      */
     public void colorizeProjectPane() {
         jtf_path.setOpaque(true);
-        jtf_path.setBackground(selected);
+        jtf_path.setBackground(color_selected);
         jtf_path.setBorder(emptyBorder);
 
         jb_fc.setOpaque(true);
-        jb_fc.setBackground(this.selected);
+        jb_fc.setBackground(color_selected);
         jb_fc.setBorderPainted(false);
 
         jb_clone.setOpaque(true);
-        jb_clone.setBackground(this.selected);
+        jb_clone.setBackground(color_selected);
         jb_fc.setBorderPainted(false);
     }
 

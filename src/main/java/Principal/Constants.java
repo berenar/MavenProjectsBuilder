@@ -1,5 +1,7 @@
 package Principal;
 
+import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -30,8 +32,27 @@ final class Constants {
     public static final String compileCommand = "mvn clean install";
 
     /*-------------------------------------------------------------------------------------------*/
-    /*------------------------------------------- MAIN ------------------------------------------*/
+    /*-------------------------------------- PROJECT PANEL --------------------------------------*/
     /*-------------------------------------------------------------------------------------------*/
 
+    //Border and colors for components
+    public static final Border emptyBorder = BorderFactory.createEmptyBorder(0, 0, 0, 0);
+    public static final Color notWhite = new Color(230, 247, 255);
 
+    public static final String cloneCommand = "git clone";
+
+    //Where to start painting components
+    public static final int x_initial = 50;
+    public static final int y_initial = 50;
+
+    //JFrame margin
+    public static final int x_margin = 10;
+
+    //Component sizes
+    public static final int jl_order_size = 30;
+    public static final int jl_path_width = 400;
+    public static final int jl_path_height = 30;
+    public static final int jbs_width = 90;
+    public static final int jbs_height = 30;
+    public static final int tickLabel_size = 35;
 }

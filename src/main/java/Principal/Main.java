@@ -94,7 +94,7 @@ class Main extends JFrame {
      * Adds a new Project panel.
      */
     private void nouProjectPan() {
-        project_panel = new ProjectPanel(color_selected, compiling, contentPane);
+        project_panel = new ProjectPanel(compiling, contentPane);
         project_panel.configureProjectPan(selected_projects.size() + 1);
         project_panel.addProjectPan(contentPane);
         selected_projects.add(project_panel);
