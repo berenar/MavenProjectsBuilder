@@ -32,16 +32,16 @@ class ProcessBuilder {
             System.out.println(line);
             out.getConsole().append(" " + line + "\n");
             out.getConsole().setCaretPosition(out.getConsole().getDocument().getLength());
-                if (line.contains("BUILD FAILURE")) {
-                    out.getConsole().append(" \n");
-                    out.getConsole().append(" \n");
-                    out.getConsole().append(" ****************************************" + "\n");
-                    out.getConsole().append(" *  Error compiling project number  " + id + " *" + "\n");
-                    out.getConsole().append(" ****************************************" + "\n");
-                    out.getConsole().append(" \n");
-                    out.getConsole().append(" \n");
-                    throw new Exception();
-                }
+            if (line.contains("BUILD FAILURE")) {
+                out.getConsole().append(" \n");
+                out.getConsole().append(" \n");
+                out.getConsole().append(" ****************************************" + "\n");
+                out.getConsole().append(" *  Error compiling project number  " + id + " *" + "\n");
+                out.getConsole().append(" ****************************************" + "\n");
+                out.getConsole().append(" \n");
+                out.getConsole().append(" \n");
+                throw new Exception();
+            }
 
         }
         //sets the cursor to it's default value
@@ -51,11 +51,12 @@ class ProcessBuilder {
     /**
      * Executes a simple command in background
      *
-     * @param command
+     * @param command command to be executed
      * @return true when the process has finished
-     * @throws IOException
-     * @throws InterruptedException
+     * @throws IOException exception
+     * @throws InterruptedException exception
      */
+    @SuppressWarnings("SameReturnValue")
     public boolean executeCommand(String command) throws IOException, InterruptedException {
         java.lang.ProcessBuilder processBuilder = new java.lang.ProcessBuilder();
         processBuilder.command("cmd.exe", "/c", command);

@@ -18,7 +18,7 @@ class ProjectPanel extends JPanel {
     private final JLabel jl_order;
     private final JTextField jtf_path;
     private final JButton jb_fc;
-    private final JButton jb_git;
+    private final JButton jb_clone;
     private BufferedImage tick;
     private final JLabel tickLabel;
 
@@ -64,14 +64,15 @@ class ProjectPanel extends JPanel {
     private String dest_path;
     private String com;
 
+    //failed user attempts to clone
     private int retry_clone;
 
-    private Container parentContentPane;
+    private final Container parentContentPane;
 
     /**
      * Initializes project panel components
-     *  @param selected  color of the buttons
-     * @param cloning
+     *
+     * @param selected  color of the buttons
      * @param compiling pointer to
      */
     public ProjectPanel(Color selected, boolean compiling, Container parentContentPane) {
@@ -85,8 +86,8 @@ class ProjectPanel extends JPanel {
         fc.setProjectName(jtf_path);
         this.jb_fc = fc.getGo();
         this.jb_fc.setBackground(Color.WHITE);
-        this.jb_git = new JButton("Clone");
-        this.jb_git.setBackground(Color.WHITE);
+        this.jb_clone = new JButton("Clone");
+        this.jb_clone.setBackground(Color.WHITE);
         try {
             //noinspection ConstantConditions
             this.tick = ImageIO.read(getClass().getClassLoader().getResource("tick.png"));
@@ -103,7 +104,7 @@ class ProjectPanel extends JPanel {
      * Sets id for the project
      * Sets project panel components bounds
      * Sets the tickLabel to false
-     * Sets jb_git action
+     * Sets jb_clone action
      *
      * @param n id
      */
@@ -123,26 +124,26 @@ class ProjectPanel extends JPanel {
         jb_fc.setBorderPainted(false);
         jb_fc.setBackground(notWhite);
 
-        jb_git.setBounds(jb_fc.getBounds().x + jbs_width + x_margin, y_initial * id, jbs_width, jbs_height);
-        jb_git.setBorderPainted(false);
-        jb_git.setBackground(notWhite);
+        jb_clone.setBounds(jb_fc.getBounds().x + jbs_width + x_margin, y_initial * id, jbs_width, jbs_height);
+        jb_clone.setBorderPainted(false);
+        jb_clone.setBackground(notWhite);
 
-        jb_git.addActionListener(new ActionListener() {
+        jb_clone.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (jtf_path.getText().isEmpty()) {
-                    fc.setChosen(false);
-                }
+                String path = jtf_path.getText();
 
-                if (!cloned && !jtf_path.getText().isEmpty() && !compiling) {
-                    if (jtf_path.getText().contains("git")) {
-                        prepareProject();
-                    }
+/*                if (path.isEmpty()) {
+                    fc.setChosen(false);
+                } else*/
+
+                if (!cloned && !path.isEmpty() && !compiling && path.contains(".git")) {
+                    prepareProject();
                 }
             }
         });
 
-        tickLabel.setBounds(jb_git.getBounds().x + jbs_width + x_margin,
+        tickLabel.setBounds(jb_clone.getBounds().x + jbs_width + x_margin,
                 y_initial * n - 5, tickLabel_size, tickLabel_size);
         tickLabel.setVisible(false);
     }
@@ -158,7 +159,7 @@ class ProjectPanel extends JPanel {
             @Override
             public void run() {
                 cloning = true;
-                jb_git.setText("Cloning...");
+                jb_clone.setText("Cloning...");
                 git_url = jtf_path.getText();
                 //Get substring of the repository name
                 nom_repo = git_url.substring(git_url.lastIndexOf("/") + 1, git_url.indexOf(".git"));
@@ -176,13 +177,13 @@ class ProjectPanel extends JPanel {
                     fc.setChosen(true);
                     jtf_path.setText(nom_repo);
 
-                    jb_git.setText("Cloned");
+                    jb_clone.setText("Cloned");
                 } else {
                     JOptionPane.showMessageDialog(parentContentPane,
                             "Error cloning the project " + id,
                             "Error",
                             JOptionPane.ERROR_MESSAGE);
-                    jb_git.setText("Error");
+                    jb_clone.setText("Error");
                 }
                 cloning = false;
             }
@@ -205,7 +206,7 @@ class ProjectPanel extends JPanel {
         contentPane.add(this.jl_order);
         contentPane.add(this.jtf_path);
         contentPane.add(this.jb_fc);
-        contentPane.add(this.jb_git);
+        contentPane.add(this.jb_clone);
         contentPane.add(this.tickLabel);
     }
 
@@ -221,8 +222,8 @@ class ProjectPanel extends JPanel {
         jb_fc.setBackground(this.selected);
         jb_fc.setBorderPainted(false);
 
-        jb_git.setOpaque(true);
-        jb_git.setBackground(this.selected);
+        jb_clone.setOpaque(true);
+        jb_clone.setBackground(this.selected);
         jb_fc.setBorderPainted(false);
     }
 
@@ -262,14 +263,26 @@ class ProjectPanel extends JPanel {
         return tickLabel;
     }
 
+    /**
+     * Getter for Cloning
+     * @return if the project is cloning or not
+     */
     public boolean isCloning() {
         return cloning;
     }
 
+    /**
+     * Getter for jtf_path
+     * @return jtf_path
+     */
     public JTextField getJtf_path() {
         return jtf_path;
     }
 
+    /**
+     * Getter for Cloned
+     * @return if the project has been cloned or not
+     */
     public boolean isCloned() {
         return cloned;
     }

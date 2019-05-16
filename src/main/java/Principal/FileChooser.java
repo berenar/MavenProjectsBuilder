@@ -1,7 +1,12 @@
 package Principal;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,8 +15,6 @@ public class FileChooser extends JPanel implements ActionListener {
     //FileChooser components
     private final JButton go;
     private JFileChooser chooser;
-
-
 
     private JTextField projectName; //pointed by ProjectPanel.jtf_path
 
@@ -25,8 +28,7 @@ public class FileChooser extends JPanel implements ActionListener {
 
     private int retry;
 
-    private Container parentContentPane;
-
+    private final Container parentContentPane;
 
     /**
      * Constructor for the FileChooser class
@@ -94,7 +96,6 @@ public class FileChooser extends JPanel implements ActionListener {
                         JOptionPane.PLAIN_MESSAGE);
                 break;
         }
-
     }
 
     /**
@@ -150,10 +151,19 @@ public class FileChooser extends JPanel implements ActionListener {
     public void setChosen(boolean chosen) {
         this.chosen = chosen;
     }
+
+    /**
+     * Setter for path
+     * @param path new path value
+     */
     public void setPath(String path) {
         this.path = path;
     }
 
+    /**
+     * Getter for the project name
+     * @return the project name
+     */
     public JTextField getProjectName() {
         return projectName;
     }

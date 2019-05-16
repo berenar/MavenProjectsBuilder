@@ -1,8 +1,16 @@
 package Principal;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Cursor;
+import java.awt.Font;
+import java.awt.Insets;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -12,7 +20,7 @@ import java.util.ArrayList;
 class Main extends JFrame {
 
     //Array of ProjectPanel objects
-    private final ArrayList<ProjectPanel> selected_projects = new ArrayList<ProjectPanel>();
+    private final ArrayList<ProjectPanel> selected_projects = new ArrayList<>();
 
     //JFrame size
     private final int panel_width = (Toolkit.getDefaultToolkit().getScreenSize().width / 3) + 150;
@@ -222,6 +230,11 @@ class Main extends JFrame {
         });
     }
 
+    /**
+     * Recursively deletes a directory and it's contents
+     * @param directoryToBeDeleted the desired directory
+     * @return if it could be deleted
+     */
     private boolean deleteDirectory(File directoryToBeDeleted) {
         File[] allContents = directoryToBeDeleted.listFiles();
         if (allContents != null) {
@@ -231,7 +244,6 @@ class Main extends JFrame {
         }
         return directoryToBeDeleted.delete();
     }
-
 
     /**
      * Updates add_project and compile buttons bounds to match a new screen size.
