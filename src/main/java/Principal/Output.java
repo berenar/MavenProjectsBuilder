@@ -6,67 +6,79 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
 
-import static Principal.Constants.*;
-
 class Output {
 
     //Swing Components
     private JTextArea console;
     private JScrollPane scrollPane;
 
+    //Console height
+    private final int output_height;
+
     //True if the console is visible
-    private boolean outputVisible = false;
+    private boolean output_visible;
+
+    private final Color color_out;
 
     /**
-     * Adds the console to the bottom of the JFrame and sets outputVisible to true
+     * Constructor of the class
+     */
+    public Output() {
+        output_height = 200;
+        output_visible = false;
+        color_out = new Color(0, 53, 102);
+    }
+
+    /**
+     * Adds the console to the bottom of the JFrame and sets output_visible to true
      *
      * @param contentPane  JFrame contents
-     * @param panelHeight JFrame height
-     * @param panelWidth  JFrame width
-     * @return updated panelHeight
+     * @param panel_height JFrame height
+     * @param panel_width  JFrame width
+     * @return updated panel_height
      */
-    public int addOutput(Container contentPane, int panelHeight, int panelWidth) {
-        int previousPanelHeight = panelHeight;
-        panelHeight = panelHeight + outputHeight;
+    public int addOutput(Container contentPane, int panel_height, int panel_width) {
+        int previous_panel_height = panel_height;
+        panel_height = panel_height + output_height;
         console = new JTextArea(10, 50);
         console.setEditable(false);
-        console.setBackground(mostBlue);
+        console.setBackground(color_out);
         console.setFont(new Font("Arial", Font.PLAIN, 12));
         console.setForeground(Color.WHITE);
 
         scrollPane = new JScrollPane(console);
-        scrollPane.setBounds(0, previousPanelHeight - 13, panelWidth - 5, outputHeight - 15);
+        scrollPane.setBounds(0, previous_panel_height - 13, panel_width - 5, output_height - 15);
         contentPane.add(scrollPane);
 
         //auto scroll to the last line
         console.setCaretPosition(console.getDocument().getLength());
 
-        outputVisible = true;
-        return panelHeight;
+        output_visible = true;
+        return panel_height;
     }
 
     /**
-     * Removes the console of the JFrame and sets outputVisible to false
+     * Removes the console of the JFrame and sets output_visible to false
      *
      * @param contentPane  JFrame contents
-     * @param panelHeight JFrame height
-     * @return updated panelHeight
+     * @param panel_height JFrame height
+     * @return updated panel_height
      */
-    public int removeOutput(Container contentPane, int panelHeight) {
+    public int removeOutput(Container contentPane, int panel_height) {
         contentPane.remove(scrollPane);
-        panelHeight = panelHeight - outputHeight;
+        panel_height = panel_height - output_height;
 
-        outputVisible = false;
-        return panelHeight;
+        output_visible = false;
+        return panel_height;
     }
 
     /**
-     * Getter for outputVisible
+     * Getter for output_visible
      *
-     * @return true if outputVisible is true
+     * @return true if output_visible is true
      */
-    public boolean isOutputVisible() {
-        return outputVisible;
+    public boolean isOutput_visible() {
+        return output_visible;
     }
 
     /**
