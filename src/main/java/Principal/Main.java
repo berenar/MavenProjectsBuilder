@@ -15,12 +15,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
+
+import static Principal.Constants.*;
 
 class Main extends JFrame {
-
-    //Array of ProjectPanel objects
-    private final ArrayList<ProjectPanel> selected_projects = new ArrayList<>();
 
     //JFrame size
     private final int panel_width = (Toolkit.getDefaultToolkit().getScreenSize().width / 3) + 150;
@@ -31,22 +29,8 @@ class Main extends JFrame {
     private ProjectPanel project_panel;
     private JButton add_project;
     private JButton compile;
-    private JButton clear;
-    private final Output out = new Output();
-
-    //JButtons color
-    private final Color color_selected = new Color(128, 191, 255);
-    private final Color color_danger = new Color(255, 128, 128);
-
-    //component sizes
-    private final int add_project_size = 30;
-    private final int compile_width = 200;
-    private final int compile_height = 30;
-    private final int clear_height = 30;
-    private final int clear_width = 190;
-
-    //commands to execute
-    private final String compileCommand = "mvn clean install";
+    private JButton reset;
+    private JButton save;
 
     //to know if there's any project being compiled
     private boolean compiling = false;
@@ -82,8 +66,11 @@ class Main extends JFrame {
         //COMPILE BUTTON
         nouCompile();
 
-        //CLEAR BUTTON
-        nouClear();
+        //SAVE BUTTON
+        nouSave();
+
+        //RESET BUTTON
+        nouReset();
 
         //CONFIGURE JFRAME
         upd_frame_size();
@@ -181,18 +168,31 @@ class Main extends JFrame {
     }
 
     /**
+     * Creates the Save button
+     * It's action is to save what the user introduced in the app.
+     */
+    private void nouSave() {
+        save = new JButton("Save");
+        save.setBorderPainted(false);
+        save.setMargin(new Insets(0, 0, 0, 0));
+        save.setBounds(500, panel_height - 100, save_width, save_height);
+        save.setBackground(color_selected);
+        contentPane.add(save);
+    }
+
+    /**
      * Creates the Clear projects button.
      * It's action is to reset the program.
      */
-    private void nouClear() {
-        clear = new JButton("Reset");
-        clear.setBorderPainted(false);
-        clear.setMargin(new Insets(0, 0, 0, 0));
-        clear.setBounds(500, panel_height - 100, clear_width, clear_height);
-        clear.setBackground(color_danger);
-        contentPane.add(clear);
+    private void nouReset() {
+        reset = new JButton("Reset");
+        reset.setBorderPainted(false);
+        reset.setMargin(new Insets(0, 0, 0, 0));
+        reset.setBounds(save.getBounds().x + reset_width + 10, panel_height - 60, reset_width, reset_height);
+        reset.setBackground(color_danger);
+        contentPane.add(reset);
 
-        clear.addActionListener(new ActionListener() {
+        reset.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!compiling && !anyProjectIsCloning()) {
@@ -225,13 +225,13 @@ class Main extends JFrame {
                             "Forbidden",
                             JOptionPane.ERROR_MESSAGE);
                 }
-
             }
         });
     }
 
     /**
      * Recursively deletes a directory and it's contents
+     *
      * @param directoryToBeDeleted the desired directory
      * @return if it could be deleted
      */
@@ -251,7 +251,8 @@ class Main extends JFrame {
     private void reSetBounds() {
         add_project.setBounds(50, panel_height - 100, add_project_size, add_project_size);
         compile.setBounds(160 + add_project_size, panel_height - 100, compile_width, compile_height);
-        clear.setBounds(500, panel_height - 100, clear_width, clear_height);
+        save.setBounds(500, panel_height - 100, save_width, save_height);
+        reset.setBounds(save.getBounds().x + reset_width + 10, panel_height - 100, reset_width, reset_height);
     }
 
     /**
