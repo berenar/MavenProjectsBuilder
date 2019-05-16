@@ -20,7 +20,7 @@ class Output {
     /**
      * Adds the console to the bottom of the JFrame and sets outputVisible to true
      *
-     * @param contentPane  JFrame contents
+     * @param contentPane JFrame contents
      * @param panelHeight JFrame height
      * @param panelWidth  JFrame width
      * @return updated panelHeight
@@ -48,7 +48,7 @@ class Output {
     /**
      * Removes the console of the JFrame and sets outputVisible to false
      *
-     * @param contentPane  JFrame contents
+     * @param contentPane JFrame contents
      * @param panelHeight JFrame height
      * @return updated panelHeight
      */

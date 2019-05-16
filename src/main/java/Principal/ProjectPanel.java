@@ -1,7 +1,13 @@
 package Principal;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -260,21 +266,21 @@ class ProjectPanel extends JPanel {
     }
 
     /**
-     * Getter for Cloning
-     *
-     * @return if the project is cloning or not
-     */
-    public boolean isCloning() {
-        return cloning;
-    }
-
-    /**
      * Getter for jtfPath
      *
      * @return jtfPath
      */
     public JTextField getJtfPath() {
         return jtfPath;
+    }
+
+    /**
+     * Getter for Cloning
+     *
+     * @return if the project is cloning or not
+     */
+    public boolean isCloning() {
+        return cloning;
     }
 
     /**

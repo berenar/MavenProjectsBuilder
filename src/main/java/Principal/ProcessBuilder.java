@@ -53,7 +53,7 @@ class ProcessBuilder {
      *
      * @param command command to be executed
      * @return true when the process has finished
-     * @throws IOException exception
+     * @throws IOException          exception
      * @throws InterruptedException exception
      */
     @SuppressWarnings("SameReturnValue")

@@ -21,7 +21,7 @@ import static Principal.Constants.*;
 
 class Main extends JFrame {
     //Array of ProjectPanel objects
-    public final ArrayList<ProjectPanel> selectedProjects = new ArrayList<>();
+    private final ArrayList<ProjectPanel> selectedProjects = new ArrayList<>();
 
     //JFrame size
     private final int panelWidth = (Toolkit.getDefaultToolkit().getScreenSize().width / 3) + 150;

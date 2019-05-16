@@ -118,6 +118,15 @@ public class FileChooser extends JPanel implements ActionListener {
     }
 
     /**
+     * Getter for the project name
+     *
+     * @return the project name
+     */
+    public JTextField getProjectName() {
+        return projectName;
+    }
+
+    /**
      * Setter for the project name
      *
      * @param projectName project name
@@ -136,6 +145,15 @@ public class FileChooser extends JPanel implements ActionListener {
     }
 
     /**
+     * Setter for path
+     *
+     * @param path new path value
+     */
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    /**
      * Getter for chosen
      *
      * @return true if the project has been chosen
@@ -151,22 +169,6 @@ public class FileChooser extends JPanel implements ActionListener {
      */
     public void setChosen(boolean chosen) {
         this.chosen = chosen;
-    }
-
-    /**
-     * Setter for path
-     * @param path new path value
-     */
-    public void setPath(String path) {
-        this.path = path;
-    }
-
-    /**
-     * Getter for the project name
-     * @return the project name
-     */
-    public JTextField getProjectName() {
-        return projectName;
     }
 
 }
