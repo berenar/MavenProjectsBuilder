@@ -51,7 +51,6 @@ class ProjectPanel extends JPanel {
     /**
      * Initializes project panel components
      *
-     * @param selected  color of the buttons
      * @param compiling pointer to
      */
     public ProjectPanel(boolean compiling, Container parentContentPane) {
@@ -89,20 +88,20 @@ class ProjectPanel extends JPanel {
     public void configureProjectPan(int n) {
         id = n;
         jl_order.setText(String.valueOf(id));
-        jl_order.setBounds(x_initial, y_initial * id, jl_order_size, jl_order_size);
+        jl_order.setBounds(initial, initial * id, componentHeight, componentHeight);
         jl_order.setBackground(notWhite);
 
-        jtf_path.setBounds(jl_order.getBounds().x + jl_order_size + x_margin,
-                y_initial * id, jl_path_width, jl_path_height);
+        jtf_path.setBounds(jl_order.getBounds().x + componentHeight + xMargin,
+                initial * id, jlPathWidth, componentHeight);
         jtf_path.setBorder(emptyBorder);
         jtf_path.setBackground(notWhite);
 
-        jb_fc.setBounds(jtf_path.getBounds().x + jl_path_width + x_margin,
-                y_initial * id, jbs_width, jbs_height);
+        jb_fc.setBounds(jtf_path.getBounds().x + jlPathWidth + xMargin,
+                initial * id, buttonWidth, componentHeight);
         jb_fc.setBorderPainted(false);
         jb_fc.setBackground(notWhite);
 
-        jb_clone.setBounds(jb_fc.getBounds().x + jbs_width + x_margin, y_initial * id, jbs_width, jbs_height);
+        jb_clone.setBounds(jb_fc.getBounds().x + buttonWidth + xMargin, initial * id, buttonWidth, componentHeight);
         jb_clone.setBorderPainted(false);
         jb_clone.setBackground(notWhite);
 
@@ -143,8 +142,8 @@ class ProjectPanel extends JPanel {
             }
         });
 
-        tickLabel.setBounds(jb_clone.getBounds().x + jbs_width + x_margin,
-                y_initial * n - 5, tickLabel_size, tickLabel_size);
+        tickLabel.setBounds(jb_clone.getBounds().x + buttonWidth + xMargin,
+                initial * n - 5, tickLabelSize, tickLabelSize);
         tickLabel.setVisible(false);
     }
 
@@ -215,15 +214,15 @@ class ProjectPanel extends JPanel {
      */
     public void colorizeProjectPane() {
         jtf_path.setOpaque(true);
-        jtf_path.setBackground(color_selected);
+        jtf_path.setBackground(moreBlue);
         jtf_path.setBorder(emptyBorder);
 
         jb_fc.setOpaque(true);
-        jb_fc.setBackground(color_selected);
+        jb_fc.setBackground(moreBlue);
         jb_fc.setBorderPainted(false);
 
         jb_clone.setOpaque(true);
-        jb_clone.setBackground(color_selected);
+        jb_clone.setBackground(moreBlue);
         jb_fc.setBorderPainted(false);
     }
 
@@ -241,8 +240,8 @@ class ProjectPanel extends JPanel {
      *
      * @return JLabel path
      */
-    public int getJl_path_height() {
-        return jl_path_height;
+    public int getJlPathHeight() {
+        return componentHeight;
     }
 
     /**
@@ -277,7 +276,7 @@ class ProjectPanel extends JPanel {
      *
      * @return jtf_path
      */
-    public JTextField getJtf_path() {
+    public JTextField getJtfPath() {
         return jtf_path;
     }
 

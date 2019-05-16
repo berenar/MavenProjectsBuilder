@@ -16,10 +16,10 @@ public class FileChooser extends JPanel implements ActionListener {
     private final JButton go;
     private JFileChooser chooser;
 
-    private JTextField projectName; //pointed by ProjectPanel.jtf_path
+    private JTextField projectName; //pointed by ProjectPanel.jtfPath
 
     //FileChooser Title and path
-    private final String chooser_title = "Select a project directory";
+    private final String chooserTitle = "Select a project directory";
 
     private String path;
 
@@ -58,7 +58,7 @@ public class FileChooser extends JPanel implements ActionListener {
         } else {
             chooser = new JFileChooser();
             chooser.setCurrentDirectory(new java.io.File(System.getProperty("user.home")));
-            chooser.setDialogTitle(chooser_title);
+            chooser.setDialogTitle(chooserTitle);
             chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
             if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
                 path = chooser.getSelectedFile().getPath();
