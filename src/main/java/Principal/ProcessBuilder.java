@@ -52,16 +52,14 @@ class ProcessBuilder {
      * Executes a simple command in background
      *
      * @param command command to be executed
-     * @return true when the process has finished
      * @throws IOException exception
      * @throws InterruptedException exception
      */
     @SuppressWarnings("SameReturnValue")
-    public boolean executeCommand(String command) throws IOException, InterruptedException {
+    public void executeCommand(String command) throws IOException, InterruptedException {
         java.lang.ProcessBuilder processBuilder = new java.lang.ProcessBuilder();
         processBuilder.command("cmd.exe", "/c", command);
         Process process = processBuilder.start();
         process.waitFor();
-        return true;
     }
 }

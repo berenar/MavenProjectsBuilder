@@ -15,38 +15,22 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
+
+import static Principal.Constants.*;
 
 class Main extends JFrame {
 
-    //Array of ProjectPanel objects
-    private final ArrayList<ProjectPanel> selected_projects = new ArrayList<>();
-
     //JFrame size
-    private final int panel_width = (Toolkit.getDefaultToolkit().getScreenSize().width / 3) + 150;
-    private int panel_height = 150;
+    private final int panelWidth = (Toolkit.getDefaultToolkit().getScreenSize().width / 3) + 150;
+    private int panelHeight = 150;
 
     //Swing components
     private Container contentPane;
-    private ProjectPanel project_panel;
-    private JButton add_project;
+    private ProjectPanel projectPanel;
+    private JButton addProject;
     private JButton compile;
-    private JButton clear;
-    private final Output out = new Output();
-
-    //JButtons color
-    private final Color color_selected = new Color(128, 191, 255);
-    private final Color color_danger = new Color(255, 128, 128);
-
-    //component sizes
-    private final int add_project_size = 30;
-    private final int compile_width = 200;
-    private final int compile_height = 30;
-    private final int clear_height = 30;
-    private final int clear_width = 190;
-
-    //commands to execute
-    private final String compileCommand = "mvn clean install";
+    private JButton reset;
+    private JButton save;
 
     //to know if there's any project being compiled
     private boolean compiling = false;
@@ -54,7 +38,7 @@ class Main extends JFrame {
     //to know if all projects compiled
     private boolean success = true;
 
-    private int retry_Local;
+    private int retryCompile;
 
     /*-------------------------------------------------------------------------------------------*/
     /*--------------------------------------- GUI METHODS ---------------------------------------*/
@@ -68,10 +52,10 @@ class Main extends JFrame {
         contentPane.setLayout(null);
 
         //TITLE
-        JLabel title_app = new JLabel("Introduce a project path manually (and click Local) or click " +
+        JLabel titleApp = new JLabel("Introduce a project path manually (and click Local) or click " +
                 "one of the two buttons to select a project");
-        title_app.setBounds(100, 0, panel_width, 50);
-        contentPane.add(title_app);
+        titleApp.setBounds(100, 0, panelWidth, 50);
+        contentPane.add(titleApp);
 
         //PROJECT PANEL
         nouProjectPan();
@@ -82,11 +66,14 @@ class Main extends JFrame {
         //COMPILE BUTTON
         nouCompile();
 
-        //CLEAR BUTTON
-        nouClear();
+        //SAVE BUTTON
+        nouSave();
+
+        //RESET BUTTON
+        nouReset();
 
         //CONFIGURE JFRAME
-        upd_frame_size();
+        updFrameSize();
         contentPane.setBackground(Color.WHITE);
         this.setResizable(false);
         this.setLocationRelativeTo(null);//null: centers window
@@ -107,41 +94,41 @@ class Main extends JFrame {
      * Adds a new Project panel.
      */
     private void nouProjectPan() {
-        project_panel = new ProjectPanel(color_selected, compiling, contentPane);
-        project_panel.configureProjectPan(selected_projects.size() + 1);
-        project_panel.addProjectPan(contentPane);
-        selected_projects.add(project_panel);
-        panel_height += project_panel.getJl_path_height() + 20;
-        upd_frame_size();
+        projectPanel = new ProjectPanel(compiling, contentPane);
+        projectPanel.configureProjectPan(selectedProjects.size() + 1);
+        projectPanel.addProjectPan(contentPane);
+        selectedProjects.add(projectPanel);
+        panelHeight += projectPanel.getJlPathHeight() + 20;
+        updFrameSize();
     }
 
     /**
      * Adds a new Add Project button (+).
      */
     private void nouAddProject() {
-        add_project = new JButton("+");
-        add_project.setBorderPainted(false);
-        add_project.setMargin(new Insets(0, 0, 0, 0));
-        add_project.setFont(new Font("Arial", Font.PLAIN, 20));
-        add_project.setBounds(50, panel_height - 100, add_project_size, add_project_size);
-        add_project.setBackground(color_selected);
-        contentPane.add(add_project);
+        addProject = new JButton("+");
+        addProject.setBorderPainted(false);
+        addProject.setMargin(new Insets(0, 0, 0, 0));
+        addProject.setFont(new Font("Arial", Font.PLAIN, 20));
+        addProject.setBounds(50, panelHeight - 100, squareComponent, squareComponent);
+        addProject.setBackground(moreBlue);
+        contentPane.add(addProject);
 
-        add_project.addActionListener(new ActionListener() {
+        addProject.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!compiling) {
-                    boolean temporary_removed = false;
+                    boolean temporaryRemoved = false;
                     nouProjectPan();
-                    if (out.isOutput_visible()) {
-                        temporary_removed = true;
-                        panel_height = out.removeOutput(contentPane, panel_height);
-                        upd_frame_size();
+                    if (out.isOutputVisible()) {
+                        temporaryRemoved = true;
+                        panelHeight = out.removeOutput(contentPane, panelHeight);
+                        updFrameSize();
                     }
                     reSetBounds();
-                    if (temporary_removed) {
-                        panel_height = out.addOutput(contentPane, panel_height, panel_width);
-                        upd_frame_size();
+                    if (temporaryRemoved) {
+                        panelHeight = out.addOutput(contentPane, panelHeight, panelWidth);
+                        updFrameSize();
                     }
                 }
             }
@@ -155,8 +142,8 @@ class Main extends JFrame {
         compile = new JButton("Compile all");
         compile.setBorderPainted(false);
         compile.setFont(new Font("Arial", Font.PLAIN, 20));
-        compile.setBounds(160 + add_project_size, panel_height - 100, compile_width, compile_height);
-        compile.setBackground(color_selected);
+        compile.setBounds(160 + squareComponent, panelHeight - 100, compileWidth, componentHeight);
+        compile.setBackground(moreBlue);
         contentPane.add(compile);
 
         compile.addActionListener(new ActionListener() {
@@ -181,37 +168,50 @@ class Main extends JFrame {
     }
 
     /**
+     * Creates the Save button
+     * It's action is to save what the user introduced in the app.
+     */
+    private void nouSave() {
+        save = new JButton("Save");
+        save.setBorderPainted(false);
+        save.setMargin(new Insets(0, 0, 0, 0));
+        save.setBounds(500, panelHeight - 100, buttonWidth, componentHeight);
+        save.setBackground(moreBlue);
+        contentPane.add(save);
+    }
+
+    /**
      * Creates the Clear projects button.
      * It's action is to reset the program.
      */
-    private void nouClear() {
-        clear = new JButton("Reset");
-        clear.setBorderPainted(false);
-        clear.setMargin(new Insets(0, 0, 0, 0));
-        clear.setBounds(500, panel_height - 100, clear_width, clear_height);
-        clear.setBackground(color_danger);
-        contentPane.add(clear);
+    private void nouReset() {
+        reset = new JButton("Reset");
+        reset.setBorderPainted(false);
+        reset.setMargin(new Insets(0, 0, 0, 0));
+        reset.setBounds(save.getBounds().x + buttonWidth + 10, panelHeight - 100, buttonWidth, componentHeight);
+        reset.setBackground(dangerRed);
+        contentPane.add(reset);
 
-        clear.addActionListener(new ActionListener() {
+        reset.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!compiling && !anyProjectIsCloning()) {
-                    int reply_1 = JOptionPane.showConfirmDialog(contentPane,
+                    int reply1 = JOptionPane.showConfirmDialog(contentPane,
                             "You are trying to reset the app to it's initial state, are you sure?",
                             "Be careful!",
                             JOptionPane.YES_NO_OPTION);
-                    if (reply_1 == JOptionPane.YES_OPTION) {
-                        int reply_2 = JOptionPane.showConfirmDialog(contentPane,
+                    if (reply1 == JOptionPane.YES_OPTION) {
+                        int reply2 = JOptionPane.showConfirmDialog(contentPane,
                                 "There is no coming back, ARE YOU SURE?",
                                 "BE CAREFUL!",
                                 JOptionPane.YES_NO_OPTION);
-                        if (reply_2 == JOptionPane.YES_OPTION) {
+                        if (reply2 == JOptionPane.YES_OPTION) {
                             dispose();
-                            String temp_path = System.getProperty("user.dir") + "\\.mvnCompiler_temp\\";
-                            if (!deleteDirectory(new File(temp_path))) {
+                            String tempPath = System.getProperty("user.dir") + "\\.mvnCompiler_temp\\";
+                            if (!deleteDirectory(new File(tempPath))) {
                                 JOptionPane.showMessageDialog(contentPane,
-                                        "The .mvnCompiler_temp folder with temporal files could not be deleted, " +
-                                                "you may want to delete it yourself",
+                                        "The .mvnCompiler_temp folder with temporal files could not be " +
+                                                "deleted, you may want to delete it yourself",
                                         "Hey",
                                         JOptionPane.INFORMATION_MESSAGE);
                             }
@@ -225,13 +225,13 @@ class Main extends JFrame {
                             "Forbidden",
                             JOptionPane.ERROR_MESSAGE);
                 }
-
             }
         });
     }
 
     /**
      * Recursively deletes a directory and it's contents
+     *
      * @param directoryToBeDeleted the desired directory
      * @return if it could be deleted
      */
@@ -246,20 +246,21 @@ class Main extends JFrame {
     }
 
     /**
-     * Updates add_project and compile buttons bounds to match a new screen size.
+     * Updates addProject and compile buttons bounds to match a new screen size.
      */
     private void reSetBounds() {
-        add_project.setBounds(50, panel_height - 100, add_project_size, add_project_size);
-        compile.setBounds(160 + add_project_size, panel_height - 100, compile_width, compile_height);
-        clear.setBounds(500, panel_height - 100, clear_width, clear_height);
+        addProject.setBounds(50, panelHeight - 100, squareComponent, squareComponent);
+        compile.setBounds(160 + squareComponent, panelHeight - 100, compileWidth, componentHeight);
+        save.setBounds(500, panelHeight - 100, buttonWidth, componentHeight);
+        reset.setBounds(save.getBounds().x + buttonWidth + 10, panelHeight - 100, buttonWidth, componentHeight);
     }
 
     /**
      * Sets all project ticks to false for a new compilation.
      */
     private void allTicksToFalse() {
-        for (int i = 0; i < selected_projects.size(); i++) {
-            selected_projects.get(i).getTickLabel().setVisible(false);
+        for (int i = 0; i < selectedProjects.size(); i++) {
+            selectedProjects.get(i).getTickLabel().setVisible(false);
         }
     }
 
@@ -267,9 +268,9 @@ class Main extends JFrame {
      * Paint selected projects to be compiled in a darker color.
      */
     private void colorizeSelected() {
-        for (int i = 0; i < selected_projects.size(); i++) {
-            if (selected_projects.get(i).getFc().isChosen()) {
-                selected_projects.get(i).colorizeProjectPane();
+        for (int i = 0; i < selectedProjects.size(); i++) {
+            if (selectedProjects.get(i).getFc().isChosen()) {
+                selectedProjects.get(i).colorizeProjectPane();
             }
         }
     }
@@ -277,8 +278,8 @@ class Main extends JFrame {
     /**
      * Updates the JFrame size with the current values for the width and height.
      */
-    private void upd_frame_size() {
-        this.setSize(panel_width, panel_height);
+    private void updFrameSize() {
+        this.setSize(panelWidth, panelHeight);
     }
 
 
@@ -291,27 +292,27 @@ class Main extends JFrame {
      * Checks a couple of things before compilation.
      */
     private void preCompile() {
-        retry_Local++;
-        if (retry_Local >= 3) {
-            project_panel.getFc().userFeedback("compile");
-            retry_Local = 0;
+        retryCompile++;
+        if (retryCompile >= 3) {
+            projectPanel.getFc().userFeedback("compile");
+            retryCompile = 0;
         } else if (!allEmptyProjects()) {
             //if the output is not visible, set it to visible
-            if (!out.isOutput_visible()) {
+            if (!out.isOutputVisible()) {
 
                 //Thread for the output
-                Thread t_out = new Thread(new Runnable() {
+                Thread tOut = new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        panel_height = out.addOutput(contentPane, panel_height, panel_width);
-                        upd_frame_size();
+                        panelHeight = out.addOutput(contentPane, panelHeight, panelWidth);
+                        updFrameSize();
                     }
                 });
-                t_out.start();
+                tOut.start();
             }
 
             //Thread for the compilation
-            Thread t_compile = new Thread(new Runnable() {
+            Thread tCompile = new Thread(new Runnable() {
                 @Override
                 public void run() {
                     //reset success value
@@ -322,7 +323,7 @@ class Main extends JFrame {
                     compileChosen();
                 }
             });
-            t_compile.start();
+            tCompile.start();
         }
     }
 
@@ -333,22 +334,22 @@ class Main extends JFrame {
         compiling = true;
         compile.setText("Compiling...");
         ProcessBuilder pb = new ProcessBuilder();
-        for (int i = 0; i < selected_projects.size(); i++) {
-            if (selected_projects.get(i).getFc().isChosen()) {
-                String path = selected_projects.get(i).getFc().getPath();
+        for (int i = 0; i < selectedProjects.size(); i++) {
+            if (selectedProjects.get(i).getFc().isChosen()) {
+                String path = selectedProjects.get(i).getFc().getPath();
                 try {
                     pb.executeCommand(out, "cd " + "\"" + path + "\"" + " && " + compileCommand,
-                            getContentPane(), selected_projects.get(i).getId());
+                            getContentPane(), selectedProjects.get(i).getId());
                 } catch (Exception e) {
                     contentPane.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
                     JOptionPane.showMessageDialog(contentPane,
-                            "Error compiling project number " + selected_projects.get(i).getId(),
+                            "Error compiling project number " + selectedProjects.get(i).getId(),
                             "Compilation halted",
                             JOptionPane.ERROR_MESSAGE);
                     success = false;
                     break;
                 }
-                selected_projects.get(i).getTickLabel().setVisible(true);
+                selectedProjects.get(i).getTickLabel().setVisible(true);
             }
         }
 
@@ -370,7 +371,7 @@ class Main extends JFrame {
      * Wait 5 seconds to set the Compile button back to it's original text.
      */
     private void waitAndResetCompileText() {
-        Thread t_resetCompileText = new Thread(new Runnable() {
+        Thread tResetCompileText = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -382,7 +383,7 @@ class Main extends JFrame {
             }
         });
 
-        t_resetCompileText.start();
+        tResetCompileText.start();
     }
 
     /*-------------------------------------------------------------------------------------------*/
@@ -397,8 +398,8 @@ class Main extends JFrame {
     private boolean allEmptyProjects() {
         boolean allEmpty = true;
         String path;
-        for (int i = 0; i < selected_projects.size(); i++) {
-            path = selected_projects.get(i).getJtf_path().getText();
+        for (int i = 0; i < selectedProjects.size(); i++) {
+            path = selectedProjects.get(i).getJtfPath().getText();
             if (!path.isEmpty() && !path.contains("git")) {
                 allEmpty = false;
             }
@@ -411,11 +412,11 @@ class Main extends JFrame {
      */
     private void selectProjects() {
 
-        for (int i = 0; i < selected_projects.size(); i++) {
-            ProjectPanel project = selected_projects.get(i);
-            if (!project.getJtf_path().getText().isEmpty() && !project.isCloned()) {
+        for (int i = 0; i < selectedProjects.size(); i++) {
+            ProjectPanel project = selectedProjects.get(i);
+            if (!project.getJtfPath().getText().isEmpty() && !project.isCloned()) {
                 //The path of the project is not empty
-                project.getFc().setPath(project.getJtf_path().getText());
+                project.getFc().setPath(project.getJtfPath().getText());
                 project.getFc().getProjectName().setText(project.getFc().getPath());
                 project.getFc().setChosen(true);
             }
@@ -429,8 +430,8 @@ class Main extends JFrame {
      */
     private boolean anyProjectIsCloning() {
         boolean atLeastOne = false;
-        for (int i = 0; i < selected_projects.size(); i++) {
-            if (selected_projects.get(i).isCloning()) {
+        for (int i = 0; i < selectedProjects.size(); i++) {
+            if (selectedProjects.get(i).isCloning()) {
                 atLeastOne = true;
             }
         }
@@ -442,8 +443,8 @@ class Main extends JFrame {
      */
     private boolean anySelectedProjects() {
         boolean oneOrMore = false;
-        for (int i = 0; i < selected_projects.size(); i++) {
-            if (selected_projects.get(i).getFc().isChosen()) {
+        for (int i = 0; i < selectedProjects.size(); i++) {
+            if (selectedProjects.get(i).getFc().isChosen()) {
                 oneOrMore = true;
             }
         }
