@@ -131,13 +131,35 @@ class ProjectPanel extends JPanel {
         jb_clone.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                retry_clone++;
                 String path = jtf_path.getText();
-
-/*                if (path.isEmpty()) {
-                    fc.setChosen(false);
-                } else*/
-
-                if (!cloned && !path.isEmpty() && !compiling && path.contains(".git")) {
+                if (retry_clone > 3) {
+                    //reset retry_cloned
+                    retry_clone = 0;
+                    if (cloned) {
+                        JOptionPane.showMessageDialog(parentContentPane,
+                                "Already cloned",
+                                "Quick tip",
+                                JOptionPane.PLAIN_MESSAGE);
+                    } else if (path.isEmpty()) {
+                        JOptionPane.showMessageDialog(parentContentPane,
+                                "Path is empty",
+                                "Quick tip",
+                                JOptionPane.PLAIN_MESSAGE);
+                    } else if (compiling) {
+                        JOptionPane.showMessageDialog(parentContentPane,
+                                "There is at least one project compiling",
+                                "Quick tip",
+                                JOptionPane.PLAIN_MESSAGE);
+                    } else if (!path.contains(".git")) {
+                        JOptionPane.showMessageDialog(parentContentPane,
+                                "Not a valid git repository",
+                                "Quick tip",
+                                JOptionPane.PLAIN_MESSAGE);
+                    }
+                } else if (!cloned && !path.isEmpty() && !compiling && path.contains(".git")) {
+                    //reset retry_clone
+                    retry_clone = 0;
                     prepareProject();
                 }
             }
@@ -168,17 +190,18 @@ class ProjectPanel extends JPanel {
                 ProcessBuilder pb = new ProcessBuilder();
                 com = cloneCommand + " " + git_url + " " + dest_path;
                 try {
-                    cloned = pb.executeCommand(com);
+                    pb.executeCommand(com);
                 } catch (IOException | InterruptedException e) {
                     e.printStackTrace();
                 }
                 if (checkClonedDirectory(dest_path)) {
+                    cloned = true;
                     fc.setPath(dest_path);
                     fc.setChosen(true);
                     jtf_path.setText(nom_repo);
-
                     jb_clone.setText("Cloned");
                 } else {
+                    cloned = false;
                     JOptionPane.showMessageDialog(parentContentPane,
                             "Error cloning the project " + id,
                             "Error",
@@ -265,6 +288,7 @@ class ProjectPanel extends JPanel {
 
     /**
      * Getter for Cloning
+     *
      * @return if the project is cloning or not
      */
     public boolean isCloning() {
@@ -273,6 +297,7 @@ class ProjectPanel extends JPanel {
 
     /**
      * Getter for jtf_path
+     *
      * @return jtf_path
      */
     public JTextField getJtf_path() {
@@ -281,6 +306,7 @@ class ProjectPanel extends JPanel {
 
     /**
      * Getter for Cloned
+     *
      * @return if the project has been cloned or not
      */
     public boolean isCloned() {
