@@ -14,9 +14,6 @@ class Output {
     private JTextArea console;
     private JScrollPane scrollPane;
 
-    //Console height
-
-
     //True if the console is visible
     private boolean outputVisible = false;
 

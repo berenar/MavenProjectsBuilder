@@ -38,7 +38,7 @@ class Main extends JFrame {
     //to know if all projects compiled
     private boolean success = true;
 
-    private int retryLocal;
+    private int retryCompile;
 
     /*-------------------------------------------------------------------------------------------*/
     /*--------------------------------------- GUI METHODS ---------------------------------------*/
@@ -292,10 +292,10 @@ class Main extends JFrame {
      * Checks a couple of things before compilation.
      */
     private void preCompile() {
-        retryLocal++;
-        if (retryLocal >= 3) {
+        retryCompile++;
+        if (retryCompile >= 3) {
             projectPanel.getFc().userFeedback("compile");
-            retryLocal = 0;
+            retryCompile = 0;
         } else if (!allEmptyProjects()) {
             //if the output is not visible, set it to visible
             if (!out.isOutputVisible()) {

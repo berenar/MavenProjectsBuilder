@@ -11,7 +11,7 @@ final class Constants {
     public static final ArrayList<ProjectPanel> selectedProjects = new ArrayList<>();
 
     //Colors for components
-    public static final Color notWhite = new Color(230, 247, 255);
+    public static final Color lessWhite = new Color(230, 247, 255);
     public static final Color moreBlue = new Color(128, 191, 255);
     public static final Color mostBlue = new Color(0, 53, 102);
     public static final Color dangerRed = new Color(255, 128, 128);

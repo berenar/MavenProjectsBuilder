@@ -16,18 +16,19 @@ public class FileChooser extends JPanel implements ActionListener {
     private final JButton go;
     private JFileChooser chooser;
 
+    //Project name
     private JTextField projectName; //pointed by ProjectPanel.jtfPath
 
-    //FileChooser Title and path
-    private final String chooserTitle = "Select a project directory";
-
+    //Path project
     private String path;
 
     //true if the project has been chosen
     private boolean chosen;
 
-    private int retry;
+    //For the user error control
+    private int retryLocal;
 
+    //Main panel
     private final Container parentContentPane;
 
     /**
@@ -47,8 +48,8 @@ public class FileChooser extends JPanel implements ActionListener {
      * @param e event
      */
     public void actionPerformed(ActionEvent e) {
-        retry++;
-        if (retry >= 3) {
+        retryLocal++;
+        if (retryLocal >= 3) {
             //User has failed 3 attempts to select a project
             userFeedback("local");
         } else if (!projectName.getText().isEmpty()) {
@@ -58,13 +59,13 @@ public class FileChooser extends JPanel implements ActionListener {
         } else {
             chooser = new JFileChooser();
             chooser.setCurrentDirectory(new java.io.File(System.getProperty("user.home")));
-            chooser.setDialogTitle(chooserTitle);
+            chooser.setDialogTitle("Select a project directory");
             chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
             if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
                 path = chooser.getSelectedFile().getPath();
                 projectName.setText(path);
                 chosen = true;
-                retry = 0;
+                retryLocal = 0;
             } else {
                 System.out.println("No Selection");
             }
@@ -86,7 +87,7 @@ public class FileChooser extends JPanel implements ActionListener {
                             "Quick tip",
                             JOptionPane.PLAIN_MESSAGE);
                 }
-                retry = 0;
+                retryLocal = 0;
                 break;
             case "compile":
                 //Invoked using Compile all button
