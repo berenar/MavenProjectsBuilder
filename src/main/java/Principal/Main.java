@@ -188,7 +188,7 @@ class Main extends JFrame {
         reset = new JButton("Reset");
         reset.setBorderPainted(false);
         reset.setMargin(new Insets(0, 0, 0, 0));
-        reset.setBounds(save.getBounds().x + buttonWidth + xMargin, panelHeight - 60, buttonWidth, componentHeight);
+        reset.setBounds(save.getBounds().x + buttonWidth + 10, panelHeight - 100, buttonWidth, componentHeight);
         reset.setBackground(dangerRed);
         contentPane.add(reset);
 
@@ -210,8 +210,8 @@ class Main extends JFrame {
                             String tempPath = System.getProperty("user.dir") + "\\.mvnCompiler_temp\\";
                             if (!deleteDirectory(new File(tempPath))) {
                                 JOptionPane.showMessageDialog(contentPane,
-                                        "The .mvnCompiler_temp folder with temporal files could not be deleted, " +
-                                                "you may want to delete it yourself",
+                                        "The .mvnCompiler_temp folder with temporal files could not be " +
+                                                "deleted, you may want to delete it yourself",
                                         "Hey",
                                         JOptionPane.INFORMATION_MESSAGE);
                             }

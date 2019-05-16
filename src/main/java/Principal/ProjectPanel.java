@@ -172,7 +172,7 @@ class ProjectPanel extends JPanel {
                     cloned = true;
                     fc.setPath(destPath);
                     fc.setChosen(true);
-                    jtfPath.setText(nomRepo);
+                    jtfPath.setText(destPath);
                     jbClone.setText("Cloned");
                 } else {
                     cloned = false;
