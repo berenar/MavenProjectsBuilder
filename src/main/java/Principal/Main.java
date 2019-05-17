@@ -77,7 +77,7 @@ class Main extends JFrame {
         //CONFIGURE JFRAME
         updFrameSize();
         contentPane.setBackground(Color.WHITE);
-        this.setResizable(false);
+        //this.setResizable(false);
         this.setLocationRelativeTo(null);//null: centers window
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setTitle("mvnCompiler 1.4");
@@ -249,17 +249,7 @@ class Main extends JFrame {
                                 "BE CAREFUL!",
                                 JOptionPane.YES_NO_OPTION);
                         if (reply2 == JOptionPane.YES_OPTION) {
-                            dispose();
-                            String tempPath = System.getProperty("user.dir") + "\\.mvnCompiler_temp\\";
-                            if (deleteDirectory(new File(tempPath))) {
-                                JOptionPane.showMessageDialog(contentPane,
-                                        "The folder with temporal files may have " +
-                                                "not been deleted, you might want to delete it yourself",
-                                        "Hey",
-                                        JOptionPane.INFORMATION_MESSAGE);
-                            }
-                            Main ex = new Main();
-                            ex.setVisible(true);
+                            cleanEverything();
                         }
                     }
                 } else {
@@ -270,6 +260,22 @@ class Main extends JFrame {
                 }
             }
         });
+    }
+
+    private void cleanEverything() {
+        //delete temporal directory
+        dispose();
+        String tempPath = System.getProperty("user.dir") + tempDir;
+        if (deleteDirectory(new File(tempPath))) {
+            JOptionPane.showMessageDialog(contentPane,
+                    "The folder with temporal files may have " +
+                            "not been deleted, you might want to delete it yourself",
+                    "Hey",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+
+        Main ex = new Main();
+        ex.setVisible(true);
     }
 
     /**

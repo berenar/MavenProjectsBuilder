@@ -39,5 +39,7 @@ final class Constants {
     //To execute commands
     public static final ProcessBuilder pb = new ProcessBuilder();
 
+    //Path
+    public static final String tempDir = "/.mvnCompiler_temp/";
 
 }

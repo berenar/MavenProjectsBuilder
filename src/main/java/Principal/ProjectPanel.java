@@ -16,7 +16,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import static Principal.Constants.*;
 
@@ -148,7 +147,10 @@ class ProjectPanel extends JPanel {
                     //reset retryClone
                     retryClone = 0;
                     chooseBranch();
-                    prepareProject();
+                    if (selected != null){
+                        //User has selected a branch
+                        prepareProject();
+                    }
                 }
             }
         });
@@ -199,9 +201,8 @@ class ProjectPanel extends JPanel {
                 //Get substring of the repository name
                 nomRepo = gitUrl.substring(gitUrl.lastIndexOf("/") + 1, gitUrl.indexOf(".git"));
                 //Create destination directory
-                destPath = System.getProperty("user.dir") + "/.mvnCompiler_temp/" + nomRepo;
+                destPath = System.getProperty("user.dir") + tempDir + nomRepo;
                 com = cloneCommand + selected + " " + gitUrl + " " + destPath;
-                System.out.println(com);
                 try {
                     pb.executeCommand(com);
                 } catch (IOException | InterruptedException e) {
