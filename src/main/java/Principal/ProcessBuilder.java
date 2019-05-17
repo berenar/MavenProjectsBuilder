@@ -19,7 +19,7 @@ class ProcessBuilder {
      * @param id          project id
      * @throws Exception thrown if something went wrong
      */
-    public void executeCommand(Output out, String command, Container contentPane, int id) throws Exception {
+    public void executeCommandAndWait(Output out, String command, Container contentPane, int id) throws Exception {
         //Set the cursor to a wait cursor
         contentPane.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 
@@ -57,7 +57,7 @@ class ProcessBuilder {
      * @throws InterruptedException exception
      */
     @SuppressWarnings("SameReturnValue")
-    public boolean executeCommand(String command) throws IOException, InterruptedException {
+    public boolean executeCommandAndWait(String command) throws IOException, InterruptedException {
         java.lang.ProcessBuilder processBuilder = new java.lang.ProcessBuilder();
         processBuilder.command("cmd.exe", "/c", command);
         Process process = processBuilder.start();
@@ -66,12 +66,11 @@ class ProcessBuilder {
     }
 
     /**
-     * @param command
-     * @param branches
-     * @param contentPane
-     * @throws Exception
+     * @param command to execute
+     * @param branches to clone
+     * @throws Exception exception
      */
-    public void executeCommand(String command, ArrayList branches, Container contentPane) throws Exception {
+    public void executeCommandAndWait(String command, ArrayList branches) throws Exception {
         //empty previous branches in the array
         branches.removeAll(branches);
         java.lang.ProcessBuilder processBuilder = new java.lang.ProcessBuilder();

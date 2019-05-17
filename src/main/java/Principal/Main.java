@@ -5,16 +5,12 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.Cursor;
-import java.awt.Font;
-import java.awt.Insets;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Objects;
 
 import static Principal.Constants.*;
 
@@ -32,7 +28,8 @@ class Main extends JFrame {
     private JButton addProject;
     private JButton compile;
     private JButton reset;
-    private JButton save;
+    private JButton export;
+    private JButton importt;
 
     //to know if there's any project being compiled
     private boolean compiling = false;
@@ -43,10 +40,10 @@ class Main extends JFrame {
     private int retryCompile;
 
     //Console for the output
-    private Output out = new Output();
+    private final Output out = new Output();
 
     //To execute commands
-    private ProcessBuilder pb = new ProcessBuilder();
+    private final ProcessBuilder pb = new ProcessBuilder();
 
     /*-------------------------------------------------------------------------------------------*/
     /*--------------------------------------- GUI METHODS ---------------------------------------*/
@@ -68,14 +65,17 @@ class Main extends JFrame {
         //PROJECT PANEL
         nouProjectPan();
 
-        //ADD PROJECT BUTTON
+        //ADD BUTTON
         nouAddProject();
 
         //COMPILE BUTTON
         nouCompile();
 
-        //SAVE BUTTON
-        nouSave();
+        //IMPORT BUTTON
+        nouImport();
+
+        //Export BUTTON
+        nouExport();
 
         //RESET BUTTON
         nouReset();
@@ -98,6 +98,15 @@ class Main extends JFrame {
         }
     }
 
+    private void nouImport() {
+        importt = new JButton("Import");
+        importt.setBorderPainted(false);
+        importt.setMargin(new Insets(0, 0, 0, 0));
+        setBounds("importt");
+        importt.setBackground(moreBlue);
+        contentPane.add(importt);
+    }
+
     /**
      * Adds a new Project panel.
      */
@@ -118,7 +127,7 @@ class Main extends JFrame {
         addProject.setBorderPainted(false);
         addProject.setMargin(new Insets(0, 0, 0, 0));
         addProject.setFont(new Font("Arial", Font.PLAIN, 20));
-        addProject.setBounds(50, panelHeight - 100, squareComponent, squareComponent);
+        setBounds("addProject");
         addProject.setBackground(moreBlue);
         contentPane.add(addProject);
 
@@ -150,7 +159,7 @@ class Main extends JFrame {
         compile = new JButton("Compile all");
         compile.setBorderPainted(false);
         compile.setFont(new Font("Arial", Font.PLAIN, 20));
-        compile.setBounds(160 + squareComponent, panelHeight - 100, compileWidth, componentHeight);
+        setBounds("compile");
         compile.setBackground(moreBlue);
         contentPane.add(compile);
 
@@ -176,34 +185,41 @@ class Main extends JFrame {
     }
 
     /**
-     * Creates the Save button
-     * It's action is to save what the user introduced in the app.
+     * Creates the Export button
+     * It's action is to export what the user introduced in the app.
      */
-    private void nouSave() {
-        save = new JButton("Save");
-        save.setBorderPainted(false);
-        save.setMargin(new Insets(0, 0, 0, 0));
-        save.setBounds(500, panelHeight - 100, buttonWidth, componentHeight);
-        save.setBackground(moreBlue);
-        contentPane.add(save);
+    private void nouExport() {
+        export = new JButton("Export");
+        export.setBorderPainted(false);
+        export.setMargin(new Insets(0, 0, 0, 0));
+        setBounds("export");
+        export.setBackground(moreBlue);
+        contentPane.add(export);
 
-        save.addActionListener(new ActionListener() {
+        export.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String fileName = JOptionPane.showInputDialog(contentPane, "Name the file");
-                File f = new File(fileName + ".txt");
-
-                if (f.exists() && !f.isDirectory()) {
-                    int reply = JOptionPane.showConfirmDialog(contentPane,
-                            "File already exists, do you want to overwrite it?",
-                            "Warning", JOptionPane.YES_NO_OPTION);
-                    if (reply == JOptionPane.YES_OPTION) {
-                        writeFile(fileName);
+                if (fileName != null && !fileName.trim().isEmpty()) {
+                    File f = new File(fileName + ".txt");
+                    if (f.exists() && !f.isDirectory()) {
+                        int reply = JOptionPane.showConfirmDialog(contentPane,
+                                "File already exists, do you want to overwrite it?",
+                                "Warning", JOptionPane.YES_NO_OPTION);
+                        if (reply == JOptionPane.YES_OPTION) {
+                            writeFile(fileName);
+                        } else {
+                            JOptionPane.showMessageDialog(contentPane, "Nothing saved");
+                        }
                     } else {
-                        JOptionPane.showMessageDialog(contentPane, "Nothing saved");
+                        writeFile(fileName);
                     }
                 } else {
-                    writeFile(fileName);
+                    //File name is null or blank
+                    JOptionPane.showMessageDialog(contentPane,
+                            "File name can't be empty",
+                            "Error creating file",
+                            JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
@@ -218,15 +234,13 @@ class Main extends JFrame {
         PrintWriter writer = null;
         try {
             writer = new PrintWriter(fileName + ".txt", "UTF-8");
-        } catch (FileNotFoundException ex) {
-            ex.printStackTrace();
-        } catch (UnsupportedEncodingException ex) {
+        } catch (FileNotFoundException | UnsupportedEncodingException ex) {
             ex.printStackTrace();
         }
         for (int i = 0; i < selectedProjects.size(); i++) {
-            writer.println(selectedProjects.get(i).getJtfPath().getText());
+            Objects.requireNonNull(writer).println(selectedProjects.get(i).getJtfPath().getText());
         }
-        writer.close();
+        Objects.requireNonNull(writer).close();
     }
 
     /**
@@ -237,7 +251,7 @@ class Main extends JFrame {
         reset = new JButton("Reset");
         reset.setBorderPainted(false);
         reset.setMargin(new Insets(0, 0, 0, 0));
-        reset.setBounds(save.getBounds().x + buttonWidth + 10, panelHeight - 100, buttonWidth, componentHeight);
+        reset.setBounds(export.getBounds().x + buttonWidth + 10, panelHeight - 100, buttonWidth, componentHeight);
         reset.setBackground(dangerRed);
         contentPane.add(reset);
 
@@ -304,10 +318,40 @@ class Main extends JFrame {
      * Updates addProject and compile buttons bounds to match a new screen size.
      */
     private void reSetBounds() {
-        addProject.setBounds(50, panelHeight - 100, squareComponent, squareComponent);
+/*        addProject.setBounds(50, panelHeight - 100, squareComponent, squareComponent);
         compile.setBounds(160 + squareComponent, panelHeight - 100, compileWidth, componentHeight);
-        save.setBounds(500, panelHeight - 100, buttonWidth, componentHeight);
-        reset.setBounds(save.getBounds().x + buttonWidth + 10, panelHeight - 100, buttonWidth, componentHeight);
+        export.setBounds(500, panelHeight - 100, buttonWidth, componentHeight);
+        reset.setBounds(export.getBounds().x + buttonWidth + 10, panelHeight - 100, buttonWidth, componentHeight);*/
+
+        setBounds("addProject");
+        setBounds("compile");
+        setBounds("importt");
+        setBounds("export");
+        setBounds("reset");
+    }
+
+    private void setBounds(String component) {
+        switch (component) {
+            case "addProject":
+                addProject.setBounds(50, panelHeight - 100, squareComponent, squareComponent);
+                break;
+            case "compile":
+                compile.setBounds(addProject.getX() + squareComponent + xMargin, panelHeight - 100, compileWidth, componentHeight);
+                break;
+            case "stop":
+                //TODO: bounds del boto stop (compiling)
+                break;
+            case "importt":
+                importt.setBounds(compile.getX() + compileWidth + xMargin, panelHeight - 100, buttonWidth, componentHeight);
+                break;
+            case "export":
+                export.setBounds(importt.getX() + buttonWidth + xMargin, panelHeight - 100, buttonWidth, componentHeight);
+                break;
+            case "reset":
+                reset.setBounds(export.getX() + buttonWidth + 10, panelHeight - 100, buttonWidth,
+                        componentHeight);
+                break;
+        }
     }
 
     /**
@@ -393,7 +437,7 @@ class Main extends JFrame {
             if (selectedProjects.get(i).getFc().isChosen()) {
                 String path = selectedProjects.get(i).getFc().getPath();
                 try {
-                    pb.executeCommand(out, "cd " + "\"" + path + "\"" + " && " + compileCommand,
+                    pb.executeCommandAndWait(out, "cd " + "\"" + path + "\"" + " && " + compileCommand,
                             getContentPane(), selectedProjects.get(i).getId());
                 } catch (Exception e) {
                     contentPane.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));

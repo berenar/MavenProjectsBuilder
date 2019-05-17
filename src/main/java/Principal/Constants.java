@@ -35,5 +35,4 @@ final class Constants {
 
     //Path
     public static final String tempDir = "/.mvnCompiler_temp/";
-
 }

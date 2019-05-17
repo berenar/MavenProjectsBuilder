@@ -24,12 +24,12 @@ class ProjectPanel extends JPanel {
     //Swing components
     private final JLabel jlOrder;
     private final JTextField jtfPath;
-    private final JButton jbFc;
+    private final JButton jbLocal;
     private final JButton jbClone;
     private BufferedImage tick;
     private final JLabel tickLabel;
 
-    //File chooser for the jbFc button
+    //File chooser for the jbLocal button
     private final FileChooser fc;
 
     //id of the project
@@ -39,8 +39,8 @@ class ProjectPanel extends JPanel {
     private final boolean compiling;
 
     //Repository branches and the selected one
-    ArrayList<String> branches = new ArrayList<>();
-    String selected;
+    private final ArrayList<String> branches = new ArrayList<>();
+    private String selected;
 
     //Variables needed to clone a repository
     private String gitUrl;
@@ -59,13 +59,13 @@ class ProjectPanel extends JPanel {
 
     private final Container parentContentPane;
 
-    private ProcessBuilder pb;
+    private final ProcessBuilder pb;
 
     /**
      * Initializes project panel components
      *
      * @param compiling pointer to
-     * @param pb
+     * @param pb to execute commands
      */
     public ProjectPanel(boolean compiling, Container parentContentPane, ProcessBuilder pb) {
         this.pb = pb;
@@ -76,7 +76,7 @@ class ProjectPanel extends JPanel {
         this.jtfPath = new JTextField();
         this.jtfPath.setHorizontalAlignment(JTextField.CENTER);
         fc.setProjectName(jtfPath);
-        this.jbFc = fc.getGo();
+        this.jbLocal = fc.getGo();
         this.jbClone = new JButton("Clone");
         try {
             //noinspection ConstantConditions
@@ -109,12 +109,12 @@ class ProjectPanel extends JPanel {
         jtfPath.setBorder(emptyBorder);
         jtfPath.setBackground(lessWhite);
 
-        jbFc.setBounds(jtfPath.getBounds().x + jlPathWidth + xMargin,
+        jbLocal.setBounds(jtfPath.getBounds().x + jlPathWidth + xMargin,
                 initial * id, buttonWidth, componentHeight);
-        jbFc.setBorderPainted(false);
-        jbFc.setBackground(lessWhite);
+        jbLocal.setBorderPainted(false);
+        jbLocal.setBackground(lessWhite);
 
-        jbClone.setBounds(jbFc.getBounds().x + buttonWidth + xMargin, initial * id, buttonWidth, componentHeight);
+        jbClone.setBounds(jbLocal.getBounds().x + buttonWidth + xMargin, initial * id, buttonWidth, componentHeight);
         jbClone.setBorderPainted(false);
         jbClone.setBackground(lessWhite);
 
@@ -172,7 +172,7 @@ class ProjectPanel extends JPanel {
         String toExecute = branchesCommand + gitUrl;
         try {
             //execute command to get branch names
-            pb.executeCommand(toExecute, branches, parentContentPane);
+            pb.executeCommandAndWait(toExecute, branches);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -206,7 +206,7 @@ class ProjectPanel extends JPanel {
                 destPath = System.getProperty("user.dir") + tempDir + nomRepo;
                 com = cloneCommand + selected + " " + gitUrl + " " + destPath;
                 try {
-                    pb.executeCommand(com);
+                    pb.executeCommandAndWait(com);
                 } catch (IOException | InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -243,7 +243,7 @@ class ProjectPanel extends JPanel {
     public void addProjectPan(Container contentPane) {
         contentPane.add(this.jlOrder);
         contentPane.add(this.jtfPath);
-        contentPane.add(this.jbFc);
+        contentPane.add(this.jbLocal);
         contentPane.add(this.jbClone);
         contentPane.add(this.tickLabel);
     }
@@ -256,13 +256,13 @@ class ProjectPanel extends JPanel {
         jtfPath.setBackground(moreBlue);
         jtfPath.setBorder(emptyBorder);
 
-        jbFc.setOpaque(true);
-        jbFc.setBackground(moreBlue);
-        jbFc.setBorderPainted(false);
+        jbLocal.setOpaque(true);
+        jbLocal.setBackground(moreBlue);
+        jbLocal.setBorderPainted(false);
 
         jbClone.setOpaque(true);
         jbClone.setBackground(moreBlue);
-        jbFc.setBorderPainted(false);
+        jbLocal.setBorderPainted(false);
     }
 
     /**
