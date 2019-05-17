@@ -15,6 +15,8 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import static Principal.Constants.*;
 
@@ -47,6 +49,8 @@ class ProjectPanel extends JPanel {
     private String nomRepo;
     private String destPath;
     private String com;
+
+    ArrayList<String> branches = new ArrayList<String>();
 
     //failed user attempts to clone
     private int retryClone;
@@ -140,7 +144,8 @@ class ProjectPanel extends JPanel {
                 } else if (!cloned && !path.isEmpty() && !compiling && path.contains(".git")) {
                     //reset retryClone
                     retryClone = 0;
-                    prepareProject();
+                    //prepareProject();
+                    chooseBranch();
                 }
             }
         });
@@ -148,6 +153,25 @@ class ProjectPanel extends JPanel {
         tickLabel.setBounds(jbClone.getBounds().x + buttonWidth + xMargin,
                 initial * n - 5, tickLabelSize, tickLabelSize);
         tickLabel.setVisible(false);
+    }
+
+    /**
+     *
+     */
+    private void chooseBranch() {
+        gitUrl = jtfPath.getText();
+        System.out.println(gitUrl);
+        String toExecute = branchesCommand + gitUrl;
+        System.out.println(toExecute);
+        try {
+            //execute command to get branch names
+            pb.executeCommand(toExecute, branches, parentContentPane);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        JOptionPane.showInputDialog(parentContentPane, "Please choose a name", "Example 1",
+                JOptionPane.QUESTION_MESSAGE, null, new ArrayList[]{branches}, "master");
     }
 
     /**
@@ -167,7 +191,6 @@ class ProjectPanel extends JPanel {
                 nomRepo = gitUrl.substring(gitUrl.lastIndexOf("/") + 1, gitUrl.indexOf(".git"));
                 //Create destination directory
                 destPath = System.getProperty("user.dir") + "\\.mvnCompiler_temp\\" + nomRepo;
-                ProcessBuilder pb = new ProcessBuilder();
                 com = cloneCommand + " " + gitUrl + " " + destPath;
                 try {
                     pb.executeCommand(com);

@@ -6,6 +6,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+
+import static Principal.Constants.out;
 
 class ProcessBuilder {
 
@@ -42,7 +45,6 @@ class ProcessBuilder {
                 out.getConsole().append(" \n");
                 throw new Exception();
             }
-
         }
         //sets the cursor to it's default value
         contentPane.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
@@ -63,5 +65,27 @@ class ProcessBuilder {
         Process process = processBuilder.start();
         process.waitFor();
         return true;
+    }
+
+    /**
+     * @param command
+     * @param branches
+     * @param contentPane
+     * @throws Exception
+     */
+    public void executeCommand(String command, ArrayList branches, Container contentPane) throws Exception {
+        java.lang.ProcessBuilder processBuilder = new java.lang.ProcessBuilder();
+        processBuilder.command("cmd.exe", "/c", command);
+        Process process = processBuilder.start();
+        BufferedReader reader =
+                new BufferedReader(new InputStreamReader(process.getInputStream(), StandardCharsets.UTF_8));
+
+        String line;
+        String justBranch;
+        while ((line = reader.readLine()) != null) {
+            //we only need the name of the branch
+            justBranch = line.substring(line.lastIndexOf("/")+1);
+            branches.add(justBranch);
+        }
     }
 }
