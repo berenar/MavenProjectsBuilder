@@ -29,9 +29,9 @@ final class Constants {
     public static final int outputHeight = 200;
 
     //commands to execute
-    public static final String compileCommand = "mvn clean install";
+    public static final String compileCommand = "mvn clean install ";
     public static final String branchesCommand = "git ls-remote --heads ";
-    public static final String cloneCommand = "git clone";
+    public static final String cloneCommand = "git clone --single-branch --branch ";
 
     //Console for the output
     public static final Output out = new Output();

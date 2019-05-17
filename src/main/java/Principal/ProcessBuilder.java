@@ -74,6 +74,8 @@ class ProcessBuilder {
      * @throws Exception
      */
     public void executeCommand(String command, ArrayList branches, Container contentPane) throws Exception {
+        //empty previous branches in the array
+        branches.removeAll(branches);
         java.lang.ProcessBuilder processBuilder = new java.lang.ProcessBuilder();
         processBuilder.command("cmd.exe", "/c", command);
         Process process = processBuilder.start();

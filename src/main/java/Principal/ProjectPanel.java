@@ -39,18 +39,21 @@ class ProjectPanel extends JPanel {
     //pointer to Main.compiling
     private final boolean compiling;
 
-    //true if the project is being cloned
-    private boolean cloning = false;
+    //Repository branches and the selected one
+    ArrayList<String> branches = new ArrayList<>();
+    String selected;
 
-    //true if project has finished cloning
-    private boolean cloned = false;
-
+    //Variables needed to clone a repository
     private String gitUrl;
     private String nomRepo;
     private String destPath;
     private String com;
 
-    ArrayList<String> branches = new ArrayList<String>();
+    //true if the project is being cloned
+    private boolean cloning = false;
+
+    //true if project has finished cloning
+    private boolean cloned = false;
 
     //failed user attempts to clone
     private int retryClone;
@@ -144,8 +147,8 @@ class ProjectPanel extends JPanel {
                 } else if (!cloned && !path.isEmpty() && !compiling && path.contains(".git")) {
                     //reset retryClone
                     retryClone = 0;
-                    //prepareProject();
                     chooseBranch();
+                    prepareProject();
                 }
             }
         });
@@ -169,9 +172,16 @@ class ProjectPanel extends JPanel {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+        String preSelected;
+        if (branches.contains("master")) {
+            preSelected = "master";
+        } else {
+            preSelected = branches.get(0);
+        }
 
-        JOptionPane.showInputDialog(parentContentPane, "Please choose a name", "Example 1",
-                JOptionPane.QUESTION_MESSAGE, null, new ArrayList[]{branches}, "master");
+        selected = (String) JOptionPane.showInputDialog(parentContentPane,
+                "The selected branch will be cloned", "Choose a branch",
+                JOptionPane.QUESTION_MESSAGE, null, branches.toArray(), preSelected);
     }
 
     /**
@@ -186,12 +196,12 @@ class ProjectPanel extends JPanel {
             public void run() {
                 cloning = true;
                 jbClone.setText("Cloning...");
-                gitUrl = jtfPath.getText();
                 //Get substring of the repository name
                 nomRepo = gitUrl.substring(gitUrl.lastIndexOf("/") + 1, gitUrl.indexOf(".git"));
                 //Create destination directory
-                destPath = System.getProperty("user.dir") + "\\.mvnCompiler_temp\\" + nomRepo;
-                com = cloneCommand + " " + gitUrl + " " + destPath;
+                destPath = System.getProperty("user.dir") + "/.mvnCompiler_temp/" + nomRepo;
+                com = cloneCommand + selected + " " + gitUrl + " " + destPath;
+                System.out.println(com);
                 try {
                     pb.executeCommand(com);
                 } catch (IOException | InterruptedException e) {
