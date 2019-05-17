@@ -42,6 +42,12 @@ class Main extends JFrame {
 
     private int retryCompile;
 
+    //Console for the output
+    private Output out = new Output();
+
+    //To execute commands
+    private ProcessBuilder pb = new ProcessBuilder();
+
     /*-------------------------------------------------------------------------------------------*/
     /*--------------------------------------- GUI METHODS ---------------------------------------*/
     /*-------------------------------------------------------------------------------------------*/
@@ -96,7 +102,7 @@ class Main extends JFrame {
      * Adds a new Project panel.
      */
     private void nouProjectPan() {
-        projectPanel = new ProjectPanel(compiling, contentPane);
+        projectPanel = new ProjectPanel(compiling, contentPane, pb);
         projectPanel.configureProjectPan(selectedProjects.size() + 1);
         projectPanel.addProjectPan(contentPane);
         selectedProjects.add(projectPanel);
@@ -263,8 +269,7 @@ class Main extends JFrame {
     }
 
     private void cleanEverything() {
-        //delete temporal directory
-        dispose();
+        //Delete temporal directory
         String tempPath = System.getProperty("user.dir") + tempDir;
         if (deleteDirectory(new File(tempPath))) {
             JOptionPane.showMessageDialog(contentPane,
@@ -273,7 +278,8 @@ class Main extends JFrame {
                     "Hey",
                     JOptionPane.INFORMATION_MESSAGE);
         }
-
+        //Delete current window and create a new instance of Main
+        this.dispose();
         Main ex = new Main();
         ex.setVisible(true);
     }
@@ -382,7 +388,7 @@ class Main extends JFrame {
     private void compileChosen() {
         compiling = true;
         compile.setText("Compiling...");
-        ProcessBuilder pb = new ProcessBuilder();
+//        ProcessBuilder pb = new ProcessBuilder();
         for (int i = 0; i < selectedProjects.size(); i++) {
             if (selectedProjects.get(i).getFc().isChosen()) {
                 String path = selectedProjects.get(i).getFc().getPath();

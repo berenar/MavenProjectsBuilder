@@ -4,8 +4,12 @@
     <list default="true" id="9af1c438-9010-47fe-8454-f8fc81abc00b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Principal/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Principal/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Principal/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Principal/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Principal/ProcessBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Principal/ProcessBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Principal/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Principal/Main$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Principal/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Principal/Main$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Principal/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Principal/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Principal/ProcessBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Principal/ProcessBuilder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Principal/ProjectPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Principal/ProjectPanel.class" afterDir="false" />
     </list>
@@ -43,37 +47,37 @@
     <splitter split-orientation="horizontal" split-proportion="0.5507335">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Main.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="175">
-                  <caret line="445" column="54" selection-start-line="445" selection-start-column="51" selection-end-line="445" selection-end-column="54" />
+                <state relative-caret-position="104">
+                  <caret line="271" column="11" selection-start-line="271" selection-start-column="11" selection-end-line="271" selection-end-column="11" />
                   <folding>
-                    <element signature="e#3755#4497#0" expanded="true" />
-                    <element signature="e#4496#4497#0" expanded="true" />
-                    <element signature="e#4960#5695#0" expanded="true" />
-                    <element signature="e#5694#5695#0" expanded="true" />
-                    <element signature="e#6149#7023#0" expanded="true" />
-                    <element signature="e#7022#7023#0" expanded="true" />
-                    <element signature="e#8130#10052#0" expanded="true" />
-                    <element signature="e#10051#10052#0" expanded="true" />
+                    <element signature="e#3757#4499#0" expanded="true" />
+                    <element signature="e#4498#4499#0" expanded="true" />
+                    <element signature="e#4962#5697#0" expanded="true" />
+                    <element signature="e#5696#5697#0" expanded="true" />
+                    <element signature="e#6151#7025#0" expanded="true" />
+                    <element signature="e#7024#7025#0" expanded="true" />
+                    <element signature="e#8132#9371#0" expanded="true" />
+                    <element signature="e#9370#9371#0" expanded="true" />
                     <element signature="e#11801#11802#0" expanded="true" />
                     <element signature="e#11854#11855#0" expanded="true" />
-                    <element signature="e#12634#12891#0" expanded="true" />
-                    <element signature="e#12890#12891#0" expanded="true" />
-                    <element signature="e#13021#13363#0" expanded="true" />
-                    <element signature="e#13362#13363#0" expanded="true" />
-                    <element signature="e#18278#18279#0" expanded="true" />
+                    <element signature="e#12543#12800#0" expanded="true" />
+                    <element signature="e#12799#12800#0" expanded="true" />
+                    <element signature="e#12930#13272#0" expanded="true" />
+                    <element signature="e#13271#13272#0" expanded="true" />
+                    <element signature="e#18398#18399#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="323">
-                  <caret line="202" column="50" selection-start-line="202" selection-start-column="50" selection-end-line="202" selection-end-column="50" />
+                <state relative-caret-position="391">
+                  <caret line="70" column="21" selection-start-line="70" selection-start-column="21" selection-end-line="70" selection-end-column="21" />
                   <folding>
                     <element signature="docComment;method#getFc#0;class#ProjectPanel#0" />
                     <element signature="docComment;method#getJlPathHeight#0;class#ProjectPanel#0" />
@@ -87,25 +91,6 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/Principal/FileChooser.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="494">
-                  <caret line="124" column="17" selection-start-line="124" selection-start-column="17" selection-end-line="124" selection-end-column="17" />
-                  <folding>
-                    <element signature="docComment;method#getPreferredSize#0;class#FileChooser#0" />
-                    <element signature="docComment;method#getGo#0;class#FileChooser#0" />
-                    <element signature="docComment;method#getProjectName#0;class#FileChooser#0" />
-                    <element signature="docComment;method#setProjectName#0;class#FileChooser#0" />
-                    <element signature="docComment;method#getPath#0;class#FileChooser#0" />
-                    <element signature="docComment;method#setPath#0;class#FileChooser#0" />
-                    <element signature="docComment;method#isChosen#0;class#FileChooser#0" />
-                    <element signature="docComment;method#setChosen#0;class#FileChooser#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
         </leaf>
       </split-first>
       <split-second>
@@ -113,8 +98,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Constants.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="527">
-                  <caret line="33" column="84" lean-forward="true" selection-start-line="33" selection-start-column="84" selection-end-line="33" selection-end-column="84" />
+                <state relative-caret-position="134">
+                  <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
                 </state>
               </provider>
             </entry>
@@ -122,10 +107,25 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/Principal/ProcessBuilder.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="168">
-                  <caret line="74" column="7" lean-forward="true" selection-start-line="74" selection-start-column="7" selection-end-line="74" selection-end-column="7" />
+                <state relative-caret-position="703">
+                  <caret line="62" column="49" selection-start-line="62" selection-start-column="49" selection-end-line="62" selection-end-column="49" />
                   <folding>
+                    <element signature="imports" expanded="true" />
                     <element signature="e#2365#2401#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Output.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="289">
+                  <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="docComment;method#isOutputVisible#0;class#Output#0" />
+                    <element signature="docComment;method#getConsole#0;class#Output#0" />
                   </folding>
                 </state>
               </provider>
@@ -144,19 +144,11 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>there is no</find>
-      <find>allem</find>
-      <find>setBounds</find>
-      <find>quick</find>
-      <find>contentPane</find>
-      <find>filech</find>
       <find>getcontent</find>
       <find>jop</find>
-      <find>out</find>
       <find>git_te</find>
       <find>proves</find>
       <find>getText</find>
-      <find>reset</find>
       <find>cloning</find>
       <find>compili</find>
       <find>clone</find>
@@ -174,6 +166,14 @@
       <find>joption</find>
       <find>git</find>
       <find>joe</find>
+      <find>add</find>
+      <find>reset</find>
+      <find>mvn</find>
+      <find>empt</find>
+      <find>every</find>
+      <find>out</find>
+      <find>pb</find>
+      <find>clean</find>
     </findStrings>
     <replaceStrings>
       <replace>button_fl</replace>
@@ -277,10 +277,10 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/Principal/Output.java" />
         <option value="$PROJECT_DIR$/src/main/java/Principal/FileChooser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Principal/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/Principal/ProcessBuilder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Principal/Constants.java" />
         <option value="$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Principal/Constants.java" />
       </list>
     </option>
   </component>
@@ -549,20 +549,6 @@
       <workItem from="1557817307988" duration="15815000" />
       <workItem from="1557903459768" duration="15192000" />
       <workItem from="1557986772462" duration="7886000" />
-    </task>
-    <task id="LOCAL-00044" summary="FUNCIONA LLEGIR LES IMATGES TANT A INTELLIJ COM AL JAR COM AL EXE">
-      <created>1557315288702</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1557315288702</updated>
-    </task>
-    <task id="LOCAL-00045" summary="Versio 1.1">
-      <created>1557316125314</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1557316125314</updated>
     </task>
     <task id="LOCAL-00046" summary="s'afegeix el jtextarea pero no es redimensiona be el frame">
       <created>1557385222361</created>
@@ -893,11 +879,25 @@
       <option name="project" value="LOCAL" />
       <updated>1558083661686</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="ja es pot elegir una branca abans de fer el clone">
+      <created>1558087469135</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1558087469135</updated>
+    </task>
+    <task id="LOCAL-00094" summary="començat metode cleanEverything, no es pot crear una nova instancia de main cada vegada">
+      <created>1558089619956</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1558089619956</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="198660000" />
+    <option name="totallyTimeSpent" value="202454000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -919,7 +919,7 @@
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="0" weight="0.2636656" />
+      <window_info anchor="bottom" id="Messages" order="0" weight="0.10718114" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.3290461" />
       <window_info active="true" anchor="bottom" auto_hide="true" x="32" y="841" width="1876" height="125" id="Run" order="3" sideWeight="0.49840087" visible="true" weight="0.35262594" />
@@ -1016,8 +1016,6 @@
       <path value="$PROJECT_DIR$/git_temp/apps-tpv" />
       <path value="$PROJECT_DIR$/git_temp/apps-tpv-manager" />
     </ignored-roots>
-    <MESSAGE value="ja funciona el clone pero falta decidir els directoris" />
-    <MESSAGE value="despres del code analisis no funciona" />
     <MESSAGE value="funciona el git clone" />
     <MESSAGE value="funciona, falta fer que executi el clone en un nou thread per no bloquejar la app" />
     <MESSAGE value="el cloning process es fa en 2n pla i no bloqueja l'execució" />
@@ -1041,7 +1039,9 @@
     <MESSAGE value="codi arreglat" />
     <MESSAGE value="tornat a quan el save no creava cap directory pq ara he de fer lo de triar la branch del repository a clonar" />
     <MESSAGE value="esmostra un dialog per triar els branches pero estan tots a un element" />
-    <option name="LAST_COMMIT_MESSAGE" value="esmostra un dialog per triar els branches pero estan tots a un element" />
+    <MESSAGE value="ja es pot elegir una branca abans de fer el clone" />
+    <MESSAGE value="començat metode cleanEverything, no es pot crear una nova instancia de main cada vegada" />
+    <option name="LAST_COMMIT_MESSAGE" value="començat metode cleanEverything, no es pot crear una nova instancia de main cada vegada" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1176,21 +1176,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Output.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="60" column="5" lean-forward="true" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#isOutputVisible#0;class#Output#0" />
-            <element signature="docComment;method#getConsole#0;class#Output#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Principal/FileChooser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
+        <state relative-caret-position="1700">
           <caret line="124" column="17" selection-start-line="124" selection-start-column="17" selection-end-line="124" selection-end-column="17" />
           <folding>
             <element signature="docComment;method#getPreferredSize#0;class#FileChooser#0" />
@@ -1205,51 +1193,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Output.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="445" column="54" selection-start-line="445" selection-start-column="51" selection-end-line="445" selection-end-column="54" />
+        <state relative-caret-position="289">
+          <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
           <folding>
-            <element signature="e#3755#4497#0" expanded="true" />
-            <element signature="e#4496#4497#0" expanded="true" />
-            <element signature="e#4960#5695#0" expanded="true" />
-            <element signature="e#5694#5695#0" expanded="true" />
-            <element signature="e#6149#7023#0" expanded="true" />
-            <element signature="e#7022#7023#0" expanded="true" />
-            <element signature="e#8130#10052#0" expanded="true" />
-            <element signature="e#10051#10052#0" expanded="true" />
-            <element signature="e#11801#11802#0" expanded="true" />
-            <element signature="e#11854#11855#0" expanded="true" />
-            <element signature="e#12634#12891#0" expanded="true" />
-            <element signature="e#12890#12891#0" expanded="true" />
-            <element signature="e#13021#13363#0" expanded="true" />
-            <element signature="e#13362#13363#0" expanded="true" />
-            <element signature="e#18278#18279#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#isOutputVisible#0;class#Output#0" />
+            <element signature="docComment;method#getConsole#0;class#Output#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Principal/ProcessBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="74" column="7" lean-forward="true" selection-start-line="74" selection-start-column="7" selection-end-line="74" selection-end-column="7" />
+        <state relative-caret-position="703">
+          <caret line="62" column="49" selection-start-line="62" selection-start-column="49" selection-end-line="62" selection-end-column="49" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#2365#2401#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="33" column="84" lean-forward="true" selection-start-line="33" selection-start-column="84" selection-end-line="33" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Principal/ProjectPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="202" column="50" selection-start-line="202" selection-start-column="50" selection-end-line="202" selection-end-column="50" />
+        <state relative-caret-position="391">
+          <caret line="70" column="21" selection-start-line="70" selection-start-column="21" selection-end-line="70" selection-end-column="21" />
           <folding>
             <element signature="docComment;method#getFc#0;class#ProjectPanel#0" />
             <element signature="docComment;method#getJlPathHeight#0;class#ProjectPanel#0" />
@@ -1259,6 +1229,37 @@
             <element signature="docComment;method#isCloning#0;class#ProjectPanel#0" />
             <element signature="docComment;method#isCloned#0;class#ProjectPanel#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="271" column="11" selection-start-line="271" selection-start-column="11" selection-end-line="271" selection-end-column="11" />
+          <folding>
+            <element signature="e#3757#4499#0" expanded="true" />
+            <element signature="e#4498#4499#0" expanded="true" />
+            <element signature="e#4962#5697#0" expanded="true" />
+            <element signature="e#5696#5697#0" expanded="true" />
+            <element signature="e#6151#7025#0" expanded="true" />
+            <element signature="e#7024#7025#0" expanded="true" />
+            <element signature="e#8132#9371#0" expanded="true" />
+            <element signature="e#9370#9371#0" expanded="true" />
+            <element signature="e#11801#11802#0" expanded="true" />
+            <element signature="e#11854#11855#0" expanded="true" />
+            <element signature="e#12543#12800#0" expanded="true" />
+            <element signature="e#12799#12800#0" expanded="true" />
+            <element signature="e#12930#13272#0" expanded="true" />
+            <element signature="e#13271#13272#0" expanded="true" />
+            <element signature="e#18398#18399#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Principal/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
         </state>
       </provider>
     </entry>

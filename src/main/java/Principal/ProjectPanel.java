@@ -59,12 +59,16 @@ class ProjectPanel extends JPanel {
 
     private final Container parentContentPane;
 
+    private ProcessBuilder pb;
+
     /**
      * Initializes project panel components
      *
      * @param compiling pointer to
+     * @param pb
      */
-    public ProjectPanel(boolean compiling, Container parentContentPane) {
+    public ProjectPanel(boolean compiling, Container parentContentPane, ProcessBuilder pb) {
+        this.pb = pb;
         this.fc = new FileChooser(parentContentPane);
         this.compiling = compiling;
         this.parentContentPane = parentContentPane;
@@ -165,9 +169,7 @@ class ProjectPanel extends JPanel {
      */
     private void chooseBranch() {
         gitUrl = jtfPath.getText();
-        System.out.println(gitUrl);
         String toExecute = branchesCommand + gitUrl;
-        System.out.println(toExecute);
         try {
             //execute command to get branch names
             pb.executeCommand(toExecute, branches, parentContentPane);

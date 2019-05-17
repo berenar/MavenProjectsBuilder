@@ -19,7 +19,7 @@ final class Constants {
     public static final int initial = 50;
     public static final int xMargin = 10;
 
-    //component sizes
+    //Component sizes
     public static final int squareComponent = 30;
     public static final int componentHeight = 30;
     public static final int buttonWidth = 90;
@@ -28,16 +28,10 @@ final class Constants {
     public static final int tickLabelSize = 35;
     public static final int outputHeight = 200;
 
-    //commands to execute
+    //Commands to execute
     public static final String compileCommand = "mvn clean install ";
     public static final String branchesCommand = "git ls-remote --heads ";
     public static final String cloneCommand = "git clone --single-branch --branch ";
-
-    //Console for the output
-    public static final Output out = new Output();
-
-    //To execute commands
-    public static final ProcessBuilder pb = new ProcessBuilder();
 
     //Path
     public static final String tempDir = "/.mvnCompiler_temp/";
