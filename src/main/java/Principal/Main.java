@@ -249,7 +249,9 @@ class Main extends JFrame {
                     }
                     selectedProjects.get(i).getFc().setPath(line);
                     selectedProjects.get(i).getFc().getProjectName().setText(line);
-                    selectedProjects.get(i).getFc().setChosen(true);
+                    if (!selectedProjects.get(i).getFc().getPath().contains(".git")){
+                        selectedProjects.get(i).getFc().setChosen(true);
+                    }
                     i++;
                 }
             }
@@ -474,7 +476,7 @@ class Main extends JFrame {
                 if (de) {
                     selectedProjects.get(i).colorizeProjectPane();
                 } else {
-                    selectedProjects.get(i).decolorizeProjectPane();
+                    selectedProjects.get(i).discolorProjectPane();
                 }
             }
         }
@@ -623,7 +625,15 @@ class Main extends JFrame {
                 //The path of the project is not empty
                 project.getFc().setPath(project.getJtfPath().getText());
                 project.getFc().getProjectName().setText(project.getFc().getPath());
-                project.getFc().setChosen(true);
+                if (project.getFc().getPath().contains(".git")) {
+                    if (project.isCloned()) {
+                        project.getFc().setChosen(true);
+                    }else{
+                        project.getFc().setChosen(false);
+                    }
+                } else {
+                    project.getFc().setChosen(true);
+                }
             }
         }
     }

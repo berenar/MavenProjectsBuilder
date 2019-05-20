@@ -265,7 +265,7 @@ class ProjectPanel extends JPanel {
         jbLocal.setBorderPainted(false);
     }
 
-    public void decolorizeProjectPane() {
+    public void discolorProjectPane() {
         jtfPath.setBackground(lessWhite);
 
         jbLocal.setBackground(lessWhite);
