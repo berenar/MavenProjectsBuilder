@@ -1,0 +1,3 @@
+https://github.com/berenar/mvnCompiler.git
+https://bitbucket.barceloviajes.com/scm/int/apps-payment.git
+C:\Users\bernat.pericas\Documents\Formació\maven hello world\my-app

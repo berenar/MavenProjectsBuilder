@@ -211,9 +211,12 @@ class Main extends JFrame {
             }
 
             private void proceed() {
-                fcImport.chooserAction();
-                //TODO: controlar la opcio cancel
-                fillProjects(fcImport.getPath());
+                boolean chosen = fcImport.chooserAction();
+                if (chosen) {
+                    colorizeSelected(false);
+                    allTicksToFalse();
+                    fillProjects(fcImport.getPath());
+                }
             }
         });
 
@@ -465,10 +468,14 @@ class Main extends JFrame {
     /**
      * Paint selected projects to be compiled in a darker color.
      */
-    private void colorizeSelected() {
+    private void colorizeSelected(boolean de) {
         for (int i = 0; i < selectedProjects.size(); i++) {
             if (selectedProjects.get(i).getFc().isChosen()) {
-                selectedProjects.get(i).colorizeProjectPane();
+                if (de) {
+                    selectedProjects.get(i).colorizeProjectPane();
+                } else {
+                    selectedProjects.get(i).decolorizeProjectPane();
+                }
             }
         }
     }
@@ -517,7 +524,7 @@ class Main extends JFrame {
                     success = true;
                     manualProjects();
                     allTicksToFalse();
-                    colorizeSelected();
+                    colorizeSelected(true);
                     compileChosen();
                 }
             });
@@ -612,7 +619,7 @@ class Main extends JFrame {
 
         for (int i = 0; i < selectedProjects.size(); i++) {
             ProjectPanel project = selectedProjects.get(i);
-            if (!project.getJtfPath().getText().isEmpty() && !project.isCloned()) {
+            if (!project.getJtfPath().getText().isEmpty() && project.isCloned()) {
                 //The path of the project is not empty
                 project.getFc().setPath(project.getJtfPath().getText());
                 project.getFc().getProjectName().setText(project.getFc().getPath());
@@ -650,6 +657,18 @@ class Main extends JFrame {
     }
 
     /*-------------------------------------------------------------------------------------------*/
+    /*--------------------------------------- EXCEPTIONS ----------------------------------------*/
+    /*-------------------------------------------------------------------------------------------*/
+
+
+    private class MaxLinesException extends Throwable {
+    }
+
+    private class InvalidFileExtension extends Throwable {
+    }
+
+
+    /*-------------------------------------------------------------------------------------------*/
     /*------------------------------------------ MAIN -------------------------------------------*/
     /*-------------------------------------------------------------------------------------------*/
 
@@ -660,11 +679,5 @@ class Main extends JFrame {
 
     private Main() {
         initUI();
-    }
-
-    private class MaxLinesException extends Throwable {
-    }
-
-    private class InvalidFileExtension extends Throwable {
     }
 }

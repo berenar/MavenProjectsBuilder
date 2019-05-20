@@ -65,7 +65,7 @@ class ProjectPanel extends JPanel {
      * Initializes project panel components
      *
      * @param compiling pointer to
-     * @param pb to execute commands
+     * @param pb        to execute commands
      */
     public ProjectPanel(boolean compiling, Container parentContentPane, ProcessBuilder pb) {
         this.pb = pb;
@@ -151,7 +151,7 @@ class ProjectPanel extends JPanel {
                     //reset retryClone
                     retryClone = 0;
                     chooseBranch();
-                    if (selected != null){
+                    if (selected != null) {
                         //User has selected a branch
                         prepareProject();
                     }
@@ -263,6 +263,14 @@ class ProjectPanel extends JPanel {
         jbClone.setOpaque(true);
         jbClone.setBackground(moreBlue);
         jbLocal.setBorderPainted(false);
+    }
+
+    public void decolorizeProjectPane() {
+        jtfPath.setBackground(lessWhite);
+
+        jbLocal.setBackground(lessWhite);
+
+        jbClone.setBackground(lessWhite);
     }
 
     /**

@@ -17,7 +17,7 @@ public class FileChooser extends JPanel implements ActionListener {
     private JFileChooser chooser;
 
     //True if no other action needs to be performed
-    private boolean justChooseFile;
+    private final boolean justChooseFile;
 
     //Project name
     private JTextField projectName; //pointed by ProjectPanel.jtfPath
@@ -67,22 +67,23 @@ public class FileChooser extends JPanel implements ActionListener {
         }
     }
 
-    public void chooserAction() {
+    public boolean chooserAction() {
         chooser = new JFileChooser();
         chooser.setCurrentDirectory(new java.io.File(System.getProperty("user.home")));
         chooser.setDialogTitle("Select a directory");
-        if (!justChooseFile){
+        if (!justChooseFile) {
             chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         }
         if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
             path = chooser.getSelectedFile().getPath();
+            chosen = true;
             if (!justChooseFile) {
                 projectName.setText(path);
-                chosen = true;
                 retryLocal = 0;
             }
+            return true;
         } else {
-            System.out.println("No Selection");
+            return false;
         }
     }
 
