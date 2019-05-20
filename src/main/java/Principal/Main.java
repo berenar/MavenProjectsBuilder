@@ -208,11 +208,11 @@ class Main extends JFrame {
                 } else {
                     proceed();
                 }
-                System.out.println(selectedProjects.size());
             }
 
             private void proceed() {
                 fcImport.chooserAction();
+                //TODO: controlar la opcio cancel
                 fillProjects(fcImport.getPath());
             }
         });
@@ -249,7 +249,6 @@ class Main extends JFrame {
                     selectedProjects.get(i).getFc().setChosen(true);
                     i++;
                 }
-
             }
 
         } catch (FileNotFoundException e) {
