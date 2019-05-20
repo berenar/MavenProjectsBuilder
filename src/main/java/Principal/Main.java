@@ -19,7 +19,7 @@ class Main extends JFrame {
     private final ArrayList<ProjectPanel> selectedProjects = new ArrayList<>();
 
     //JFrame size
-    private final int panelWidth = (Toolkit.getDefaultToolkit().getScreenSize().width / 3) + 150;
+    private final int panelWidth = 780;
     private int panelHeight = 150;
 
     //Swing components
@@ -83,7 +83,7 @@ class Main extends JFrame {
         //CONFIGURE JFRAME
         updFrameSize();
         contentPane.setBackground(Color.WHITE);
-        //this.setResizable(false);
+        this.setResizable(false);
         this.setLocationRelativeTo(null);//null: centers window
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setTitle("mvnCompiler 1.4");
@@ -96,15 +96,6 @@ class Main extends JFrame {
             System.out.println("Error reading image: mvn_logo_2.png");
             System.exit(1);
         }
-    }
-
-    private void nouImport() {
-        importt = new JButton("Import");
-        importt.setBorderPainted(false);
-        importt.setMargin(new Insets(0, 0, 0, 0));
-        setBounds("importt");
-        importt.setBackground(moreBlue);
-        contentPane.add(importt);
     }
 
     /**
@@ -134,22 +125,27 @@ class Main extends JFrame {
         addProject.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (!compiling) {
-                    boolean temporaryRemoved = false;
-                    nouProjectPan();
-                    if (out.isOutputVisible()) {
-                        temporaryRemoved = true;
-                        panelHeight = out.removeOutput(contentPane, panelHeight);
-                        updFrameSize();
-                    }
-                    reSetBounds();
-                    if (temporaryRemoved) {
-                        panelHeight = out.addOutput(contentPane, panelHeight, panelWidth);
-                        updFrameSize();
-                    }
-                }
+                addProjectAction();
+
             }
         });
+    }
+
+    private void addProjectAction() {
+        if (!compiling) {
+            boolean temporaryRemoved = false;
+            nouProjectPan();
+            if (out.isOutputVisible()) {
+                temporaryRemoved = true;
+                panelHeight = out.removeOutput(contentPane, panelHeight);
+                updFrameSize();
+            }
+            reSetBounds();
+            if (temporaryRemoved) {
+                panelHeight = out.addOutput(contentPane, panelHeight, panelWidth);
+                updFrameSize();
+            }
+        }
     }
 
     /**
@@ -185,6 +181,102 @@ class Main extends JFrame {
     }
 
     /**
+     * Creates the Importt button
+     * It's action is to import a file
+     */
+    private void nouImport() {
+
+        final FileChooser fcImport = new FileChooser(contentPane, "Import", true);
+        importt = fcImport.getGo();
+        importt.setBorderPainted(false);
+        importt.setMargin(new Insets(0, 0, 0, 0));
+        setBounds("importt");
+        importt.setBackground(moreBlue);
+        contentPane.add(importt);
+        importt.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!allEmptyProjects()) {
+                    int reply = JOptionPane.showConfirmDialog(contentPane,
+                            "Current projects on the app will be overwritten. Proceed?",
+                            "Warning", JOptionPane.YES_NO_OPTION);
+                    if (reply == JOptionPane.YES_OPTION) {
+                        proceed();
+                    } else {
+                        JOptionPane.showMessageDialog(contentPane, "Nothing imported");
+                    }
+                } else {
+                    proceed();
+                }
+                System.out.println(selectedProjects.size());
+            }
+
+            private void proceed() {
+                fcImport.chooserAction();
+                fillProjects(fcImport.getPath());
+            }
+        });
+
+    }
+
+    /**
+     * Reads a line of the file in the path filePath
+     * Creates a new projectPanel and fills it with the read line
+     * (One ProjectPanel per read line)
+     *
+     * @param filePath path of the file to be imported
+     */
+    private void fillProjects(String filePath) {
+        File file = new File(filePath);
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            if (!file.getName().contains(".txt")) {
+                //File isn't a .txt file
+                throw new InvalidFileExtension();
+            }
+            String line;
+            int i = 0;
+            while ((line = br.readLine()) != null) {
+                if (i + 1 > maxProjects) { //+1 because i starts at 0
+                    //File has more than 10 lines
+                    throw new MaxLinesException();
+                } else {
+                    if (i == selectedProjects.size()) {
+                        //Add a new project panel only if needed
+                        addProjectAction();
+                    }
+                    selectedProjects.get(i).getFc().setPath(line);
+                    selectedProjects.get(i).getFc().getProjectName().setText(line);
+                    selectedProjects.get(i).getFc().setChosen(true);
+                    i++;
+                }
+
+            }
+
+        } catch (FileNotFoundException e) {
+            JOptionPane.showMessageDialog(contentPane,
+                    "Select a valid file path",
+                    "File not found",
+                    JOptionPane.ERROR_MESSAGE);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(contentPane,
+                    "Error reading file",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+        } catch (MaxLinesException e) {
+            JOptionPane.showMessageDialog(contentPane,
+                    "Only " + maxProjects + " projects were imported",
+                    "Too many projects in the file",
+                    JOptionPane.ERROR_MESSAGE);
+        } catch (InvalidFileExtension invalidFileExtension) {
+            JOptionPane.showMessageDialog(contentPane,
+                    "File must be a text file",
+                    "Invalid file extension",
+                    JOptionPane.ERROR_MESSAGE);
+
+        }
+    }
+
+    /**
      * Creates the Export button
      * It's action is to export what the user introduced in the app.
      */
@@ -199,25 +291,33 @@ class Main extends JFrame {
         export.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String fileName = JOptionPane.showInputDialog(contentPane, "Name the file");
-                if (fileName != null && !fileName.trim().isEmpty()) {
-                    File f = new File(fileName + ".txt");
-                    if (f.exists() && !f.isDirectory()) {
-                        int reply = JOptionPane.showConfirmDialog(contentPane,
-                                "File already exists, do you want to overwrite it?",
-                                "Warning", JOptionPane.YES_NO_OPTION);
-                        if (reply == JOptionPane.YES_OPTION) {
-                            writeFile(fileName);
+                if (!allEmptyProjects()) {
+                    String fileName = JOptionPane.showInputDialog(contentPane, "Name the file");
+                    if (fileName != null && !fileName.trim().isEmpty()) {
+                        File f = new File(fileName + ".txt");
+                        if (f.exists() && !f.isDirectory()) {
+                            int reply = JOptionPane.showConfirmDialog(contentPane,
+                                    "File already exists, do you want to overwrite it?",
+                                    "Warning", JOptionPane.YES_NO_OPTION);
+                            if (reply == JOptionPane.YES_OPTION) {
+                                writeFile(fileName);
+                            } else {
+                                JOptionPane.showMessageDialog(contentPane, "Nothing saved");
+                            }
                         } else {
-                            JOptionPane.showMessageDialog(contentPane, "Nothing saved");
+                            writeFile(fileName);
                         }
                     } else {
-                        writeFile(fileName);
+                        //File name is null or blank or canceled showInputDialog
+                        JOptionPane.showMessageDialog(contentPane,
+                                "No file created",
+                                "Hey",
+                                JOptionPane.INFORMATION_MESSAGE);
                     }
                 } else {
-                    //File name is null or blank
+                    //No project imported
                     JOptionPane.showMessageDialog(contentPane,
-                            "File name can't be empty",
+                            "There's any project in the app",
                             "Error creating file",
                             JOptionPane.ERROR_MESSAGE);
                 }
@@ -416,7 +516,7 @@ class Main extends JFrame {
                 public void run() {
                     //reset success value
                     success = true;
-                    selectProjects();
+                    manualProjects();
                     allTicksToFalse();
                     colorizeSelected();
                     compileChosen();
@@ -509,7 +609,7 @@ class Main extends JFrame {
     /**
      * If the user has entered the path manually, the path and the chosen variables have to be set.
      */
-    private void selectProjects() {
+    private void manualProjects() {
 
         for (int i = 0; i < selectedProjects.size(); i++) {
             ProjectPanel project = selectedProjects.get(i);
@@ -563,4 +663,9 @@ class Main extends JFrame {
         initUI();
     }
 
+    private class MaxLinesException extends Throwable {
+    }
+
+    private class InvalidFileExtension extends Throwable {
+    }
 }

@@ -16,6 +16,9 @@ public class FileChooser extends JPanel implements ActionListener {
     private final JButton go;
     private JFileChooser chooser;
 
+    //True if no other action needs to be performed
+    private boolean justChooseFile;
+
     //Project name
     private JTextField projectName; //pointed by ProjectPanel.jtfPath
 
@@ -34,8 +37,9 @@ public class FileChooser extends JPanel implements ActionListener {
     /**
      * Constructor for the FileChooser class
      */
-    public FileChooser(Container parentContentPane) {
-        go = new JButton("Local");
+    public FileChooser(Container parentContentPane, String buttonName, boolean justChooseFile) {
+        go = new JButton(buttonName);
+        this.justChooseFile = justChooseFile;
         go.addActionListener(this);
         add(go);
         chosen = false;
@@ -48,27 +52,37 @@ public class FileChooser extends JPanel implements ActionListener {
      * @param e event
      */
     public void actionPerformed(ActionEvent e) {
-        retryLocal++;
-        if (retryLocal >= 3) {
-            //User has failed 3 attempts to select a project
-            userFeedback("local");
-        } else if (!projectName.getText().isEmpty()) {
-            //User has manually introduced an URL
-            path = projectName.getText();
-            chosen = true;
-        } else {
-            chooser = new JFileChooser();
-            chooser.setCurrentDirectory(new java.io.File(System.getProperty("user.home")));
-            chooser.setDialogTitle("Select a project directory");
+        if (!justChooseFile) {
+            retryLocal++;
+            if (retryLocal >= 3) {
+                //User has failed 3 attempts to select a project
+                userFeedback("local");
+            } else if (!projectName.getText().isEmpty()) {
+                //User has manually introduced an URL
+                path = projectName.getText();
+                chosen = true;
+            } else {
+                chooserAction();
+            }
+        }
+    }
+
+    public void chooserAction() {
+        chooser = new JFileChooser();
+        chooser.setCurrentDirectory(new java.io.File(System.getProperty("user.home")));
+        chooser.setDialogTitle("Select a directory");
+        if (!justChooseFile){
             chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-            if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-                path = chooser.getSelectedFile().getPath();
+        }
+        if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+            path = chooser.getSelectedFile().getPath();
+            if (!justChooseFile) {
                 projectName.setText(path);
                 chosen = true;
                 retryLocal = 0;
-            } else {
-                System.out.println("No Selection");
             }
+        } else {
+            System.out.println("No Selection");
         }
     }
 

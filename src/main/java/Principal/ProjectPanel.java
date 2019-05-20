@@ -69,7 +69,7 @@ class ProjectPanel extends JPanel {
      */
     public ProjectPanel(boolean compiling, Container parentContentPane, ProcessBuilder pb) {
         this.pb = pb;
-        this.fc = new FileChooser(parentContentPane);
+        this.fc = new FileChooser(parentContentPane, "Local", false);
         this.compiling = compiling;
         this.parentContentPane = parentContentPane;
         this.jlOrder = new JLabel("", SwingConstants.CENTER);

@@ -35,4 +35,7 @@ final class Constants {
 
     //Path
     public static final String tempDir = "/.mvnCompiler_temp/";
+
+    //Maximum number of projects to be imported
+    public static final int maxProjects = 5;
 }
