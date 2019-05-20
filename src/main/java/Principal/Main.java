@@ -234,7 +234,8 @@ class Main extends JFrame {
      */
     private void fillProjects(String filePath) {
         File file = new File(filePath);
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(
+                new FileInputStream(file), "UTF-8"))) {
             if (!file.getName().contains(".txt")) {
                 //File isn't a .txt file
                 throw new InvalidFileExtension();
@@ -252,7 +253,6 @@ class Main extends JFrame {
                     }
                     selectedProjects.get(i).getFc().setPath(line);
                     selectedProjects.get(i).getFc().getProjectName().setText(line);
-                    System.out.println(selectedProjects.get(i).getFc().getPath());
                     i++;
                 }
             }
