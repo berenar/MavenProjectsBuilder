@@ -86,7 +86,7 @@ class Main extends JFrame {
         this.setResizable(false);
         this.setLocationRelativeTo(null);//null: centers window
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setTitle("mvnCompiler 1.4");
+        this.setTitle("mvnCompiler 1.5");
         try {
             //noinspection ConstantConditions
             this.setIconImage(ImageIO.read(getClass().getClassLoader().getResource("mvn_logo_2.png")));
@@ -196,25 +196,28 @@ class Main extends JFrame {
         importt.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (!allEmptyProjects()) {
-                    int reply = JOptionPane.showConfirmDialog(contentPane,
-                            "Current projects on the app will be overwritten. Proceed?",
-                            "Warning", JOptionPane.YES_NO_OPTION);
-                    if (reply == JOptionPane.YES_OPTION) {
-                        proceed();
+                if (!compiling && !anyProjectIsCloning()) {
+                    if (!allEmptyProjects()) {
+                        int reply = JOptionPane.showConfirmDialog(contentPane,
+                                "Current projects on the app will be overwritten. Proceed?",
+                                "Warning", JOptionPane.YES_NO_OPTION);
+                        if (reply == JOptionPane.YES_OPTION) {
+                            proceed();
+                        } else {
+                            JOptionPane.showMessageDialog(contentPane, "Nothing imported");
+                        }
                     } else {
-                        JOptionPane.showMessageDialog(contentPane, "Nothing imported");
+                        proceed();
                     }
-                } else {
-                    proceed();
                 }
             }
 
             private void proceed() {
                 boolean chosen = fcImport.chooserAction();
                 if (chosen) {
-                    colorizeSelected(false);
+                    colorizeSelected(false); //remove color
                     allTicksToFalse();
+                    allClonedToFalse();
                     fillProjects(fcImport.getPath());
                 }
             }
@@ -249,9 +252,7 @@ class Main extends JFrame {
                     }
                     selectedProjects.get(i).getFc().setPath(line);
                     selectedProjects.get(i).getFc().getProjectName().setText(line);
-                    if (!selectedProjects.get(i).getFc().getPath().contains(".git")){
-                        selectedProjects.get(i).getFc().setChosen(true);
-                    }
+                    System.out.println(selectedProjects.get(i).getFc().getPath());
                     i++;
                 }
             }
@@ -468,6 +469,16 @@ class Main extends JFrame {
     }
 
     /**
+     * Sets all projects to cloned = false
+     */
+    private void allClonedToFalse() {
+        for (int i = 0; i < selectedProjects.size(); i++) {
+            selectedProjects.get(i).setCloned(false);
+            selectedProjects.get(i).getJbClone().setText("Clone");
+        }
+    }
+
+    /**
      * Paint selected projects to be compiled in a darker color.
      */
     private void colorizeSelected(boolean de) {
@@ -621,14 +632,14 @@ class Main extends JFrame {
 
         for (int i = 0; i < selectedProjects.size(); i++) {
             ProjectPanel project = selectedProjects.get(i);
-            if (!project.getJtfPath().getText().isEmpty() && project.isCloned()) {
+            if (!project.getJtfPath().getText().isEmpty()) {
                 //The path of the project is not empty
                 project.getFc().setPath(project.getJtfPath().getText());
                 project.getFc().getProjectName().setText(project.getFc().getPath());
                 if (project.getFc().getPath().contains(".git")) {
                     if (project.isCloned()) {
                         project.getFc().setChosen(true);
-                    }else{
+                    } else {
                         project.getFc().setChosen(false);
                     }
                 } else {

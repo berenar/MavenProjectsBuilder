@@ -265,11 +265,12 @@ class ProjectPanel extends JPanel {
         jbLocal.setBorderPainted(false);
     }
 
+    /**
+     * Removes color from the project panel
+     */
     public void discolorProjectPane() {
         jtfPath.setBackground(lessWhite);
-
         jbLocal.setBackground(lessWhite);
-
         jbClone.setBackground(lessWhite);
     }
 
@@ -334,5 +335,17 @@ class ProjectPanel extends JPanel {
      */
     public boolean isCloned() {
         return cloned;
+    }
+
+    public JButton getJbClone() {
+        return jbClone;
+    }
+
+    /**
+     * Setter for Cloned
+     * @param cloned new cloend value
+     */
+    public void setCloned(boolean cloned) {
+        this.cloned = cloned;
     }
 }
