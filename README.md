@@ -25,5 +25,6 @@ Projects are introduced in each row.
 
 
 <p align="center">
+  <br>
 <img src="https://github.com/berenar/mvnCompiler/blob/master/mvncompiler_screenshot.png"/>
 </p>
