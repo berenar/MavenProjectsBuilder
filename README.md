@@ -22,6 +22,8 @@ Projects are introduced in each row.
 * **Import** button opens a file of paths (one per line) and inserts them in the app.
 * **Reset** button resets the app and tries to delete the temporary folder (*/.mvnCompiler_temp*) with the cloned remote projects.
 
+
+
 <p align="center">
 <img src="https://github.com/berenar/mvnCompiler/blob/master/mvncompiler_screenshot.png"/>
 </p>
